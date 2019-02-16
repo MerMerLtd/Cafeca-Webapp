@@ -4,7 +4,9 @@
   "description": "不只是咖啡",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:sass": "node-sass src/sass/main.scss dist/css/style.css",
+    "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
+    "deserver" : "live-server"
   },
   "repository": {
     "type": "git",
