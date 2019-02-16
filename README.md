@@ -18,7 +18,7 @@ git push
 
 "scripts": {
     "compile:sass": "node-sass src/sass/main.scss dist/css/style.css",
-    "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
+    "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w", // keep watching in the background whenever we change our sass code
     "deserver" : "live-server dist/index.html"
   },
   
@@ -50,7 +50,8 @@ module.exports = {
     ...
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open" 
+    //So a script start will always be a script that keeps running in the background and updates the browser as soon as we change our code.
   },
   
 ...
