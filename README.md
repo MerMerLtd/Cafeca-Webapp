@@ -60,3 +60,17 @@ module.exports = {
 npm run dev
 ```
 ### webpack setup (dev server)
+#### install webpack dev server
+```
+npm install webpack-dev-server --save-dev
+```
+#### edit webpack.config.js
+```
+...
+module.exports = {
+   ...
+    devServer: {
+        contentBase: './dist'
+    },
+};
+```
