@@ -30,7 +30,7 @@ git push
 npm i webpack webpack-cli --save-dev
 ```
 #### touch webpack.config.js
-```
+```shell
 const path = require("path");
 
 module.exports = {
