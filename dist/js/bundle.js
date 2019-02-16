@@ -3258,7 +3258,7 @@ eval("__webpack_require__(/*! ../modules/web.timers */ \"./node_modules/core-js/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(true);\n// Module\nexports.push([module.i, \"*,\\n*::after,\\n*::before {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: inherit; }\\n\\nhtml {\\n  font-size: 16px; }\\n\\nbody {\\n  box-sizing: border-box;\\n  background-color: #3e665d; }\\n\", \"\",{\"version\":3,\"sources\":[\"/Users/hazelliang/Workspace/MerMerLtd/Cafeca-Webapp/src/sass/src/sass/base/_base.scss\"],\"names\":[],\"mappings\":\"AAAA;;;EAGI,SAAS;EACT,UAAU;EACV,mBAAmB,EAAA;;AAGvB;EACI,eAAe,EAAA;;AAGnB;EACI,sBAAsB;EACtB,yBAAyB,EAAA\",\"file\":\"main.scss\",\"sourcesContent\":[\"*,\\n*::after,\\n*::before {\\n    margin: 0;\\n    padding: 0;\\n    box-sizing: inherit;\\n}\\n\\nhtml{\\n    font-size: 16px;\\n}\\n\\nbody{\\n    box-sizing: border-box;\\n    background-color: #3e665d;\\n}\"],\"sourceRoot\":\"\"}]);\n\n\n\n//# sourceURL=webpack:///./src/sass/main.scss?./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/sass-loader/lib/loader.js??ref--6-2");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(true);\n// Module\nexports.push([module.i, \"*,\\n*::after,\\n*::before {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: inherit; }\\n\\nhtml {\\n  font-size: 16px; }\\n\\nbody {\\n  box-sizing: border-box;\\n  background-color: #39635a; }\\n\", \"\",{\"version\":3,\"sources\":[\"/Users/hazelliang/Workspace/MerMerLtd/Cafeca-Webapp/src/sass/src/sass/base/_base.scss\"],\"names\":[],\"mappings\":\"AAAA;;;EAGI,SAAS;EACT,UAAU;EACV,mBAAmB,EAAA;;AAGvB;EACI,eAAe,EAAA;;AAGnB;EACI,sBAAsB;EACtB,yBAAyB,EAAA\",\"file\":\"main.scss\",\"sourcesContent\":[\"*,\\n*::after,\\n*::before {\\n    margin: 0;\\n    padding: 0;\\n    box-sizing: inherit;\\n}\\n\\nhtml{\\n    font-size: 16px;\\n}\\n\\nbody{\\n    box-sizing: border-box;\\n    background-color: #39635a;\\n}\"],\"sourceRoot\":\"\"}]);\n\n\n\n//# sourceURL=webpack:///./src/sass/main.scss?./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/sass-loader/lib/loader.js??ref--6-2");
 
 /***/ }),
 
@@ -3326,19 +3326,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n//global app controller\n__webpack_require__(/*! ../sass/main.scss */ \"./src/sass/main.scss\");\n\n\nvar num = 23;\nconsole.log(\"i am imported \".concat(_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"], \" from another module called test.js, es6 variable declaration num is \").concat(num));\n\n//# sourceURL=webpack:///./src/js/index.js?");
-
-/***/ }),
-
-/***/ "./src/js/test.js":
-/*!************************!*\
-  !*** ./src/js/test.js ***!
-  \************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"hihi\");\nconsole.log(\"imported module\");\n\n//# sourceURL=webpack:///./src/js/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_main_scss__WEBPACK_IMPORTED_MODULE_0__);\n//global app controller\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 
