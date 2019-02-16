@@ -3281,7 +3281,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n//global app controller\n\nconsole.log(\"i am imported \".concat(_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"], \" from another module called test.js\"));\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n//global app controller\n\nvar num = 23;\nconsole.log(\"i am imported \".concat(_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"], \" from another module called test.js, es6 variable declaration num is \").concat(num));\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 
