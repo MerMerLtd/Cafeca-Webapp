@@ -43,7 +43,7 @@ module.exports = {
 };
 ```
 #### package.json script setup
-```
+```shell
 ...
 
 "scripts": {
@@ -57,16 +57,16 @@ module.exports = {
 ...
 ```
 #### create bundle.js
-```
+```shell
 npm run dev
 ```
 ### webpack setup (dev server)
 #### install webpack dev server
-```
+```shell
 npm install webpack-dev-server --save-dev
 ```
 #### edit webpack.config.js
-```
+```shell
 ...
 module.exports = {
     output: {
@@ -83,12 +83,12 @@ module.exports = {
 ```
 ### webpack setup (html-webpack-plugin)
 #### install html webpack plugin
-```
+```shell
 npm install html-webpack-plugin --save-dev
 ```
 #### edit webpack.config.js
 
-```
+```shell
 ...
 module.exports = {
    ...
