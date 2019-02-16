@@ -1,8 +1,8 @@
 {
   "name": "cafeca-webapp",
   "version": "1.0.0",
-  "description": "雲端咖啡廳",
-  "main": "app.js",
+  "description": "不只是咖啡",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +20,14 @@
   },
   "homepage": "https://github.com/MerMerLtd/Cafeca-Webapp#readme",
   "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
     "live-server": "^1.2.1",
     "node-sass": "^4.11.0",
     "webpack": "^4.29.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5"
   }
 }
