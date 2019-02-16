@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/MerMerLtd/Cafeca-Webapp/issues"
   },
-  "homepage": "https://github.com/MerMerLtd/Cafeca-Webapp#readme"
+  "homepage": "https://github.com/MerMerLtd/Cafeca-Webapp#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.11.0",
+    "webpack": "^4.29.4"
+  }
 }
