@@ -6,7 +6,7 @@
   "scripts": {
     "compile:sass": "node-sass src/sass/main.scss dist/css/style.css",
     "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
-    "deserver" : "live-server"
+    "deserver" : "live-server dist/index.html"
   },
   "repository": {
     "type": "git",
