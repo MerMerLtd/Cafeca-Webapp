@@ -69,8 +69,14 @@ npm install webpack-dev-server --save-dev
 ```
 ...
 module.exports = {
-   ...
-    devServer: {
+    output: {
+       // - path: path.resolve(__dirname, "dist/js"),
+        + path: path.resolve(__dirname, "dist"),
+       // - filename: "bundle.js"
+        + filename: "js/bundle.js"
+    },
+    - mode: "development"
+    + devServer: {
         contentBase: './dist'
     },
 };
