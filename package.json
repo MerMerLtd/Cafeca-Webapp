@@ -1,12 +1,15 @@
 {
   "name": "cafeca-webapp",
   "version": "1.0.0",
-  "description": "不只是咖啡",
+  "description": "cafeca - coffee shop on the cloud",
   "main": "index.js",
   "scripts": {
     "compile:sass": "node-sass src/sass/main.scss dist/css/style.css",
     "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
-    "deserver" : "live-server dist/index.html"
+    "deserver": "live-server dist/index.html",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,9 @@
     "babel-loader": "^8.0.5",
     "live-server": "^1.2.1",
     "node-sass": "^4.11.0",
-    "webpack": "^4.29.4"
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5"
