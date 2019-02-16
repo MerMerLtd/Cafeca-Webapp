@@ -81,3 +81,22 @@ module.exports = {
     },
 };
 ```
+### webpack setup (html-webpack-plugin)
+#### install html webpack plugin
+```
+npm install html-webpack-plugin --save-dev
+```
+#### edit webpack.config.js
+
+```
+...
+module.exports = {
+   ...
+   plugins: [
+       new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html'
+       })
+   ],
+};
+```
