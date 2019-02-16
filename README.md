@@ -10,3 +10,14 @@ git commit -m "npm init"
 npm i webpack node-sass live-server --save-dev
 git add .
 git commit -m "npm install"
+```
+### package.json script setup
+```shell
+...
+"scripts": {
+    "compile:sass": "node-sass src/sass/main.scss dist/css/style.css",
+    "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
+    "deserver" : "live-server dist/index.html"
+  },
+...
+```
