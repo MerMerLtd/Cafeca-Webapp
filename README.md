@@ -10,6 +10,7 @@ git commit -m "npm init"
 npm i webpack node-sass live-server --save-dev
 git add .
 git commit -m "npm install"
+git push
 ```
 ### package.json script setup
 ```shell
@@ -23,7 +24,7 @@ git commit -m "npm install"
   
 ...
 ```
-### webpack setup
+### webpack setup (configuration)
 #### install webpack
 ```shell
 npm i webpack webpack-cli --save-dev
@@ -58,3 +59,4 @@ module.exports = {
 ```
 npm run dev
 ```
+### webpack setup (dev server)
