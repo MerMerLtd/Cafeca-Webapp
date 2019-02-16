@@ -1,5 +1,5 @@
 # Cafeca-Webapp
-雲端咖啡廳
+coffee shop on the cloud - 咖啡不只是咖啡
 # Deploy
 ### 開始新專案
 ```shell
