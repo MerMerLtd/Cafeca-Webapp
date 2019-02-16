@@ -14,10 +14,47 @@ git commit -m "npm install"
 ### package.json script setup
 ```shell
 ...
+
 "scripts": {
     "compile:sass": "node-sass src/sass/main.scss dist/css/style.css",
     "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
     "deserver" : "live-server dist/index.html"
   },
+  
 ...
+```
+### webpack setup
+#### install webpack
+```shell
+npm i webpack webpack-cli --save-dev
+```
+#### touch webpack.config.js
+```
+const path = require("path");
+
+module.exports = {
+    entry: "./src/js/index.js",
+    output: {
+        path: path.resolve(__dirname, "dist/js"),
+        filename: "bundle.js"
+    },
+    mode: "development"
+};
+```
+#### package.json script setup
+```
+...
+
+"scripts": {
+    ...
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  
+...
+```
+#### create bundle.js
+```
+npm run dev
 ```
