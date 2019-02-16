@@ -5,6 +5,8 @@
 ```shell
 git clone https://github.com/MerMerLtd/Cafeca-Webapp.git
 npm init
-npm i webpack node-sass live-server --save-dev
 git add .
 git commit -m "npm init"
+npm i webpack node-sass live-server --save-dev
+git add .
+git commit -m "npm install"
