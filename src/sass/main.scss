@@ -7,9 +7,19 @@
 @import "base/utilities";
 
 @import "components/button";
-@import "components/form.scss";
+@import "components/cart";
+@import "components/column";
+@import "components/form";
+@import "components/item";
 
 @import "layout/container";
+
+@import "pages/assets";
+@import "pages/cart";
+@import "pages/collections";
+@import "pages/display";
+@import "pages/possessions";
+
 
 
 

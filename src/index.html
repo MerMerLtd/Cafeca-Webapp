@@ -10,12 +10,12 @@
 <body>
     <div class="cart">
         <div class="heading-primary">購物車</div>
-        <div class="scroll-container">
+        <div class="container--scroll">
            
             <div class="column">
 
                 <!-- 刪除整個 column-->
-                <div class="column--delete"><i class="far fa-times-circle"></i></div>
+                <div class="column__delete"><i class="far fa-times-circle"></i></div>
 
                 <!-- 商品 -->
                 <div class="item__name">商品名稱</div>
@@ -28,18 +28,23 @@
                     <img src="" alt="image" class="item__image">
                 </div>
                 
-                <!-- 選項： single or set -->
-                <label for="options" class="btn btn-switch"></label>
-                <input type="checkbox" name="switch" id="options">
+                <div class="container--flex">
 
-                <!-- 商品價格 -->
-                <p class="item__price">NT 260</p>
+                    <!-- 選項： single or set -->
+                    <!-- https://chiayilai.com/%E5%8A%9F%E8%83%BD%E9%96%8B%E9%97%9C%E6%8C%89%E9%88%95-switch-toggle-button-by-pure-css/ -->
+                    <label for="options" class="btn btn-switch"></label>
+                    <input type="checkbox" name="switch" id="options">
 
-                <!-- 購買數量 -->
-                <div class="num-controller">
-                    <span class="plus"> + </span>
-                    <span class="num"> 1 </span>
-                    <span class="minus"> - </span>
+                    <!-- 商品價格 -->
+                    <p class="item__price">NT 260</p>
+
+                    <!-- 購買數量 -->
+                    <div class="num-controller">
+                        <span class="plus"> + </span>
+                        <span class="num"> 1 </span>
+                        <span class="minus"> - </span>
+                    </div>
+
                 </div>
 
                 <!-- ！！！！沒有加到心願單的按鈕 （目前不知道要放在哪裏） -->
@@ -106,7 +111,7 @@
 
     <div class="collections">
         <div class="heading-primary">心願單</div>
-        <div class="scroll-container">
+        <div class="container--scroll">
            
             <div class="column">
 
@@ -152,8 +157,18 @@
     </div>
 
     <div class="display">
+        <!-- 加入購物車的提示訊息 -->
+        <!-- https://www.w3schools.com/howto/howto_css_notification_button.asp -->
+        <div class="notification"> &#33; </div>
+
+        <!-- Next and Previous Buttons -->
+        <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
+        <a href="#" class="previous round">&#8249;</a>
+        <a href="#" class="next round">&#8250;</a>
+
         <!-- card__display -->
         <div class="card">
+
             <!-- 商品 -->
             <div class="item__name">商品名稱</div>
             <div class="item__img-tooltip">
@@ -189,7 +204,6 @@
                 </div>    -->
 
             </div>
-
 
         </div>
         <!-- card__instant-checkout -->
@@ -232,10 +246,21 @@
                 <input type="text" id="cvv" name="cvv" placeholder="352">
 
             </div>
-
         </div>
+
+        <!-- 打開咖啡豆存摺的按鈕 position:fix -->
+        <div class="btn btn--open-assets"> <i class="far fa-sack-dollar"></i></div>
+        <!-- sack 是pro 才能使用 可以先用下面這個示意 -->
+        <!-- <i class="fas fa-cube"></i> -->
+
     </div>
     <div class="possessions">
+
+        <!-- Next and Previous Buttons -->
+        <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
+        <a href="#" class="previous round">&#8249;</a>
+        <a href="#" class="next round">&#8250;</a>
+
         <!-- voucher -->
         <div class="card">
 
@@ -251,7 +276,8 @@
       
         </div>
 
-        <!-- 兌換過的卡片會觸發卡片翻面 -->
+        <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
+        <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
         <div class="card">
             <!-- 判斷是否登入 -->
             <!-- 已登入 -->
@@ -265,6 +291,7 @@
         
     </div>
     <div class="assets">
+
         <!-- 判斷是否登入 -->
         
         <!-- 已登入 -->
