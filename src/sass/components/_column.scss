@@ -1,6 +1,6 @@
 .column{
-    position: relative;
-    &__delete{
-        position: absolute;
-    }
+    display: grid;
+    grid-template-rows: repeat(2, 30px);
+    grid-template-columns: repeat(3, 1fr);
+    
 }

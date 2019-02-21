@@ -1,3 +1,31 @@
+// the same thing as the HTML selector but with a higher specificity.
+:root{
+    --color-primary-lighter: #B4CDCD;
+    --color-primary-light: #5b96a8;
+    --color-primary: #1c73a5;
+    --color-primary-dark-1: #163d6b;
+    --color-primary-dark-2: #08485c;
+    
+    --color-secondary-light: #ecdce3;
+    --color-secondary: #d3b8c3;
+    --color-secondary-dark: #c9a83d; 
+    // --color-secondary-dark: #daa520; 
+
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+
+    --shadow-dark: 0 1.25rem 3.75rem #0000004d;
+    --shadow-light: 0 1.25rem 3.125rem #0000000f;
+
+    --line: 1px solid var(--color-grey-light-2);
+}
+
 *,
 *::after,
 *::before {
@@ -7,10 +35,15 @@
 }
 
 html{
+    box-sizing: border-box;
     font-size: 16px;
 }
 
 body{
-    box-sizing: border-box;
-    background-color: #9ac7bd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-grey-dark-2);
+
+    height: 100vh;
 }
