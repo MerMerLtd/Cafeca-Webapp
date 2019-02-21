@@ -10,52 +10,48 @@
 <body>
     <div class="cart">
         <div class="heading-primary">購物車</div>
-
         <div class="container--scroll"> <!-- flex & scroll -->
 
             <!-- 重複單元 -->
-            <div class="column"> <!-- gird -->
+            <div class="column"> 
                 <div class="column__display"> <!-- gird -->
                     <!-- 商品 -->
-                    <div class="product">
-                        <label class="product__name" for="product-img">商品名稱</label>
-                        <input type="checkbox" name="product-img" id="product-img">
-                        <div class="product__img-tooltip">
-                            <img src="" alt="image" class="product__image">
-                        </div>
-    
-                        <label class="product__accessory" for="accessory-img">夢幻逸品</label>
-                        <input type="checkbox" name="accessory-img" id="accessory-img">
-                        <div class="product__img-tooltip">
-                            <img src="" alt="image" class="product__image">
-                        </div>
+                    <div class="product__img-box">
+                        <img src="" alt="image" class="product__img">
                     </div>
+                    <div class="product__name">商品名稱</div>
+                    <div class="product__accessory">夢幻逸品</div>
 
                     <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
-                    <div class="btn btn--toggle"><i class="fas fa-ellipsis-v"></i></div>
+                    <div class="column__toggle"><i class="fas fa-ellipsis-v"></i></div>
 
-                    <!-- 這裡要用 flexbox -->
-                    <div class="toolbox">
-                        <!-- 選項： single or set -->
-                        <!-- https://chiayilai.com/%E5%8A%9F%E8%83%BD%E9%96%8B%E9%97%9C%E6%8C%89%E9%88%95-switch-toggle-button-by-pure-css/ -->
-                        <label for="switch-btn" class="btn btn--switch column__switch"></label>
-                        <input type="checkbox" name="switch" id="switch-btn">
+                    <!-- 選項： single or set -->
+                    <!-- https://chiayilai.com/%E5%8A%9F%E8%83%BD%E9%96%8B%E9%97%9C%E6%8C%89%E9%88%95-switch-toggle-button-by-pure-css/ -->
+                    <label for="switch-btn" class="btn btn--switch"></label>
+                    <input type="checkbox" name="switch" id="switch-btn">
+        
+                    <!-- 商品價格 -->
+                    <p class="product__price">NT 260</p>
     
-                        <!-- 商品價格 -->
-                        <p class="column__price item__price">NT 260</p>
-    
-                        <!-- 購買數量 -->
-                        <div class="column__item-nc nums-controller">
-                            <span class="plus"> + </span>
-                            <span class="num"> 1 </span>
-                            <span class="minus"> - </span>
-                        </div>
+                    <!-- 購買數量 -->
+                    <div class="product__nums-controller">
+                        <span class="plus"> + </span>
+                        <input type="text" name="num" id="num" class="num" value="1">
+                        <span class="minus"> - </span>
                     </div>
+                
+                    <div class="column__price">TOTAL: NT560</div> <!-- grid-auto-row -->
                     
                 </div>  
                 <!-- column 點擊按鈕滑動 -->
-                <div class="column__btn--left"><i class="far fa-bookmark"></i></div>  <!-- <i class="fas fa-bookmark"></i> solid -->
-                <div class="column__btn--right"><i class="far fa-trash-alt"></i></div>     
+                <div class="column__btn--top">
+                    <!-- 加到心願單的按鈕 -->
+                    <div class="btn btn--collections"><i class="far fa-bookmark"></i></div>
+                </div>  <!-- <i class="fas fa-bookmark"></i> solid -->
+                <div class="column__btn--bottom">
+                    <!-- 從container--scroll裡刪除child的按鈕 -->
+                    <div class="btn btn--delete"><i class="far fa-trash-alt"></i></div>
+                </div>     
             </div>
             <!-- 重複單元 -->
   
@@ -115,39 +111,34 @@
 
     </div>
     
-
     <div class="collections">
         <div class="heading-primary">心願單</div>
         <div class="container--scroll">   <!-- flex & scroll -->
 
             <!-- 重複單元 -->
-            <div class="column"> <!-- gird -->
-                <div class="column__display"> <!-- grid -->
+            <div class="column"> 
+                <div class="column__display"> <!-- gird -->
                     <!-- 商品 -->
-                    <div class="product">
-                        <label class="product__name" for="product-img">商品名稱</label>
-                        <input type="checkbox" name="product-img" id="product-img">
-                        <div class="product__img-tooltip">
-                            <img src="" alt="image" class="product__image">
-                            <p class="product__price">NT 180</p>
-                        </div>
-    
-                        <label class="product__accessory" for="accessory-img">夢幻逸品</label>
-                        <input type="checkbox" name="accessory-img" id="accessory-img">
-                        <div class="product__img-tooltip">
-                            <img src="" alt="image" class="product__image">
-                            <p class="product__price">NT 260</p>
-                        </div>
+                    <div class="product__img-box">
+                        <img src="" alt="image" class="product__img">
                     </div>
+                    <div class="product__name">商品名稱</div>
+                    <div class="product__accessory">夢幻逸品</div>
 
                     <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
-                    <div class="btn btn--toggle"><i class="fas fa-ellipsis-v"></i></div>
+                    <div class="column__toggle"><i class="fas fa-ellipsis-v"></i></div>
 
                     <p class="product__description">三行詩之商品描述</p>
                 </div>
                 <!-- column 點擊按鈕滑動 -->
-                <div class="column__btn--left"><i class="far fa-bookmark"></i></div>  <!-- <i class="fas fa-bookmark"></i> solid -->
-                <div class="column__btn--right"><i class="far fa-trash-alt"></i></div>     
+                <div class="column__btn--top">
+                    <!-- 加到購物車的按鈕 -->
+                    <div class="btn btn--cart"><i class="fas fa-shopping-cart"></i></div>
+                </div>  <!-- <i class="fas fa-bookmark"></i> solid -->
+                <div class="column__btn--bottom">
+                    <!-- 從container--scroll裡刪除child的按鈕 -->
+                    <div class="btn btn--delete"><i class="far fa-trash-alt"></i></div>
+                </div>          
             </div>
             <!-- 重複單元 -->
   
@@ -155,71 +146,81 @@
     </div>
 
     <div class="display">
+        <div class="heading-primary">商品資訊</div>
 
         <!-- Next and Previous Buttons -->
         <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
-        <a href="#" class="previous round">&#8249;</a>
-        <a href="#" class="next round">&#8250;</a>
+        <a href="#" class="previous">&#8249;</a>
+        <a href="#" class="next">&#8250;</a>
 
-        <!-- card__display -->
         <div class="card">
+            <!-- 重複單元 --> <!-- 先做成slide的換頁的方式（目前的兩種方式邏輯怪）--> 
+            <div class="card__display"> <!-- flexbox vertical -->
 
-            <!-- 商品 -->
-            <div class="item__name">商品名稱</div>
-            <div class="item__img-tooltip">
-                <img src="" alt="image" class="item__image">
+                <div class="card__title"> <!-- grid -->
+                    <!-- 商品 -->
+                    <div class="product">
+                        <span class="product__name">商品名稱</span>
+                        <span class="product__accessory">夢幻逸品</span>
+                    </div>
+
+                    <!-- 加到心願單的按鈕 -->
+                    <div class="btn btn--collections"><i class="far fa-bookmark"></i></div>
+
+                    <p class="product__description">三行詩之商品描述</p>
+                </div>
+
+                <div class="card__img">
+                    <img src="" alt="image" class="product__img">
+                </div>
+
+                <!-- 這裡要用 flexbox horizontal -->
+                <div class="product__toolbox">
+                    <!-- 選項： single or set -->
+                    <!-- https://chiayilai.com/%E5%8A%9F%E8%83%BD%E9%96%8B%E9%97%9C%E6%8C%89%E9%88%95-switch-toggle-button-by-pure-css/ -->
+                    <label for="switch-btn" class="btn btn--switch"></label>
+                    <input type="checkbox" name="switch" id="switch-btn">
+
+                    <!-- 商品價格 -->
+                    <p class="product__price">NT 260</p>
+                    
+                <!-- (不做了，感覺不夠寬)想要做的功能 👇 -->
+                <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->  
+                <!-- 根據情況二選一 -->
+                    <!-- 加到購物車的按鈕 -->
+                    <div class="btn btn--cart"><i class="fas fa-shopping-cart"></i></div>
+
+                    <!-- 購買數量 -->
+                    <!-- <div class="product__nums-controller">
+                        <span class="plus"> + </span>
+                        <span class="num"> 1 </span>
+                        <span class="minus"> - </span>
+                    </div> -->
+                <!-- 根據情況二選一 -->
+                </div>
+
             </div>
+            <!-- 重複單元 -->
 
-            <div class="item__accessory">夢幻逸品</div>
-            <div class="item__img-tooltip">
-                <img src="" alt="image" class="item__image">
-            </div>
+            <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
+            <div class="card__payment">
 
-            <!-- 加到心願單的按鈕 -->
-            <div class="btn btn--collections"><i class="far fa-bookmark"></i></div>
-
-            <!-- 選項： single or set -->
-            <label for="switch-btn" class="btn btn--switch"></label>
-            <input type="checkbox" name="switch" id="switch-btn">
-
-            <p class="item__price">NT 260</p>
-            
-            <!-- (二擇一之一)再考慮是否要做的功能 👇（想做）-->
-            <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->
-            <div class="toggle--btn-box">
-        
-                <!-- 加到購物車的按鈕 -->
-                <div class="btn btn--cart"><i class="fas fa-shopping-cart"></i></div>
-
-                <!-- 購買數量 -->
-                <!-- <div class="num-controller">
-                    <span class="plus"> + </span>
-                    <span class="num"> 1 </span>
-                    <span class="minus"> - </span>
-                </div>    -->
-
-            </div>
-
-        </div>
-        <!-- card__instant-checkout -->
-        <div class="card">
-            <!-- 商品 -->
-            <div class="item__name">商品名稱</div>
-            <div class="item__accessory">夢幻逸品</div>
-            
-            <!-- (二擇一之二) 若沒做一，則要加入控制購買數量的按鈕-->    
-            <!-- 控制購買數量的按鈕 -->
-            <!-- <div class="num-controller">
-                <div class="plus"> + </div>
-                <div class="num"> 1 </div>
-                <div class="minus"> - </div>
-            </div> -->
-            <hr>
-            <!-- 付款資訊： total price & 輸入信用卡資訊 -->
-            <div class="payment">
+                <!-- 商品 -->
+                <div class="card__info"> <!-- flex -->
+                    <div class="product"> <!-- 動態抓 -->
+                        <span class="product__name">商品名稱</span>
+                        <span class="product__accessory">夢幻逸品</span>
+                    </div> 
+                    <div class="product__nums-controller"> <!-- grid -->
+                        <span class="plus"> + </span>
+                        <input type="text" name="num" id="num" class="num" value="1">
+                        <span class="minus"> - </span>
+                    </div>
+                </div>
 
                 <!-- total price -->
-                <div class="payment__price">TOTAL: NT. 1890</div>
+                <hr>
+                <div class="payment__price">TOTAL: NT. 1890</div> <!-- 動態抓 -->
                 
                 <!-- payment-form -->
                 <!-- https://www.w3schools.com/howto/howto_css_checkout_form.asp -->
@@ -241,15 +242,18 @@
                 <input type="text" id="cvv" name="cvv" placeholder="352">
 
             </div>
-        </div>
 
+        </div>
+        
         <!-- 打開咖啡豆存摺的按鈕 position:fix -->
         <div class="btn btn--open-assets"> <i class="far fa-sack-dollar"></i></div>
         <!-- sack 是pro 才能使用 可以先用下面這個示意 -->
         <!-- <i class="fas fa-cube"></i> -->
 
     </div>
+
     <div class="possessions">
+        <div class="heading-primary">我的兌換卷</div>
 
         <!-- Next and Previous Buttons -->
         <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
@@ -257,17 +261,19 @@
         <a href="#" class="next round">&#8250;</a>
 
         <!-- voucher -->
-        <div class="card">
+        <div class="voucher">
 
-            <!-- 商品 -->
-            <div class="item__name">商品名稱</div>
-            <div class="item__accessory">夢幻逸品</div>
-            <div class="item__img-tooltip">
-                <img src="" alt="image" class="item__image">
-                <p class="item__price">NT 180</p>
+            <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
+            <div class="card__img">
+                <img src="" alt="image" class="product__img">
+            </div>
+            <div class="product">
+                <span class="product__name">商品名稱</span>
+                <span class="product__accessory">夢幻逸品</span>
             </div>
 
             <!-- 兌換資訊: qr code -->
+            <div class="qrcode">qr code</div>
       
         </div>
 
@@ -276,7 +282,7 @@
         <div class="card">
             <!-- 判斷是否登入 -->
             <!-- 已登入 -->
-                <!-- 已領取xxx個（數量）咖啡豆貨幣 -->
+                <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
 
             <!-- 未登入 -->
                 <!-- 登入以領取咖啡豆 -->
@@ -285,6 +291,7 @@
         
         
     </div>
+    
     <div class="assets">
 
         <!-- 判斷是否登入 -->
@@ -295,6 +302,13 @@
             
         <!-- 未登入 -->
         <!-- 打算參考screea app 的設計 -->
+        <!-- https://codepen.io/mrtuanphong/pen/NqvePZ -->
+        <!-- https://codepen.io/simoberny/pen/zvOYzG -->
+
+        <!-- 補充 -->
+        <!-- https://codepen.io/Lymelight/pen/raMMmZ -->
+        <!-- https://codepen.io/stephen_sun/pen/zaPGbd -->
+        <!-- https://codepen.io/dope/pen/Gqmcr -->
             <!-- 登入 -->
             <!-- https://www.w3schools.com/howto/howto_css_social_login.asp -->
             <div class="container">
