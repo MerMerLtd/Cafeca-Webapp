@@ -1,6 +1,47 @@
 .column{
+    margin: 0 auto;
+
+    width: 90vw;
     display: grid;
-    grid-template-rows: repeat(2, 30px);
-    grid-template-columns: repeat(3, 1fr);
-    
+    grid-template-rows: repeat(2, min-content);
+    grid-template-columns: repeat(3, min-content);
+    grid-template-areas: "display toggle top"
+                         "display toggle bottom"
+                         "price   price  price";
+
+    &__display{
+        background-color: #f2eeff;
+        display: grid;
+
+        // transform: translateX(100px);
+
+        grid-area: display;
+        grid-template-areas: "img name      name"
+                             "img accessory accessory"
+                             "img price     switch"
+                             "img numsctrl  numsctrl";
+        
+    }
+    &__toggle{
+        grid-area: toggle;
+        // grid-column: 2/3;
+        
+    }
+
+    &__btn--top{
+        grid-area: top;
+        // grid-column: 3/4;
+
+    }
+
+    &__btn--bottom{
+        grid-area: bottom;
+        
+
+    }
+
+    &__price{
+        grid-area: price;
+       
+    }
 }

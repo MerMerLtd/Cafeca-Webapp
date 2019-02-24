@@ -1,0 +1,38 @@
+// codepen input number custom
+// https://codepen.io/djgrant/pen/AwFHL
+.numsctrl{
+    &__btn{
+        width: 20px;
+        height: 20px;
+        background-color: var(--color-secondary-dark);
+        border-radius: 30px;
+        text-align: center;
+        line-height: 1.2;
+        color: var(--color-primary-dark-1);
+        
+        i{
+            font-size: 12px;
+        }
+    }
+
+    &__display{
+        border: none;
+        border-radius: 5px;
+        width: 50px;
+        color: inherit;
+        text-align: center;
+        outline: none;
+        user-select: none;
+    }
+}
+
+// https://my.oschina.net/qii/blog/341439 or  把input:number 改成 input:tel
+// https://codepen.io/valentingalmand/pen/ygaOyG?editors=1100#0
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}

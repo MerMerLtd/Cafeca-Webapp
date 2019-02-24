@@ -1,0 +1,42 @@
+.product{
+    &__img-box{
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+
+        grid-area: img;
+    }
+    .column &__img{
+        height: 100%;
+    }
+    .card &__img{
+        width: 100%;
+    }
+
+    &__name{
+        grid-area: name;
+    }
+
+    &__accessory{
+        grid-area: accessory;
+    }
+
+    &__price{
+        grid-area: price;
+    }
+    &__switch{
+        grid-area: switch;
+    }
+    &__numsctrl{
+        grid-area: numsctrl;
+
+        display: flex;
+        gap: 5px;
+    }
+
+    &__toolbox{
+        display: flex;
+        
+    }
+}
+

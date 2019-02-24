@@ -1,0 +1,65 @@
+.cc{
+    &__form{
+        border-radius: 5px;
+        color:var(--color-secondary-dark);
+        background-color: var(--color-primary);
+        padding: 10px;
+        display: grid;
+        grid-template-rows: repeat(6, 1fr );
+        grid-template-columns:  repeat(4, minmax(20%,1fr));
+        
+        // grid-area: "num     num     num     num"
+        //            "numi1   numi2   numi3   numi4"
+        //            "name    name    name    name"
+        //            "namei   namei   namei   namei"
+        //            "expire  expire     .    cvv"
+        //            "expirem expirey    .    cvvi";
+        gap: 6px;
+
+        & input{
+            border: none;
+            outline: none;
+            background-color: rgba(#FFF, .18);
+            // border-radius: 3px;
+        }
+    }
+
+    &__num{
+        grid-column: 1/ span4;
+        
+        grid-row: 1/ 2;
+    }
+    
+
+    &__name{
+        grid-column: 1/ 5;
+    }
+    &__name-input{
+        grid-column: 1/ 5;
+        
+
+    }
+    &__expire{
+        grid-row: 5/ 6;
+        grid-column: 1/ span2;            
+        
+    }
+    &__mon{
+        grid-row: 6/ 7;
+        grid-column: 1/ 2;  
+    }
+    &__year{
+        grid-row: 6/ 7;
+        grid-column: 2/3;  
+    }
+
+    &__cvv{
+        grid-column: 3/ span2;
+        grid-row: 5/ 6;
+            
+    }
+    &__cvv-input{
+        grid-row: 6/ 7;
+        grid-column: 3/ 5;  
+    }
+}

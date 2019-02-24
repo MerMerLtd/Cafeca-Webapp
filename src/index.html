@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="cart">
-        <div class="heading-primary">購物車</div>
+        <div class="heading-1">購物車</div>
         <div class="container--scroll"> <!-- flex & scroll -->
 
             <!-- 重複單元 -->
@@ -17,32 +17,30 @@
                 <div class="column__display"> <!-- gird -->
                     <!-- 商品 -->
                     <div class="product__img-box">
-                        <img src="" alt="image" class="product__img">
+                        <img src="https://images.unsplash.com/photo-1461010083959-8a5727311252?ixlib=rb-1.2.1&auto=format&fit=crop&w=2211&q=80" alt="image" class="product__img">
                     </div>
                     <div class="product__name">商品名稱</div>
                     <div class="product__accessory">夢幻逸品</div>
 
-                    <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
-                    <div class="column__toggle"><i class="fas fa-ellipsis-v"></i></div>
-
                     <!-- 選項： single or set -->
-                    <!-- https://chiayilai.com/%E5%8A%9F%E8%83%BD%E9%96%8B%E9%97%9C%E6%8C%89%E9%88%95-switch-toggle-button-by-pure-css/ -->
-                    <label for="switch-btn" class="btn btn--switch"></label>
-                    <input type="checkbox" name="switch" id="switch-btn">
+                    <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
+                    <input type="checkbox" id="id-name--1" name="set-name" class="product__switch switch-input">
+                    <label for="id-name--1" class="switch-label"></label>
         
                     <!-- 商品價格 -->
                     <p class="product__price">NT 260</p>
     
                     <!-- 購買數量 -->
-                    <div class="product__nums-controller">
-                        <span class="plus"> + </span>
-                        <input type="text" name="num" id="num" class="num" value="1">
-                        <span class="minus"> - </span>
+                    <div class="product__numsctrl">
+                        <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
+                        <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
+                        <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
                     </div>
                 
-                    <div class="column__price">TOTAL: NT560</div> <!-- grid-auto-row -->
-                    
-                </div>  
+                </div> 
+                <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
+                <div class="column__toggle"><i class="fas fa-ellipsis-v"></i></div>
+
                 <!-- column 點擊按鈕滑動 -->
                 <div class="column__btn--top">
                     <!-- 加到心願單的按鈕 -->
@@ -51,59 +49,21 @@
                 <div class="column__btn--bottom">
                     <!-- 從container--scroll裡刪除child的按鈕 -->
                     <div class="btn btn--delete"><i class="far fa-trash-alt"></i></div>
-                </div>     
+                </div>  
+                
+                <div class="column__price">TOTAL: NT560</div> <!-- grid-auto-row -->
             </div>
             <!-- 重複單元 -->
   
         </div>
 
         <!-- 當購物資料為空時disable toggle 功能 -->
-        <label for="toggle--checkout" class="btn btn--order">結帳</label>
-        <input type="checkbox" id="toggle--order">
-
-        <!-- 訂單 -->
-        <div class="order">
-
-            <!-- 商品條列： 名稱 & 價格 -->
-            <div class="item">
-                <span class="item__name">商品名稱</span>
-                <span class="item__price">商品價格</span>
-            </div>
-
-            <hr>
-
-            <!-- 付款資訊： total price & 輸入信用卡資訊 -->
-            <!-- https://www.w3schools.com/howto/howto_css_checkout_form.asp -->
-            <div class="payment">
-
-                <!-- total price -->
-                <div class="payment__price">TOTAL: NT. 1890</div>
-                
-                <!-- payment-form -->
-                <label for="ccnum">Credit card number</label>
-                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-
-                <div class="row">
-                    <div class="col-50">
-                        <label for="expmonth">Exp Month</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="September">
-                    </div>
-                    <div class="col-50">
-                        <label for="expyear">Exp Year</label>
-                        <input type="text" id="expyear" name="expyear" placeholder="2018">
-                    </div>
-                </div>
-
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-
-            </div>
-        </div>
+        <div class="btn btn--order">結帳</div>
 
         <!-- 購物車開關功能 -->
         <div class="cart__toggle">
             <div class="cart__toogle--rope"> &nbsp; </div>
-            <img src="" alt="" class="cart__toogle--logo">
+            <img src="./img/logo.png" alt="" class="cart__toogle--logo">
             <!-- 加入購物車的提示訊息 -->
             <!-- https://www.w3schools.com/howto/howto_css_notification_button.asp -->
             <div class="notification"> &#33; </div>
@@ -111,8 +71,81 @@
 
     </div>
     
+     <!-- 訂單 -->
+    <div class="order">
+
+        <!-- 商品條列： 名稱 & 價格 -->
+        <div class="item">
+            <span class="item__name">商品名稱</span>
+            <span class="item__nums"> x1</span>
+            <span class="item__price">商品價格</span>
+        </div>
+
+        <!-- <hr> -->
+
+        <!-- 付款資訊： total price & 輸入信用卡資訊 -->
+        <!-- https://www.w3schools.com/howto/howto_css_checkout_form.asp -->
+        <div class="payment">
+
+            <!-- total price -->
+            <div class="payment__price">TOTAL: NT. 1890</div>
+            
+            <!-- payment-form -->
+            <!-- https://codepen.io/quinlo/pen/YONMEa  -->
+            <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->
+            <h3 class="heading-2">輸入卡片資訊</h3>
+            
+            <div class="cc__form">
+                <label for="card-number" class="cc__num">信用卡號</label>
+                <input type="text" id="card-number" class="cc__numi cc__numi--1" maxlength="4" />
+                <input type="text" id="card-number-1" class="cc__numi cc__numi--2" maxlength="4" />
+                <input type="text" id="card-number-2" class="cc__numi cc__numi--3" maxlength="4" />
+                <input type="text" id="card-number-3" class="cc__numi cc__numi--4" maxlength="4" />
+                
+                <label for="name" class="cc__name">持卡人姓名</label>
+                <input type="text" name="name" id="name" class="cc__name-input">
+
+                <label class="cc__expire">有效期限</label>
+           
+                <select id="month" class="cc__mon">
+                    <option>...</option>
+                    <option>Jan</option>
+                    <option>Feb</option>
+                    <option>Mar</option>
+                    <option>Apr</option>
+                    <option>May</option>
+                    <option>Jun</option>
+                    <option>Jul</option>
+                    <option>Aug</option>
+                    <option>Sep</option>
+                    <option>Oct</option>
+                    <option>Nov</option>
+                    <option>Dec</option>
+                </select>
+
+                <select id="year" class="cc__year">
+                    <option>...</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                </select>
+
+                <label for="card-cvv" class="cc__cvv">信用卡背面末三碼</label>
+                <input type="text" id="card-cvv" class="cc__cvv-input" maxlength="3" />
+                
+            </div>                  
+        </div>            
+    </div>
+
     <div class="collections">
-        <div class="heading-primary">心願單</div>
+        <div class="heading-1">心願單</div>
         <div class="container--scroll">   <!-- flex & scroll -->
 
             <!-- 重複單元 -->
@@ -120,16 +153,17 @@
                 <div class="column__display"> <!-- gird -->
                     <!-- 商品 -->
                     <div class="product__img-box">
-                        <img src="" alt="image" class="product__img">
+                        <img src="https://images.unsplash.com/photo-1461010083959-8a5727311252?ixlib=rb-1.2.1&auto=format&fit=crop&w=2211&q=80" alt="image" class="product__img">
                     </div>
                     <div class="product__name">商品名稱</div>
                     <div class="product__accessory">夢幻逸品</div>
 
-                    <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
-                    <div class="column__toggle"><i class="fas fa-ellipsis-v"></i></div>
-
                     <p class="product__description">三行詩之商品描述</p>
                 </div>
+
+                <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
+                <div class="column__toggle"><i class="fas fa-ellipsis-v"></i></div>
+
                 <!-- column 點擊按鈕滑動 -->
                 <div class="column__btn--top">
                     <!-- 加到購物車的按鈕 -->
@@ -146,7 +180,7 @@
     </div>
 
     <div class="display">
-        <div class="heading-primary">商品資訊</div>
+        <div class="heading-1">商品資訊</div>
 
         <!-- Next and Previous Buttons -->
         <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
@@ -171,15 +205,15 @@
                 </div>
 
                 <div class="card__img">
-                    <img src="" alt="image" class="product__img">
+                    <img src="https://images.unsplash.com/photo-1461010083959-8a5727311252?ixlib=rb-1.2.1&auto=format&fit=crop&w=2211&q=80" alt="image" class="product__img">
                 </div>
 
                 <!-- 這裡要用 flexbox horizontal -->
                 <div class="product__toolbox">
                     <!-- 選項： single or set -->
-                    <!-- https://chiayilai.com/%E5%8A%9F%E8%83%BD%E9%96%8B%E9%97%9C%E6%8C%89%E9%88%95-switch-toggle-button-by-pure-css/ -->
-                    <label for="switch-btn" class="btn btn--switch"></label>
-                    <input type="checkbox" name="switch" id="switch-btn">
+                    <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
+                    <input type="checkbox" id="id-name--1" name="set-name" class="product__switch switch-input">
+                    <label for="id-name--1" class="switch-label"></label>
 
                     <!-- 商品價格 -->
                     <p class="product__price">NT 260</p>
@@ -191,10 +225,11 @@
                     <div class="btn btn--cart"><i class="fas fa-shopping-cart"></i></div>
 
                     <!-- 購買數量 -->
-                    <!-- <div class="product__nums-controller">
-                        <span class="plus"> + </span>
-                        <span class="num"> 1 </span>
-                        <span class="minus"> - </span>
+                    
+                    <!-- <div class="product__numsctrl">
+                        <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
+                        <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
+                        <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
                     </div> -->
                 <!-- 根據情況二選一 -->
                 </div>
@@ -211,38 +246,69 @@
                         <span class="product__name">商品名稱</span>
                         <span class="product__accessory">夢幻逸品</span>
                     </div> 
-                    <div class="product__nums-controller"> <!-- grid -->
-                        <span class="plus"> + </span>
-                        <input type="text" name="num" id="num" class="num" value="1">
-                        <span class="minus"> - </span>
-                    </div>
+                    <div class="product__numsctrl">
+                        <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
+                        <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
+                        <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
+                    </div> 
+                   
                 </div>
 
                 <!-- total price -->
                 <hr>
                 <div class="payment__price">TOTAL: NT. 1890</div> <!-- 動態抓 -->
-                
                 <!-- payment-form -->
-                <!-- https://www.w3schools.com/howto/howto_css_checkout_form.asp -->
-                <label for="ccnum">Credit card number</label>
-                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                <!-- https://codepen.io/quinlo/pen/YONMEa  -->
+                <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->
+                <h3 class="heading-2">輸入卡片資訊</h3>
+                
+                <div class="cc__form">
+                    <label for="card-number" class="cc__num">信用卡號</label>
+                    <input type="text" id="card-number" class="cc__numi cc__numi--1" maxlength="4" />
+                    <input type="text" id="card-number-1" class="cc__numi cc__numi--2" maxlength="4" />
+                    <input type="text" id="card-number-2" class="cc__numi cc__numi--3" maxlength="4" />
+                    <input type="text" id="card-number-3" class="cc__numi cc__numi--4" maxlength="4" />
+                    
+                    <label for="name" class="cc__name">持卡人姓名</label>
+                    <input type="text" name="name" id="name" class="cc__name-input">
 
-                <div class="row">
-                    <div class="col-50">
-                        <label for="expmonth">Exp Month</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="September">
-                    </div>
-                    <div class="col-50">
-                        <label for="expyear">Exp Year</label>
-                        <input type="text" id="expyear" name="expyear" placeholder="2018">
-                    </div>
+                    <label class="cc__expire">有效期限</label>
+            
+                    <select id="month" class="cc__mon">
+                        <option>...</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+
+                    <select id="year" class="cc__year">
+                        <option>...</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                    </select>
+
+                    <label for="card-cvv" class="cc__cvv">信用卡背面末三碼</label>
+                    <input type="text" id="card-cvv" class="cc__cvv-input" maxlength="3" />
+                                    
                 </div>
-
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-
             </div>
-
         </div>
         
         <!-- 打開咖啡豆存摺的按鈕 position:fix -->
@@ -253,7 +319,7 @@
     </div>
 
     <div class="possessions">
-        <div class="heading-primary">我的兌換卷</div>
+        <div class="heading-1">我的兌換卷</div>
 
         <!-- Next and Previous Buttons -->
         <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
@@ -261,11 +327,11 @@
         <a href="#" class="next round">&#8250;</a>
 
         <!-- voucher -->
-        <div class="voucher">
+        <div class="card">
 
             <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
             <div class="card__img">
-                <img src="" alt="image" class="product__img">
+                <img src="https://images.unsplash.com/photo-1461010083959-8a5727311252?ixlib=rb-1.2.1&auto=format&fit=crop&w=2211&q=80" alt="image" class="product__img">
             </div>
             <div class="product">
                 <span class="product__name">商品名稱</span>
@@ -293,7 +359,7 @@
     </div>
     
     <div class="assets">
-
+        <div class="heading-1">咖啡豆存摺</div>
         <!-- 判斷是否登入 -->
         
         <!-- 已登入 -->
@@ -304,84 +370,76 @@
         <!-- 打算參考screea app 的設計 -->
         <!-- https://codepen.io/mrtuanphong/pen/NqvePZ -->
         <!-- https://codepen.io/simoberny/pen/zvOYzG -->
+        <!-- https://codepen.io/dope/pen/Gqmcr -->
 
         <!-- 補充 -->
         <!-- https://codepen.io/Lymelight/pen/raMMmZ -->
         <!-- https://codepen.io/stephen_sun/pen/zaPGbd -->
-        <!-- https://codepen.io/dope/pen/Gqmcr -->
             <!-- 登入 -->
-            <!-- https://www.w3schools.com/howto/howto_css_social_login.asp -->
-            <div class="container">
-                <form action="/action_page.php">
-                    <div class="row">
-                    <h2 style="text-align:center">Login with Social Media or Manually</h2>
-                    <div class="vl">
-                        <span class="vl-innertext">or</span>
+        <div class="container">   
+            <div class="modal fade login" id="loginModal">
+                <div class="modal-dialog login animated">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h4 class="modal-title">Login with</h4>
                     </div>
-                
-                    <div class="col">
-                        <a href="#" class="fb btn">
-                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                        </a>
-                        <a href="#" class="twitter btn">
-                        <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                        </a>
-                        <a href="#" class="google btn">
-                        <i class="fa fa-google fa-fw"></i> Login with Google+
-                        </a>
+                    <div class="modal-body">  
+                        <div class="box">
+                            <div class="content">
+                            <div class="social">
+                                <a class="circle github" href="/auth/github">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            <div class="division">
+                                <div class="line l"></div>
+                                    <span>or</span>
+                                <div class="line r"></div>
+                            </div>
+                            <div class="error"></div>
+                            <div class="form loginBox">
+                                <form method="post" action="/login" accept-charset="UTF-8">
+                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                </form>
+                            </div>
+                            </div>
                     </div>
-                
-                    <div class="col">
-                        <div class="hide-md-lg">
-                        <p>Or sign in manually:</p>
+                    <div class="box">
+                        <div class="content registerBox" style="display:none;">
+                            <div class="form">
+                            <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                            <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                            <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                            <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                            <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                            </form>
+                            </div>
                         </div>
-                
-                        <input type="text" name="username" placeholder="Username" required>
-                        <input type="password" name="password" placeholder="Password" required>
-                        <input type="submit" value="Login">
                     </div>
-                
+                </div>
+                <div class="modal-footer">
+                    <div class="forgot login-footer">
+                        <span>Looking to 
+                                <a href="javascript: showRegisterForm();">create an account</a>
+                        ?</span>
                     </div>
-                </form>
-            </div>
-                
-            <div class="bottom-container">
-                <div class="row">
-                    <div class="col">
-                    <a href="#" style="color:white" class="btn">Sign up</a>
+                    <div class="forgot register-footer" style="display:none">
+                            <span>Already have an account?</span>
+                            <a href="javascript: showLoginForm();">Login</a>
                     </div>
-                    <div class="col">
-                    <a href="#" style="color:white" class="btn">Forgot password?</a>
+                </div>        
                     </div>
                 </div>
             </div>
-
-            <!-- 註冊 -->
-            <!-- https://www.w3schools.com/howto/howto_css_register_form.asp -->
-            <form action="action_page.php">
-            <div class="container">
-                <h1>Register</h1>
-                <p>Please fill in this form to create an account.</p>
-                <hr>
-
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                <hr>
-
-                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                <button type="submit" class="registerbtn">Register</button>
-            </div>
-
-            <div class="container signin">
-                <p>Already have an account? <a href="#">Sign in</a>.</p>
-            </div>
-        </form>
+        </div>
     </div>
 </body>
 </html>
