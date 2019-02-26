@@ -70,9 +70,6 @@
                 <div class="cart__toggle--notification"> &#33; </div>
         </div>
     </div>
-
-
-
      <!-- 訂單 -->
     <div class="order" style="display:none">
 
@@ -145,7 +142,6 @@
             </div>                  
         </div>            
     </div>
-
     <div class="collections">
         <div class="heading-1">心願單</div>
         <div class="container--scroll">   <!-- flex & scroll -->
@@ -157,8 +153,8 @@
                     <!-- <div class="product__img-box"> -->
                         <img src="./img/coffee-demo-3.jpeg" alt="image" class="product__img">
                     <!-- </div> -->
-                    <div class="product__name">商品名稱</div>
-                    <div class="product__accessory">夢幻逸品</div>
+                    <div class="product__name">戴綠帽</div>
+                    <div class="product__accessory">紳士馬卡龍</div>
 
                     <p class="product__description">「在孤獨中形成的事物，往往也能用來救贖孤獨」</p>
                 </div>
@@ -186,59 +182,47 @@
 
         <!-- Next and Previous Buttons -->
         <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
-        <a href="#" class="previous">&#8249;</a>
-        <a href="#" class="next">&#8250;</a>
+        <a href="#" class="btn btn--card btn--card-previous">&#8249;</a>
+        <a href="#" class="btn  btn--card btn--card-next">&#8250;</a>
 
         <div class="card">
             <!-- 重複單元 --> <!-- 先做成slide的換頁的方式（目前的兩種方式邏輯怪）--> 
             <div class="card__display"> <!-- flexbox vertical -->
-
                 <div class="card__title"> <!-- grid -->
                     <!-- 商品 -->
-                    <div class="product">
-                        <span class="product__name">商品名稱</span>
-                        <span class="product__accessory">夢幻逸品</span>
-                    </div>
-
+                    <div class="product__name">和解（榛果拿鐵）</div>
+                    <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
                     <!-- 加到心願單的按鈕 -->
-                    <div class="btn btn--collections"><i class="far fa-bookmark"></i></div>
-
-                    <p class="product__description">三行詩之商品描述</p>
+                    <div class="product__btn-collections btn btn--collections"><i class="far fa-bookmark"></i></div>
+                    <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
                 </div>
-
-                <div class="card__img">
-                    <img src="./img/coffee-demo-2.jpeg" alt="image" class="product__img">
+                <div class="card__img-box">
+                    <img src="./img/coffee-demo-1-1.jpeg" alt="image" class="card__img">
                 </div>
-
-                <!-- 這裡要用 flexbox horizontal -->
-                <div class="product__toolbox">
+                <div class="card__toolbox">
                     <!-- 選項： single or set -->
                     <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
                     <input type="checkbox" id="id-name--1" name="set-name" class="product__switch switch-input">
                     <label for="id-name--1" class="switch-label"></label>
-
                     <!-- 商品價格 -->
                     <p class="product__price">NT 260</p>
-                    
-                <!-- (不做了，感覺不夠寬)想要做的功能 👇 -->
-                <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->  
-                <!-- 根據情況二選一 -->
+                    <!-- (不做了，感覺不夠寬)想要做的功能 👇 -->
+                    <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->  
+                    <!-- 根據情況二選一 -->
                     <!-- 加到購物車的按鈕 -->
-                    <div class="btn btn--cart"><i class="fas fa-shopping-cart"></i></div>
-
+                    <div class="btn btn--cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
                     <!-- 購買數量 -->
-                    
                     <!-- <div class="product__numsctrl">
                         <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
                         <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
                         <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
                     </div> -->
-                <!-- 根據情況二選一 -->
+                    <!-- 根據情況二選一 -->
                 </div>
-
             </div>
             <!-- 重複單元 -->
-
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
             <div class="card__payment">
 
@@ -324,17 +308,16 @@
         <div class="heading-1">我的兌換卷</div>
 
         <!-- Next and Previous Buttons -->
-        <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
-        <a href="#" class="previous round">&#8249;</a>
-        <a href="#" class="next round">&#8250;</a>
+        <a href="#" class="btn btn--card btn--card-previous">&#8249;</a>
+        <a href="#" class="btn  btn--card btn--card-next">&#8250;</a>
 
         <!-- voucher -->
         <div class="card">
 
             <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
-            <div class="card__img">
-                <img src="./img/coffee-demo-1.jpeg" alt="image" class="product__img">
-            </div>
+            <!-- <div class="card__img"> -->
+                <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
+            <!-- </div> -->
             <div class="product">
                 <span class="product__name">商品名稱</span>
                 <span class="product__accessory">夢幻逸品</span>
