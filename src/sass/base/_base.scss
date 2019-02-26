@@ -1,24 +1,24 @@
 // the same thing as the HTML selector but with a higher specificity.
 :root{
-    --color-primary-lighter: #B4CDCD;
-    --color-primary-light: #5b96a8;
+    --color-primary-lighter: rgb(159, 205, 205);
+    --color-primary-light: rgb(141, 182, 203);
     --color-primary: #1c73a5;
     --color-primary-dark-1: #163d6b;
     --color-primary-dark-2: #08485c;
     
-    --color-secondary-light: #ecdce3;
-    --color-secondary: #d3b8c3;
-    --color-secondary-dark: #c9a83d; 
-    // --color-secondary-dark: #daa520; 
+    --color-secondary-light: rgb(233, 229, 215);
+    --color-secondary: rgb(221, 194, 128); 
+    --color-secondary--dark: rgb(198, 172, 111);
+
 
     --color-grey-light-1: #faf9f9;
     --color-grey-light-2: #f4f2f2;
     --color-grey-light-3: #f0eeee;
     --color-grey-light-4: #ccc;
     
-    --color-grey-dark-1: #333;
-    --color-grey-dark-2: #777;
-    --color-grey-dark-3: #999;
+    --color-grey-dark-1: #35475e;
+    --color-grey-dark-2: #8995a1;
+    --color-grey-dark-3: #93a1ae;
 
     --shadow-dark: 0 1.25rem 3.75rem #0000004d;
     --shadow-light: 0 1.25rem 3.125rem #0000000f;
@@ -42,7 +42,7 @@ html{
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
     color: var(--color-grey-dark-2);
 
