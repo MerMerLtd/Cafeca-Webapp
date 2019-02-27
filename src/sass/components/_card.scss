@@ -1,19 +1,19 @@
 .card{
     margin: 0 auto;
     width: 80vw;
-
-    // transform: translateY(-60vh);
+    
     &__display{
        position: relative;
     }
     &__title{
+        background-color: rgba(255, 255, 255, 0.7);
         position: absolute;
         top: 0;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         padding: 10px;
-        background-color: rgba(255, 255, 255, 0.7);
     }
+    
     &__img-box{
         height: 60vh; 
         border-radius: 5px;

@@ -2,4 +2,11 @@
     background-color: var(--color-secondary-dark);
     
     height: 80vh;
+    &__btn-open{
+        font-size: 4rem;
+        line-height: 1;
+        position: fixed;
+        bottom: 10px;
+        left: 10vw;
+    }
 }

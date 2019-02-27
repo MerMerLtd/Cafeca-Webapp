@@ -221,7 +221,7 @@
             </div>
             <!-- 重複單元 -->
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
-            <div class="card__payment" >
+            <div class="card__payment" style="display:none">
                 <!-- 商品 -->
                 <div class="card__info"> <!-- flex -->
                     <div class="product">
@@ -237,7 +237,8 @@
                 <!-- total price -->
                 <div class="card__price">TOTAL: NT. 1890</div> <!-- 動態抓 -->
                 <!-- payment-form -->
-                <div class="credit__card" style="display:none">
+                <div class="credit__card">
+                <!-- <div class="credit__card" style="display:none"> -->
                     <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->       
                     <div class="heading-2 mb-sm">輸入卡片資訊</div>
                     <div class="credit-card__info">
@@ -291,48 +292,51 @@
         </div>
                 
         <!-- 打開咖啡豆存摺的按鈕 position:fix -->
-        <div class="possessions__btn-open"> &#x02660;</div>
+        <div class="assets__btn-open"> &#x02660;</div>
         <!-- <i class="far fa-sack-dollar"></i> -->
         <!-- sack 是pro 才能使用  -->
     </div>
 
     <div class="possessions">
-        <div class="heading-1">我的兌換卷</div>
-
-        <!-- Next and Previous Buttons -->
-        <a href="#" class="btn btn--card btn--card-previous">&#8249;</a>
-        <a href="#" class="btn  btn--card btn--card-next">&#8250;</a>
-
+        <div class="heading-1 mb-md">我的兌換卷</div>
         <!-- voucher -->
         <div class="voucher">
-
-            <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
-            <!-- <div class="card__img"> -->
-                <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
-            <!-- </div> -->
-            <div class="product">
-                <span class="product__name">商品名稱</span>
-                <span class="product__accessory">夢幻逸品</span>
+            <div class="voucher__front-side">
+                <!-- Next and Previous Buttons -->
+                <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+                <a href="#" class="card__btn card__btn--next">&#8250;</a>
+                <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
+                <div class="voucher__cover"> <!-- grid -->
+                    <!-- 商品 -->
+                    <div class="product__name">和解（榛果拿鐵）</div>
+                    <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
+                    <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
+                    <!-- 兌換資訊: qr code -->
+                    <!-- https://www.qr-code-generator.com/a1/?gclid=EAIaIQobChMIlvnZhcjb4AIVybWWCh3BZAvmEAAYASAAEgKTz_D_BwE -->
+                    <!-- <img src="./img/frame.png" alt="qrcode" class="voucher__qrcode"> -->
+                    <div class="voucher__qrcode">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="voucher__barcode">
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                </div>
+                <div class="card__img-box">
+                    <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
+                </div>
             </div>
-
-            <!-- 兌換資訊: qr code -->
-            <div class="qrcode">qr code</div>
-      
+            <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
+            <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
+            <div class="voucher__back-side">
+                <!-- 判斷是否登入 -->
+                <!-- 已登入 -->
+                    <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
+    
+                <!-- 未登入 -->
+                    <!-- 登入以領取咖啡豆 -->
+                    <!-- 用跟assets（未登入）一樣的表格 -->
+            </div>    
         </div>
-
-        <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
-        <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
-        <div class="card">
-            <!-- 判斷是否登入 -->
-            <!-- 已登入 -->
-                <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
-
-            <!-- 未登入 -->
-                <!-- 登入以領取咖啡豆 -->
-                <!-- 用跟assets（未登入）一樣的表格 -->
-        </div>
-        
-        
     </div>
     
     <div class="assets">

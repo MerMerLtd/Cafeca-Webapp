@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="cart">
-        <div class="heading-1">購物車</div>
+        <div class="heading-1 pb-sm">購物車</div>
         <div class="container--scroll"> <!-- flex & scroll -->
 
             <!-- 重複單元 -->
@@ -59,7 +59,7 @@
         </div>
 
         <!-- 當購物資料為空時disable toggle 功能 -->
-        <div class="btn btn--order heading-2">結 帳</div>
+        <div class="cart__btn-order heading-2">結 帳</div>
 
         <!-- 購物車開關功能 -->
         <div class="cart__toggle">
@@ -85,65 +85,63 @@
         <!-- 付款資訊： total price & 輸入信用卡資訊 -->
         <!-- https://www.w3schools.com/howto/howto_css_checkout_form.asp -->
         <div class="payment">
-
             <!-- total price -->
-            <div class="payment__price">TOTAL: NT. 1890</div>
-            
+            <div class="payment__price">TOTAL: NT. 1890</div>    
             <!-- payment-form -->
             <!-- https://codepen.io/quinlo/pen/YONMEa  -->
             <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->
-            <h3 class="heading-2">輸入卡片資訊</h3>
-            
-            <div class="cc__form">
-                <label for="card-number" class="cc__num">信用卡號</label>
-                <input type="text" id="card-number" class="cc__numi cc__numi--1" maxlength="4" />
-                <input type="text" id="card-number-1" class="cc__numi cc__numi--2" maxlength="4" />
-                <input type="text" id="card-number-2" class="cc__numi cc__numi--3" maxlength="4" />
-                <input type="text" id="card-number-3" class="cc__numi cc__numi--4" maxlength="4" />
+            <h3 class="heading-2">輸入卡片資訊</h3>          
+            <div class="credit-card__form">
+                <div class="credit-card__info">
+                    <label for="card-number" class="credit-card__num">信用卡號</label>
+                    <input type="text" id="card-number" class="credit-card__numi credit-card__numi--1" maxlength="4" />
+                    <input type="text" id="card-number-1" class="credit-card__numi credit-card__numi--2" maxlength="4" />
+                    <input type="text" id="card-number-2" class="credit-card__numi credit-card__numi--3" maxlength="4" />
+                    <input type="text" id="card-number-3" class="credit-card__numi credit-card__numi--4" maxlength="4" />
+                    
+                    <label for="name" class="credit-card__name">持卡人姓名</label>
+                    <input type="text" name="name" id="name" class="credit-card__name-input">
+    
+                    <label class="credit-card__expire">有效期限</label>
                 
-                <label for="name" class="cc__name">持卡人姓名</label>
-                <input type="text" name="name" id="name" class="cc__name-input">
-
-                <label class="cc__expire">有效期限</label>
-           
-                <select id="month" class="cc__mon">
-                    <option>...</option>
-                    <option>Jan</option>
-                    <option>Feb</option>
-                    <option>Mar</option>
-                    <option>Apr</option>
-                    <option>May</option>
-                    <option>Jun</option>
-                    <option>Jul</option>
-                    <option>Aug</option>
-                    <option>Sep</option>
-                    <option>Oct</option>
-                    <option>Nov</option>
-                    <option>Dec</option>
-                </select>
-
-                <select id="year" class="cc__year">
-                    <option>...</option>
-                    <option>2019</option>
-                    <option>2020</option>
-                    <option>2021</option>
-                    <option>2022</option>
-                    <option>2023</option>
-                    <option>2024</option>
-                    <option>2025</option>
-                    <option>2027</option>
-                    <option>2028</option>
-                    <option>2029</option>
-                </select>
-
-                <label for="card-cvv" class="cc__cvv">信用卡背面末三碼</label>
-                <input type="text" id="card-cvv" class="cc__cvv-input" maxlength="3" />
-                
-            </div>                  
+                    <select id="month" class="credit-card__mon">
+                        <option>...</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+    
+                    <select id="year" class="credit-card__year">
+                        <option>...</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                    </select>
+    
+                    <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
+                    <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3" />             
+                </div>             
+            </div>         
         </div>            
     </div>
     <div class="collections">
-        <div class="heading-1">心願單</div>
+        <div class="heading-1 mb-sm">心願單</div>
         <div class="container--scroll">   <!-- flex & scroll -->
 
             <!-- 重複單元 -->
@@ -178,16 +176,15 @@
     </div>
 
     <div class="display">
-        <div class="heading-1">商品資訊</div>
-
-        <!-- Next and Previous Buttons -->
-        <!-- https://www.w3schools.com/howto/howto_css_next_prev.asp -->
-        <a href="#" class="btn btn--card btn--card-previous">&#8249;</a>
-        <a href="#" class="btn  btn--card btn--card-next">&#8250;</a>
+        <div class="heading-1 mb-md">商品資訊</div>
 
         <div class="card">
             <!-- 重複單元 --> <!-- 先做成slide的換頁的方式（目前的兩種方式邏輯怪）--> 
-            <div class="card__display"> <!-- flexbox vertical -->
+            <div class="card__display"> 
+                <!-- Next and Previous Buttons -->
+                <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+                <a href="#" class="card__btn card__btn--next">&#8250;</a>
+
                 <div class="card__title"> <!-- grid -->
                     <!-- 商品 -->
                     <div class="product__name">和解（榛果拿鐵）</div>
@@ -224,123 +221,122 @@
             </div>
             <!-- 重複單元 -->
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
-            <div class="card__payment">
-
+            <div class="card__payment" style="display:none">
                 <!-- 商品 -->
                 <div class="card__info"> <!-- flex -->
-                    <div class="product"> <!-- 動態抓 -->
-                        <span class="product__name">商品名稱</span>
-                        <span class="product__accessory">夢幻逸品</span>
-                    </div> 
+                    <div class="product">
+                        <div class="product__name">和解（榛果拿鐵）</div>
+                        <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
+                    </div>
                     <div class="product__numsctrl">
                         <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
                         <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
                         <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
-                    </div> 
-                   
+                    </div>  
                 </div>
-
                 <!-- total price -->
-                <hr>
-                <div class="payment__price">TOTAL: NT. 1890</div> <!-- 動態抓 -->
+                <div class="card__price">TOTAL: NT. 1890</div> <!-- 動態抓 -->
                 <!-- payment-form -->
-                <!-- https://codepen.io/quinlo/pen/YONMEa  -->
-                <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->
-                <h3 class="heading-2">輸入卡片資訊</h3>
+                <div class="credit__card">
+                <!-- <div class="credit__card" style="display:none"> -->
+                    <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->       
+                    <div class="heading-2 mb-sm">輸入卡片資訊</div>
+                    <div class="credit-card__info">
+                        <label for="card-number" class="credit-card__num">信用卡號</label>
+                        <input type="text" id="card-number" class="credit-card__numi credit-card__numi--1" maxlength="4" />
+                        <input type="text" id="card-number-1" class="credit-card__numi credit-card__numi--2" maxlength="4" />
+                        <input type="text" id="card-number-2" class="credit-card__numi credit-card__numi--3" maxlength="4" />
+                        <input type="text" id="card-number-3" class="credit-card__numi credit-card__numi--4" maxlength="4" />
+                        
+                        <label for="name" class="credit-card__name">持卡人姓名</label>
+                        <input type="text" name="name" id="name" class="credit-card__name-input">
+
+                        <label class="credit-card__expire">有效期限</label>
                 
-                <div class="cc__form">
-                    <label for="card-number" class="cc__num">信用卡號</label>
-                    <input type="text" id="card-number" class="cc__numi cc__numi--1" maxlength="4" />
-                    <input type="text" id="card-number-1" class="cc__numi cc__numi--2" maxlength="4" />
-                    <input type="text" id="card-number-2" class="cc__numi cc__numi--3" maxlength="4" />
-                    <input type="text" id="card-number-3" class="cc__numi cc__numi--4" maxlength="4" />
-                    
-                    <label for="name" class="cc__name">持卡人姓名</label>
-                    <input type="text" name="name" id="name" class="cc__name-input">
+                        <select id="month" class="credit-card__mon">
+                            <option>...</option>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
 
-                    <label class="cc__expire">有效期限</label>
-            
-                    <select id="month" class="cc__mon">
-                        <option>...</option>
-                        <option>Jan</option>
-                        <option>Feb</option>
-                        <option>Mar</option>
-                        <option>Apr</option>
-                        <option>May</option>
-                        <option>Jun</option>
-                        <option>Jul</option>
-                        <option>Aug</option>
-                        <option>Sep</option>
-                        <option>Oct</option>
-                        <option>Nov</option>
-                        <option>Dec</option>
-                    </select>
+                        <select id="year" class="credit-card__year">
+                            <option>...</option>
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                        </select>
 
-                    <select id="year" class="cc__year">
-                        <option>...</option>
-                        <option>2019</option>
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                        <option>2023</option>
-                        <option>2024</option>
-                        <option>2025</option>
-                        <option>2027</option>
-                        <option>2028</option>
-                        <option>2029</option>
-                    </select>
-
-                    <label for="card-cvv" class="cc__cvv">信用卡背面末三碼</label>
-                    <input type="text" id="card-cvv" class="cc__cvv-input" maxlength="3" />
-                                    
-                </div>
+                        <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
+                        <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3" />
+                    </div>
+                    <div class="credit-card__btn-checkout mt-lg">確認付款</div>  
+                </div>              
             </div>
         </div>
-        
+                
         <!-- 打開咖啡豆存摺的按鈕 position:fix -->
-        <div class="btn btn--open-assets"> <i class="far fa-sack-dollar"></i></div>
-        <!-- sack 是pro 才能使用 可以先用下面這個示意 -->
-        <!-- <i class="fas fa-cube"></i> -->
-
+        <div class="assets__btn-open"> &#x02660;</div>
+        <!-- <i class="far fa-sack-dollar"></i> -->
+        <!-- sack 是pro 才能使用  -->
     </div>
 
     <div class="possessions">
-        <div class="heading-1">我的兌換卷</div>
-
-        <!-- Next and Previous Buttons -->
-        <a href="#" class="btn btn--card btn--card-previous">&#8249;</a>
-        <a href="#" class="btn  btn--card btn--card-next">&#8250;</a>
-
+        <div class="heading-1 mb-md">我的兌換卷</div>
         <!-- voucher -->
-        <div class="card">
-
-            <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
-            <!-- <div class="card__img"> -->
-                <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
-            <!-- </div> -->
-            <div class="product">
-                <span class="product__name">商品名稱</span>
-                <span class="product__accessory">夢幻逸品</span>
+        <div class="voucher">
+            <div class="voucher__front-side">
+                <!-- Next and Previous Buttons -->
+                <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+                <a href="#" class="card__btn card__btn--next">&#8250;</a>
+                <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
+                <div class="voucher__cover"> <!-- grid -->
+                    <!-- 商品 -->
+                    <div class="product__name">和解（榛果拿鐵）</div>
+                    <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
+                    <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
+                    <!-- 兌換資訊: qr code -->
+                    <!-- https://www.qr-code-generator.com/a1/?gclid=EAIaIQobChMIlvnZhcjb4AIVybWWCh3BZAvmEAAYASAAEgKTz_D_BwE -->
+                    <!-- <img src="./img/frame.png" alt="qrcode" class="voucher__qrcode"> -->
+                    <div class="voucher__qrcode">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="voucher__barcode">
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                </div>
+                <div class="card__img-box">
+                    <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
+                </div>
             </div>
-
-            <!-- 兌換資訊: qr code -->
-            <div class="qrcode">qr code</div>
-      
+            <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
+            <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
+            <div class="voucher__back-side">
+                <!-- 判斷是否登入 -->
+                <!-- 已登入 -->
+                    <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
+    
+                <!-- 未登入 -->
+                    <!-- 登入以領取咖啡豆 -->
+                    <!-- 用跟assets（未登入）一樣的表格 -->
+            </div>    
         </div>
-
-        <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
-        <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
-        <div class="card">
-            <!-- 判斷是否登入 -->
-            <!-- 已登入 -->
-                <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
-
-            <!-- 未登入 -->
-                <!-- 登入以領取咖啡豆 -->
-                <!-- 用跟assets（未登入）一樣的表格 -->
-        </div>
-        
-        
     </div>
     
     <div class="assets">

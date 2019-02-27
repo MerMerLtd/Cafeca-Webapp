@@ -1,0 +1,30 @@
+.voucher{
+    margin: 0 auto;
+    width: 80vw;
+    
+    &__front-side{
+       position: relative;
+    }
+
+    &__cover{
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 5px;
+        height: 100%;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+    }
+    &__qrcode{
+        // height: 150px;
+        // opacity: 0.5;
+        // @include absCenter;
+        @include absCenter;
+        font-size: 6rem;
+    }
+    &__barcode{
+        // height: 60px;
+        @include absCenter;
+        top: 80%;
+        font-size: 6rem;
+    }
+}
