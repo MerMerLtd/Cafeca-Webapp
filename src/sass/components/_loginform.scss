@@ -36,7 +36,7 @@
     &__group{
         margin-bottom: 10px;
         position: relative;
-        &:not(:last-child){
+        &:last-child{
             display: none;
         }
     }
@@ -89,7 +89,7 @@
         }
     }
 
-    &__checkbox:checked ~ &__group:not(:last-child){
+    &__checkbox:checked ~ &__group:last-child{
         display: block;
     }
         

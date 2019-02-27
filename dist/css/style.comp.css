@@ -290,7 +290,7 @@ input[type=checkbox] {
   .login-form__group {
     margin-bottom: 10px;
     position: relative; }
-    .login-form__group:not(:last-child) {
+    .login-form__group:last-child {
       display: none; }
   .login-form__label {
     font-size: .875rem; }
@@ -325,7 +325,7 @@ input[type=checkbox] {
       line-height: 3; }
       .login-form__checkbox:checked + .login-form_btns > .login-form__checkbox:checked + .login-form_btns_btn span:last-child {
         display: none; }
-  .login-form__checkbox:checked ~ .login-form__group:not(:last-child) {
+  .login-form__checkbox:checked ~ .login-form__group:last-child {
     display: block; }
 
 .numsctrl__btn {
@@ -466,6 +466,21 @@ input[type=number]::-webkit-outer-spin-button {
     transform: translate(-50%, -50%);
     top: 80%;
     font-size: 6rem; }
+
+.login-form__btns {
+  display: flex;
+  justify-content: space-evenly; }
+
+.login-form__btns > .login-form__btn {
+  display: inline-block;
+  border: 1px solid var(--color-grey-light-2);
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 3; }
+  .login-form__btns > .login-form__btn span:last-child {
+    display: none; }
 
 .container--scroll {
   overflow: scroll; }
