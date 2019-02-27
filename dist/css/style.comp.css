@@ -467,21 +467,6 @@ input[type=number]::-webkit-outer-spin-button {
     top: 80%;
     font-size: 6rem; }
 
-.login-form__btns {
-  display: flex;
-  justify-content: space-evenly; }
-
-.login-form__btns > .login-form__btn {
-  display: inline-block;
-  border: 1px solid var(--color-grey-light-2);
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  line-height: 3; }
-  .login-form__btns > .login-form__btn span:last-child {
-    display: none; }
-
 .container--scroll {
   overflow: scroll; }
 
