@@ -1,13 +1,5 @@
 .btn { 
     font-size: 1.4rem;
-    &--order{
-        background-color:var(--color-primary-light);
-        width: 100vw;
-        padding: 12px;
-        text-align: center;
-        border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;
-    }
     &--card{
         &,
         &:link,
@@ -16,17 +8,7 @@
             color: var(--color-primary-dark-2);
             position: absolute;
             top: 40vh;
-            // background-color: rgba(255, 255, 255, 0.7);
-            // height: 60px;
-            // width: 15px;
-        }
-        font-size: 4rem;
-        &-previous{
-            left: 2vw;
-        }
-        &-next{
-            right: 2vw;
-
-        }
+            font-size: 4rem;
+        }   
     }
 }

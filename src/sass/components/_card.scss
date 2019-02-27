@@ -2,6 +2,7 @@
     margin: 0 auto;
     width: 80vw;
 
+    // transform: translateY(-60vh);
     &__display{
        position: relative;
     }
@@ -37,5 +38,46 @@
         align-items: center;
         width: 100%;
     }
+
+    &__info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        border-bottom: var(--line);
+    }
+
+    &__price{
+       text-align: right;
+       padding: 10px 0;
+    }
+
+    &__btn{
+        &,
+        &:link,
+        &:visited {
+            text-decoration: none;
+            font-size: 4rem;
+            color: var(--color-primary-dark-2);
+            
+            position: absolute;
+            top: 45%;
+        
+
+            &--previous{
+                left: -25px;
+            }
+            &--next{
+                right: -25px;
+            }
+        }   
+    }
     
+}
+
+.card__btn--previous{
+    left: -25px;
+}
+.card__btn--next{
+    right: -25px;
 }

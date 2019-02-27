@@ -54,7 +54,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1;
-  padding: 60px 20px 20px; }
+  padding: 70px 20px 0px; }
 
 .heading-2 {
   color: var(--color-primary-dark-2);
@@ -63,37 +63,40 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: 1; }
 
 .mb-sm {
-  margin-bottom: 2rem; }
+  margin-bottom: 1.25rem; }
+
+.pb-sm {
+  padding-bottom: 1.25rem; }
 
 .mb-md {
-  margin-bottom: 3rem; }
+  margin-bottom: 1.875rem; }
 
 .mb-lg {
-  margin-bottom: 4rem; }
+  margin-bottom: 2.5rem; }
 
 .mb-hg {
-  margin-bottom: 8rem; }
+  margin-bottom: 5rem; }
+
+.mt-sm {
+  margin-top: 1.25rem; }
+
+.mt-md {
+  margin-top: 1.875rem; }
+
+.mt-lg {
+  margin-top: 2.5rem; }
+
+.mt-hg {
+  margin-top: 5rem; }
 
 .btn {
   font-size: 1.4rem; }
-  .btn--order {
-    background-color: var(--color-primary-light);
-    width: 100vw;
-    padding: 12px;
-    text-align: center;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem; }
-  .btn--card {
+  .btn--card, .btn--card:link, .btn--card:visited {
+    text-decoration: none;
+    color: var(--color-primary-dark-2);
+    position: absolute;
+    top: 40vh;
     font-size: 4rem; }
-    .btn--card, .btn--card:link, .btn--card:visited {
-      text-decoration: none;
-      color: var(--color-primary-dark-2);
-      position: absolute;
-      top: 40vh; }
-    .btn--card-previous {
-      left: 2vw; }
-    .btn--card-next {
-      right: 2vw; }
 
 .card {
   margin: 0 auto;
@@ -125,6 +128,31 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-evenly;
     align-items: center;
     width: 100%; }
+  .card__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: var(--line); }
+  .card__price {
+    text-align: right;
+    padding: 10px 0; }
+  .card__btn, .card__btn:link, .card__btn:visited {
+    text-decoration: none;
+    font-size: 4rem;
+    color: var(--color-primary-dark-2);
+    position: absolute;
+    top: 45%; }
+    .card__btn--previous, .card__btn:link--previous, .card__btn:visited--previous {
+      left: -25px; }
+    .card__btn--next, .card__btn:link--next, .card__btn:visited--next {
+      right: -25px; }
+
+.card__btn--previous {
+  left: -25px; }
+
+.card__btn--next {
+  right: -25px; }
 
 .column {
   height: 130px;
@@ -176,7 +204,7 @@ input[type=number]::-webkit-outer-spin-button {
   .column__price {
     background-color: #816b85; }
 
-.cc__form {
+.credit-card__info {
   border-radius: 5px;
   color: var(--color-secondary-dark);
   background-color: var(--color-primary);
@@ -185,40 +213,48 @@ input[type=number]::-webkit-outer-spin-button {
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(4, minmax(20%, 1fr));
   gap: 6px; }
-  .cc__form input {
+  .credit-card__info input {
     border: none;
     outline: none;
     background-color: rgba(255, 255, 255, 0.18); }
 
-.cc__num {
+.credit-card__num {
   grid-column: 1/ span4;
   grid-row: 1/ 2; }
 
-.cc__name {
+.credit-card__name {
   grid-column: 1/ 5; }
 
-.cc__name-input {
+.credit-card__name-input {
   grid-column: 1/ 5; }
 
-.cc__expire {
+.credit-card__expire {
   grid-row: 5/ 6;
   grid-column: 1/ span2; }
 
-.cc__mon {
+.credit-card__mon {
   grid-row: 6/ 7;
   grid-column: 1/ 2; }
 
-.cc__year {
+.credit-card__year {
   grid-row: 6/ 7;
   grid-column: 2/3; }
 
-.cc__cvv {
+.credit-card__cvv {
   grid-column: 3/ span2;
   grid-row: 5/ 6; }
 
-.cc__cvv-input {
+.credit-card__cvv-input {
   grid-row: 6/ 7;
   grid-column: 3/ 5; }
+
+.credit-card__btn-checkout {
+  font-size: 1.25rem;
+  letter-spacing: 1.2px;
+  text-align: center;
+  padding: 8px;
+  background-color: var(--color-secondary-light);
+  border-radius: 5px; }
 
 .numsctrl__btn {
   width: 20px;
@@ -341,6 +377,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: 80vh; }
 
 .cart {
+  transform: translateY(70px);
   height: 100vh;
   display: grid;
   grid-template-rows: min-content auto repeat(2, min-content); }
@@ -373,6 +410,14 @@ input[type=number]::-webkit-outer-spin-button {
       text-align: center;
       border-radius: 24px;
       background-color: blueviolet; }
+  .cart__btn-order {
+    background-color: var(--color-primary-light);
+    width: 100vw;
+    padding: 12px;
+    text-align: center;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: var(--shadow-light); }
 
 .collections {
   background-color: var(--color-secondary);
@@ -381,7 +426,6 @@ input[type=number]::-webkit-outer-spin-button {
   grid-template-rows: min-content auto; }
 
 .display {
-  position: relative;
   background-color: var(--color-primary-light);
   height: 100vh; }
 
@@ -389,3 +433,6 @@ input[type=number]::-webkit-outer-spin-button {
   position: relative;
   background-color: var(--color-secondary-light);
   height: 100vh; }
+  .possessions__btn-open {
+    position: fixed;
+    bottom: 10px; }

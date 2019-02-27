@@ -1,5 +1,5 @@
-.cc{
-    &__form{
+.credit-card{
+    &__info{
         border-radius: 5px;
         color:var(--color-secondary-dark);
         background-color: var(--color-primary);
@@ -61,5 +61,14 @@
     &__cvv-input{
         grid-row: 6/ 7;
         grid-column: 3/ 5;  
+    }
+
+    &__btn-checkout{
+        font-size: 1.25rem;
+        letter-spacing: 1.2px;
+        text-align: center;
+        padding: 8px;
+        background-color:var(--color-secondary-light);
+        border-radius: 5px;
     }
 }

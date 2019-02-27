@@ -3,4 +3,12 @@
     background-color: var(--color-secondary-light);
     
     height: 100vh;
+
+    &__btn-open{
+        font-size: 4rem;
+        line-height: 1;
+        position: fixed;
+        bottom:0;
+        left: 10vw;
+    }
 }
