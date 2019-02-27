@@ -315,16 +315,16 @@ input[type=checkbox] {
   .login-form__checkbox:checked + .login-form_btns {
     display: flex;
     justify-content: space-evenly; }
-    .login-form__checkbox:checked + .login-form_btns > .login-form__checkbox:checked + .login-form_btns_btn {
-      display: inline-block;
-      border: 1px solid var(--color-grey-light-2);
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-      text-align: center;
-      line-height: 3; }
-      .login-form__checkbox:checked + .login-form_btns > .login-form__checkbox:checked + .login-form_btns_btn span:last-child {
-        display: none; }
+  .login-form__checkbox:checked + .login-form_btns > .login-form_btn {
+    display: inline-block;
+    border: 1px solid var(--color-grey-light-2);
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 3; }
+    .login-form__checkbox:checked + .login-form_btns > .login-form_btn span:last-child {
+      display: none; }
   .login-form__checkbox:checked ~ .login-form__group:last-child {
     display: block; }
 
