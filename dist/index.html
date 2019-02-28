@@ -221,8 +221,8 @@
             </div>
             <!-- 重複單元 -->
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
-            <!-- <div class="card__payment" style="display:none"> -->
-            <div class="card__payment">
+            <div class="card__payment" style="display:none">
+            <!-- <div class="card__payment"> -->
                 <!-- 商品 -->
                 <div class="card__info"> <!-- flex -->
                     <div class="product">
@@ -360,11 +360,12 @@
     </div>
     <div class="login-form">
         <div class="login-form__container">
+            <input type="checkbox" name="signup-btn" id="signup-btn" class="login-form__checkbox">
             <div class="login-form__option mb-sm">
                 <div class="login-form__btn-login heading-2 ">登入</div>
-                <label for="signup-btn" class="login-form__btn-signup">註冊</label>
+                <div class="login-form__btn-signup">註冊</div>
+                <label for="signup-btn" class="login-form__btn-bg"></label>
             </div>
-            <input type="checkbox" name="signup-btn" id="signup-btn" class="login-form__checkbox" checked>
             <div class="login-form__btns">
                 <div class="login-form__btn login-form__btn--fb">
                     <span><i class="fab fa-facebook-f"></i></span>
@@ -382,18 +383,20 @@
             </div>
             <!-- <hr class="login-form__hr"> -->
             <div class="heading-2 mt-sm mb-sm">其他登入</div>
-            <div class="login-form__group">
-                <label for="account" class="login-form__label">帳號</label>
-                <input type="email" class="login-form__input" placeholder="信箱/手機號碼" id="account" required>
-            </div>
-            <div class="login-form__group" >
-                <label for="password" class="login-form__label">密碼</label>
-                <input type="password" class="login-form__input" placeholder="密碼" id="password" required>
-                <div class="login-form__btn-findpassword">忘記密碼</div>
-            </div>
-            <div class="login-form__group">
-                <label for="password2" class="login-form__label">確認密碼</label>
-                <input type="password" class="login-form__input" placeholder="請再次輸入密碼" id="password2" required>
+            <div class="login-form__groups">
+                <div class="login-form__group">
+                    <label for="account" class="login-form__label">帳號</label>
+                    <input type="email" class="login-form__input" placeholder="信箱/手機號碼" id="account" required>
+                </div>
+                <div class="login-form__group" >
+                    <label for="password" class="login-form__label">密碼</label>
+                    <input type="password" class="login-form__input" placeholder="密碼" id="password" required>
+                    <div class="login-form__btn-findpassword">忘記密碼</div>
+                </div>
+                <div class="login-form__group">
+                    <label for="password2" class="login-form__label">確認密碼</label>
+                    <input type="password" class="login-form__input" placeholder="請再次輸入密碼" id="password2" required>
+                </div>
             </div>
             <div class="login-form__btn login-form__btn--login">登入</div>
             <!-- https://sweetalert2.github.io/ -->

@@ -1,7 +1,7 @@
 .login-form{
     width: 100%;
     height: 100vh;
-    color: var( --color-grey-light-2);
+    color: var(--color-grey-light-2);
     position: relative;
     // background-color: var(--color-grey-dark-3);
     &__container{
@@ -17,11 +17,30 @@
         display: flex;
         justify-content: space-between;
         line-height: 1;
+        & > :not(:last-child){
+            z-index: 4;
+        }
+    }
+
+    &__btn-bg{
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        height: 40px;
+        width: 60px;
+        border-radius: 40px;
+        top: 39px;
+        left: 74.5vw;
+        transition: .8s all ease;
+
+    }
+    &__checkbox:checked ~ &__option &__btn-bg{
+        left: 10vw;
+        // background-color: blueviolet;
     }
     
     &__btn{
         width: 100%;
-        border: 1px solid  var( --color-grey-light-2);
+        border: 1px solid var(--color-grey-light-2);
         border-radius: 5px;
         text-align: center;
         line-height: 2;
@@ -29,8 +48,8 @@
             margin-bottom: 10px;
         }
         &--login{
-            color: var( --color-grey-dark-2);
-            background-color: var( --color-grey-light-2);
+            color: var(--color-grey-dark-2);
+            background-color: var(--color-grey-light-2);
         }
     }
     &__group{
@@ -69,14 +88,14 @@
         top: 30px;
         right: 0;
     }
-    &__checkbox:checked + &_btns{
+    &__checkbox:checked ~ &__btns{
         display: flex;
         justify-content: space-evenly;
     }
 
-    &__checkbox:checked + &_btns > &_btn{  
+    &__checkbox:checked ~ &__btns > &__btn{  
         display: inline-block;
-        border: 1px solid  var( --color-grey-light-2);
+        border: 1px solid  var(--color-grey-light-2);
         border-radius: 50px;
         width: 50px;
         height: 50px;
@@ -89,8 +108,7 @@
         }   
     }
     
-
-    &__checkbox:checked ~ &__group:last-child{
+    &__checkbox:checked ~ &__groups > &__group:last-child{
         display: block;
     }
             

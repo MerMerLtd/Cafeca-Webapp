@@ -1,5 +1,6 @@
 .slideup {
-  transform: translateY(-60vh); }
+  transform: translateY(-60vh);
+  transition: all .5s ease-out; }
 
 :root {
   --color-primary-lighter: rgba(159, 205, 205);
@@ -276,6 +277,19 @@ input[type=checkbox] {
     display: flex;
     justify-content: space-between;
     line-height: 1; }
+    .login-form__option > :not(:last-child) {
+      z-index: 4; }
+  .login-form__btn-bg {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 40px;
+    width: 60px;
+    border-radius: 40px;
+    top: 39px;
+    left: 74.5vw;
+    transition: .8s all ease; }
+  .login-form__checkbox:checked ~ .login-form__option .login-form__btn-bg {
+    left: 10vw; }
   .login-form__btn {
     width: 100%;
     border: 1px solid var(--color-grey-light-2);
@@ -312,10 +326,10 @@ input[type=checkbox] {
     position: absolute;
     top: 30px;
     right: 0; }
-  .login-form__checkbox:checked + .login-form_btns {
+  .login-form__checkbox:checked ~ .login-form__btns {
     display: flex;
     justify-content: space-evenly; }
-  .login-form__checkbox:checked + .login-form_btns > .login-form_btn {
+  .login-form__checkbox:checked ~ .login-form__btns > .login-form__btn {
     display: inline-block;
     border: 1px solid var(--color-grey-light-2);
     border-radius: 50px;
@@ -323,9 +337,9 @@ input[type=checkbox] {
     height: 50px;
     text-align: center;
     line-height: 3; }
-    .login-form__checkbox:checked + .login-form_btns > .login-form_btn span:last-child {
+    .login-form__checkbox:checked ~ .login-form__btns > .login-form__btn span:last-child {
       display: none; }
-  .login-form__checkbox:checked ~ .login-form__group:last-child {
+  .login-form__checkbox:checked ~ .login-form__groups > .login-form__group:last-child {
     display: block; }
 
 .numsctrl__btn {

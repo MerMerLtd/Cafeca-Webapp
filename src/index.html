@@ -221,8 +221,8 @@
             </div>
             <!-- 重複單元 -->
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
-            <!-- <div class="card__payment" style="display:none"> -->
-            <div class="card__payment">
+            <div class="card__payment" style="display:none">
+            <!-- <div class="card__payment"> -->
                 <!-- 商品 -->
                 <div class="card__info"> <!-- flex -->
                     <div class="product">
@@ -360,11 +360,12 @@
     </div>
     <div class="login-form">
         <div class="login-form__container">
+            <input type="checkbox" name="signup-btn" id="signup-btn" class="login-form__checkbox">
             <div class="login-form__option mb-sm">
                 <div class="login-form__btn-login heading-2 ">登入</div>
-                <label for="signup-btn" class="login-form__btn-signup">註冊</label>
+                <div class="login-form__btn-signup">註冊</div>
+                <label for="signup-btn" class="login-form__btn-bg"></label>
             </div>
-            <input type="checkbox" name="signup-btn" id="signup-btn" class="login-form__checkbox">
             <div class="login-form__btns">
                 <div class="login-form__btn login-form__btn--fb">
                     <span><i class="fab fa-facebook-f"></i></span>
