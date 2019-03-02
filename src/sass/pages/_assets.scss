@@ -1,11 +1,22 @@
 .assets{
-    // background-color: var(--color-grey-dark-3);
-    height: 100vh;
+    background-color: var(--color-grey-light-1);
+
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 65vh;
+    transition: all ease .5s;
+
+    position: relative;
     &__btn-open{
         font-size: 4rem;
         line-height: 1;
         position: fixed;
         bottom: 10px;
         left: 10vw;
+        z-index: 10;
+    }
+
+    &__checkbox:checked ~ &{
+        transform: translateY(-65vh);
     }
 }

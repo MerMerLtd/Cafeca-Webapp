@@ -12,6 +12,9 @@
     // grid-template-areas: "display toggle top"
     //                      "display toggle bottom"
     //                      "price   price  price";
+    > * {
+        transition: all .2s ease;
+    }
 
     &__display{
         // grid-area: display;
@@ -34,7 +37,6 @@
         grid-column-gap: 10px;
         align-items: center;
        
-        // transform: translateX(-40px);
     }
 
     &__toggle{
@@ -63,7 +65,7 @@
 
         &--top{
             // grid-area: top;
-            background-color: #caf0f1; 
+            background-color: var(--color-secondary-dark); 
             grid-row: 1/2;
             border-top-right-radius: 5px;
            
@@ -71,7 +73,7 @@
 
         &--bottom{
             // grid-area: bottom;
-            background-color: #ebf1ca;
+            background-color: var(--color-secondary);
             grid-row: 2/3;
             border-bottom-right-radius: 5px;
            
@@ -83,4 +85,10 @@
         background-color: #816b85;
        
     }
+
+    &__checkbox:checked ~ &__display,
+    &__checkbox:checked + &__toggle{
+        transform: translateX(-40px);
+    }
+    
 }

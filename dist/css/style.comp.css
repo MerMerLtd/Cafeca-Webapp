@@ -10,7 +10,7 @@
   --color-primary-dark-2: #08485c;
   --color-secondary-light: rgb(233, 229, 215);
   --color-secondary: rgb(221, 194, 128);
-  --color-secondary--dark: rgb(198, 172, 111);
+  --color-secondary-dark: rgb(198, 172, 111);
   --color-grey-light-1: #faf9f9;
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #f0eeee;
@@ -20,6 +20,8 @@
   --color-grey-dark-3: #93a1ae;
   --shadow-dark: 0 1.25rem 3.75rem #0000004d;
   --shadow-light: 0 1.25rem 3.125rem #0000000f;
+  --modal-dark:  #0000004d;
+  --modal-light:  #0000000f;
   --line: 1px solid var(--color-grey-light-2);
   --font-display: sans-serif; }
 
@@ -96,14 +98,35 @@ input[type=checkbox] {
 .mt-hg {
   margin-top: 5rem; }
 
-.btn {
-  font-size: 1.4rem; }
-  .btn--card, .btn--card:link, .btn--card:visited {
-    text-decoration: none;
-    color: var(--color-primary-dark-2);
-    position: absolute;
-    top: 40vh;
-    font-size: 4rem; }
+.btn, .btn:link, .btn:visited {
+  text-decoration: none;
+  display: block;
+  color: var(--color-grey-light-1); }
+
+.btn--card {
+  color: var(--color-primary-dark-2);
+  position: absolute;
+  top: 40vh;
+  font-size: 4rem; }
+
+.btn--open-lgf {
+  line-height: 2;
+  padding: 5px;
+  width: 80vw;
+  color: var(--color-grey-light-1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--color-primary-light);
+  background-color: var(--color-primary-light);
+  border-radius: 5px;
+  text-align: center; }
+
+.btn--modal {
+  background-color: var(--modal-light);
+  height: 100vh;
+  width: 100vw; }
 
 .card {
   margin: 0 auto;
@@ -153,13 +176,13 @@ input[type=checkbox] {
     .card__btn--previous, .card__btn:link--previous, .card__btn:visited--previous {
       left: -25px; }
     .card__btn--next, .card__btn:link--next, .card__btn:visited--next {
-      right: -25px; }
+      right: -26.5px; }
 
 .card__btn--previous {
   left: -25px; }
 
 .card__btn--next {
-  right: -25px; }
+  right: -26.5px; }
 
 .column {
   height: 130px;
@@ -171,6 +194,8 @@ input[type=checkbox] {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr); }
+  .column > * {
+    transition: all .2s ease; }
   .column__display {
     grid-column: 1/ span 2;
     grid-row: 1/  span 2;
@@ -201,15 +226,18 @@ input[type=checkbox] {
     justify-self: end;
     grid-column: 2/3; }
     .column__btn--top {
-      background-color: #caf0f1;
+      background-color: var(--color-secondary-dark);
       grid-row: 1/2;
       border-top-right-radius: 5px; }
     .column__btn--bottom {
-      background-color: #ebf1ca;
+      background-color: var(--color-secondary);
       grid-row: 2/3;
       border-bottom-right-radius: 5px; }
   .column__price {
     background-color: #816b85; }
+  .column__checkbox:checked ~ .column__display,
+  .column__checkbox:checked + .column__toggle {
+    transform: translateX(-40px); }
 
 .credit-card__info {
   border-radius: 5px;
@@ -264,15 +292,29 @@ input[type=checkbox] {
   border-radius: 5px; }
 
 .login-form {
-  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   height: 100vh;
-  color: var(--color-grey-light-2);
-  position: relative; }
+  opacity: 0;
+  transform: scale(0.01);
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .login-form:target {
+    z-index: 10;
+    transform: scale(1);
+    opacity: 1; }
   .login-form__container {
-    width: 85vw;
+    width: 88vw;
     margin: 0 auto;
     padding: 50px 20px;
-    background-color: var(--color-grey-dark-2); }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-grey-light-2);
+    background-color: var(--color-grey-dark-2);
+    border-radius: 5px; }
   .login-form__option {
     display: flex;
     justify-content: space-between;
@@ -286,16 +328,15 @@ input[type=checkbox] {
     width: 60px;
     border-radius: 40px;
     top: 39px;
-    left: 74.5vw;
+    left: 2.5vw;
     transition: .8s all ease; }
-  .login-form__checkbox:checked ~ .login-form__option .login-form__btn-bg {
-    left: 10vw; }
   .login-form__btn {
     width: 100%;
     border: 1px solid var(--color-grey-light-2);
     border-radius: 5px;
     text-align: center;
-    line-height: 2; }
+    line-height: 2;
+    padding: 5px; }
     .login-form__btn:not(:last-child) {
       margin-bottom: 10px; }
     .login-form__btn--login {
@@ -326,6 +367,8 @@ input[type=checkbox] {
     position: absolute;
     top: 30px;
     right: 0; }
+  .login-form__checkbox:checked ~ .login-form__option .login-form__btn-bg {
+    left: 70vw; }
   .login-form__checkbox:checked ~ .login-form__btns {
     display: flex;
     justify-content: space-evenly; }
@@ -336,11 +379,13 @@ input[type=checkbox] {
     width: 50px;
     height: 50px;
     text-align: center;
-    line-height: 3; }
+    line-height: 2.5; }
     .login-form__checkbox:checked ~ .login-form__btns > .login-form__btn span:last-child {
       display: none; }
   .login-form__checkbox:checked ~ .login-form__groups > .login-form__group:last-child {
     display: block; }
+  .login-form__checkbox:checked ~ .login-form__groups > .login-form__group:nth-child(2) > div {
+    display: none; }
 
 .numsctrl__btn {
   width: 20px;
@@ -369,6 +414,31 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0; }
+
+.order-form {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0; }
+  .order-form:target {
+    z-index: 10;
+    transform: scale(1);
+    opacity: 1; }
+  .order-form__container {
+    transform: scale(0.01);
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 88vw;
+    margin: 0 auto;
+    padding: 50px 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-grey-light-2);
+    background-color: var(--color-grey-dark-2);
+    border-radius: 5px; }
 
 .product__img {
   width: 100%;
@@ -485,7 +555,12 @@ input[type=number]::-webkit-outer-spin-button {
   overflow: scroll; }
 
 .assets {
-  height: 100vh; }
+  background-color: var(--color-grey-light-1);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 65vh;
+  transform: translateY(-65vh);
+  position: relative; }
   .assets__btn-open {
     font-size: 4rem;
     line-height: 1;

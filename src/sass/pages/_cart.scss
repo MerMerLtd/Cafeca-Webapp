@@ -45,6 +45,10 @@
         }
     }
     &__btn-order{
+        color: var(--color-primary-dark-2);
+        font-weight: 300;
+        font-size: 1.25rem; //20px
+
         background-color:var(--color-primary-light);
         width: 100vw;
         padding: 12px;

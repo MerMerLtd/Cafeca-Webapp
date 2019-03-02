@@ -1,16 +1,29 @@
 .login-form{
-    width: 100%;
+    position: fixed;
+    top: 0;
+    // background-color: var(--modal-light);
+    width: 100vw;
     height: 100vh;
-    color: var(--color-grey-light-2);
-    position: relative;
-    // background-color: var(--color-grey-dark-3);
+    opacity: 0;
+
+    transform: scale(0.01);
+    z-index: -1;
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:target{
+        z-index: 10;
+        transform: scale(1); 
+        opacity: 1;
+    }
+
     &__container{
-        width: 85vw;
-        // height: 60vh;
+        width: 88vw;
         margin: 0 auto;
         padding: 50px 20px ;
-        // padding: 20px ;
+        @include absCenter;
+        color: var(--color-grey-light-2);
         background-color: var(--color-grey-dark-2);
+
+        border-radius: 5px;
     }
 
     &__option{
@@ -29,13 +42,10 @@
         width: 60px;
         border-radius: 40px;
         top: 39px;
-        left: 74.5vw;
+        left: 2.5vw;
+        // left: 74.5vw; test
         transition: .8s all ease;
 
-    }
-    &__checkbox:checked ~ &__option &__btn-bg{
-        left: 10vw;
-        // background-color: blueviolet;
     }
     
     &__btn{
@@ -44,6 +54,7 @@
         border-radius: 5px;
         text-align: center;
         line-height: 2;
+        padding: 5px;
         &:not(:last-child){
             margin-bottom: 10px;
         }
@@ -88,6 +99,12 @@
         top: 30px;
         right: 0;
     }
+
+    &__checkbox:checked ~ &__option &__btn-bg{
+        // left: 10vw; test
+        left: 70vw;
+    }
+
     &__checkbox:checked ~ &__btns{
         display: flex;
         justify-content: space-evenly;
@@ -100,7 +117,7 @@
         width: 50px;
         height: 50px;
         text-align: center;
-        line-height: 3;
+        line-height: 2.5;
         span{
             &:last-child{
                 display: none;
@@ -110,7 +127,10 @@
     
     &__checkbox:checked ~ &__groups > &__group:last-child{
         display: block;
+    } 
+
+    &__checkbox:checked ~ &__groups > &__group:nth-child(2) > div {
+        display: none;
     }
-            
-    
+
 }
