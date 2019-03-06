@@ -30,8 +30,8 @@
 
                     <!-- 選項： single or set -->
                     <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                    <input type="checkbox" id="switch--display" name="set-name" class="product__switch switch-input">
-                    <label for="switch--display" class="switch-label"></label>
+                    <input type="checkbox" id="switch--display" name="set-name" class="product__switch switch__checkbox">
+                    <label for="switch--display" class="switch__label"></label>
         
                     <!-- 商品價格 -->
                     <p class="product__price">NT 260</p>
@@ -250,14 +250,14 @@
                     <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->       
                     <div class="heading-2 mb-sm">輸入卡片資訊</div>
                     <div class="credit-card__info">
-                        <label for="card-number" class="credit-card__num">信用卡號</label>
-                        <input type="text" id="card-number" class="credit-card__numi credit-card__numi--1" maxlength="4" />
-                        <input type="text" id="card-number-1" class="credit-card__numi credit-card__numi--2" maxlength="4" />
-                        <input type="text" id="card-number-2" class="credit-card__numi credit-card__numi--3" maxlength="4" />
-                        <input type="text" id="card-number-3" class="credit-card__numi credit-card__numi--4" maxlength="4" />
+                        <label for="card-number1" class="credit-card__num">信用卡號</label>
+                        <input type="text" id="card-number1" class="credit-card__numi credit-card__numi--1" maxlength="4" />
+                        <input type="text" id="card-number1-1" class="credit-card__numi credit-card__numi--2" maxlength="4" />
+                        <input type="text" id="card-number1-2" class="credit-card__numi credit-card__numi--3" maxlength="4" />
+                        <input type="text" id="card-number1-3" class="credit-card__numi credit-card__numi--4" maxlength="4" />
                         
                         <label for="name" class="credit-card__name">持卡人姓名</label>
-                        <input type="text" name="name" id="name" class="credit-card__name-input">
+                        <input type="text" name="name" id="name1" class="credit-card__name-input">
 
                         <label class="credit-card__expire">有效期限</label>
                 
@@ -292,7 +292,7 @@
                         </select>
 
                         <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
-                        <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3" />
+                        <input type="text" id="card-cvv1" class="credit-card__cvv-input" maxlength="3" />
                     </div>
                     <div class="credit-card__btn-checkout mt-lg">確認付款</div>  
                 </div>              
@@ -408,5 +408,20 @@
             <a href="#assets" class="login-form__btn btn">關閉</a>
         </div>
     </div>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBNulErK-OblwR4nCl5oB4C62q4ytrl_RY",
+        authDomain: "cafeca-webapp.firebaseapp.com",
+        databaseURL: "https://cafeca-webapp.firebaseio.com",
+        projectId: "cafeca-webapp",
+        storageBucket: "cafeca-webapp.appspot.com",
+        messagingSenderId: "553572864812"
+    };
+    firebase.initializeApp(config);
+    </script> -->
 </body>
 </html>
