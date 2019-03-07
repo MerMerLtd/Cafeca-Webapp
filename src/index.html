@@ -34,7 +34,9 @@
                     <label for="switch--display" class="switch__label"></label>
         
                     <!-- 商品價格 -->
-                    <p class="product__price">NT <span>260</span></p>
+                    <!-- <p class="product__price">NT <span>260</span></p> -->
+                    <p class="product__price switch--price1">NT <span>180</span></p>
+                    <p class="product__price switch--price2">NT <span>260</span></p>
     
                     <!-- 購買數量 -->
                     <div class="product__numsctrl">
@@ -186,47 +188,55 @@
 
         <!-- <div class="card slideup"> -->
         <div class="card ">
-            <!-- 重複單元 --> <!-- 先做成slide的換頁的方式（目前的兩種方式邏輯怪）--> 
-            <div class="card__display"> 
-                <!-- Next and Previous Buttons -->
-                <a href="#" class="card__btn card__btn--previous">&#8249;</a>
-                <a href="#" class="card__btn card__btn--next">&#8250;</a>
+            <!-- Next and Previous Buttons -->
+            <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+            <a href="#" class="card__btn card__btn--next">&#8250;</a>
+            
+            <ul class="product__list">
+                <!-- 重複單元 --> <!-- 先做成slide的換頁的方式（目前的兩種方式邏輯怪）--> 
+                <li>
+                    <div class="card__display"> 
 
-                <div class="card__title"> <!-- grid -->
-                    <!-- 商品 -->
-                    <div class="product__name">和解（榛果拿鐵）</div>
-                    <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
-                    <!-- 加到心願單的按鈕 -->
-                    <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
-                    <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
-                </div>
-                <div class="card__img-box">
-                    <img src="./img/coffee-demo-1-1.jpeg" alt="image" class="card__img">
-                </div>
-                <div class="card__toolbox">
-                     <!-- 選項： single or set -->
-                    <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                    <input type="checkbox" id="switch--display-2" name="set-name" class="product__switch switch__checkbox">
-                    <label for="switch--display-2" class="switch__label"></label>
-                    <!-- 商品價格 -->
-                    <p class="product__price">NT <span>260</span></p>
-                    <!-- (不做了，感覺不夠寬)想要做的功能 👇 -->
-                    <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->  
-                    <!-- 根據情況二選一 -->
-                    <!-- 加到購物車的按鈕 -->
-                    <div class="btn btn--cart">
-                        <i class="fas fa-shopping-cart"></i>
+                        <div class="card__title"> <!-- grid -->
+                            <!-- 商品 -->
+                            <div class="product__name">和解（榛果拿鐵）</div>
+                            <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
+                            <!-- 加到心願單的按鈕 -->
+                            <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
+                            <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
+                        </div>
+                        <div class="card__img-box">
+                            <img src="./img/coffee-demo-1-1.jpeg" alt="image" class="card__img">
+                        </div>
+                        <div class="card__toolbox">
+                            <!-- 選項： single or set -->
+                            <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
+                            <input type="checkbox" id="switch--display-2" name="set-name" class="product__switch switch__checkbox">
+                            <label for="switch--display-2" class="switch__label"></label>
+                            <!-- 商品價格 -->
+                            <!-- <p class="product__price">NT <span>260</span></p> -->
+                            <p class="product__price switch--price1">NT <span>180</span></p>
+                            <p class="product__price switch--price2">NT <span>260</span></p>
+          
+                            <!-- (不做了，感覺不夠寬)想要做的功能 👇 -->
+                            <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->  
+                            <!-- 根據情況二選一 -->
+                            <!-- 加到購物車的按鈕 -->
+                            <div class="btn btn--cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <!-- 購買數量 -->
+                            <!-- <div class="product__numsctrl">
+                                <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
+                                <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
+                                <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
+                            </div> -->
+                            <!-- 根據情況二選一 -->
+                        </div>
                     </div>
-                    <!-- 購買數量 -->
-                    <!-- <div class="product__numsctrl">
-                        <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
-                        <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
-                        <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
-                    </div> -->
-                    <!-- 根據情況二選一 -->
-                </div>
-            </div>
-            <!-- 重複單元 -->
+                </li>
+                <!-- 重複單元 -->
+            </ul>
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
             <div class="card__payment" style="display:none">
             <!-- <div class="card__payment"> -->
@@ -304,10 +314,10 @@
         <div class="heading-1 mb-md">我的兌換卷</div>
         <!-- voucher -->
         <div class="voucher">
+            <!-- Next and Previous Buttons -->
+            <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+            <a href="#" class="card__btn card__btn--next">&#8250;</a>
             <div class="voucher__front-side">
-                <!-- Next and Previous Buttons -->
-                <a href="#" class="card__btn card__btn--previous">&#8249;</a>
-                <a href="#" class="card__btn card__btn--next">&#8250;</a>
                 <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
                 <div class="voucher__cover"> <!-- grid -->
                     <!-- 商品 -->

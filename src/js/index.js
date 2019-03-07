@@ -1,5 +1,6 @@
 import "../sass/main.scss";
 import getLocation from "./helper/getLocation";
+import * as helper from "./helper";
 
 import cartitemsModel from "./models/cartitemsModel";
 import collectionsModel from "./models/collectionsModel";
@@ -40,16 +41,16 @@ const state = {};
 
 const controlProducts = async () => {
     // 1. 取得瀏覽網頁者的location
-    getLocation()
+    helper.getLocation()
     .then(res => {
         console.log({
             lat: res.coords.latitude || res.location.lat,
             lng: res.coords.longitude || res.location.lng
-        })
+        });
         return {
             lat: res.coords.latitude || res.location.lat,
             lng: res.coords.longitude || res.location.lng
-        }
+        };
     })
     // 2. 利用瀏覽網頁者的location，取得使用者附近店家的商品，並呈現在畫面上
     .then(location => {

@@ -1,10 +1,8 @@
 .card{
     margin: 0 auto;
     width: 80vw;
+    position: relative;
     
-    &__display{
-       position: relative;
-    }
     &__title{
         background-color: rgba(255, 255, 255, 0.7);
         position: absolute;
