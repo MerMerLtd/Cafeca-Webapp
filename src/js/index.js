@@ -1,5 +1,4 @@
 import "../sass/main.scss";
-// import makeRequest from "./helper/makeRequest";
 import getLocation from "./helper/getLocation";
 
 import cartitemsModel from "./models/cartitemsModel";
@@ -42,7 +41,7 @@ const state = {};
 const controlProducts = async () => {
     // 1. 取得瀏覽網頁者的location
     getLocation()
-    .then( res => {
+    .then(res => {
         console.log({
             lat: res.coords.latitude || res.location.lat,
             lng: res.coords.longitude || res.location.lng
@@ -52,8 +51,8 @@ const controlProducts = async () => {
             lng: res.coords.longitude || res.location.lng
         }
     })
+    // 2. 利用瀏覽網頁者的location，取得使用者附近店家的商品，並呈現在畫面上
     .then(location => {
-        // 2. 利用瀏覽網頁者的location，取得使用者附近店家的商品，並呈現在畫面上
     
         // 2.1 生成 products object 
         state.products = Object.create(ProductsModel);
@@ -70,17 +69,16 @@ const controlProducts = async () => {
         state.products.makeRequest(opts)
         .then( res => {
             const products = res.products;
+
+            // 2.4 render results on UI
             console.log('Success!', products);
         })
         .catch(error => {
             console.log('Something went wrong', error);
         });
-
-        // 2.4 render results on UI
-    
     })
     .catch( error => {
-        console.log('Something went wrong2', error);
+        console.log('Something went wrong: index', error);
     });
 
    

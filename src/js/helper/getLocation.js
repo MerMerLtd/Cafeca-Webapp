@@ -24,12 +24,7 @@ const getLocation = () => {
         method: "POST",
         url: "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBvQFadDREYnAl2MMF_xEnVQrRXi0w0slc",
       };
-      makeRequest(opts)
-    //   .then(res => res)
-      .catch(
-        error => {
-            console.log('Something went wrong1', error);
-        });
+      return makeRequest(opts);
     }
 }
 export default getLocation;
