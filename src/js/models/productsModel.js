@@ -13,10 +13,10 @@ firebase.initializeApp(config);
 const ProductsModel = {
   makeRequest: () => {
     const xhr = new XMLHttpRequest();
-    xhr.onload = event => {
+    xhr.onload = () => {
       // if (xhr.status >= 200 && xhr.status < 300) {
         const products = JSON.parse(xhr.responseText);
-        // console.log(products);
+        console.log(products);
       // }
     };
     xhr.onerror = () => {
