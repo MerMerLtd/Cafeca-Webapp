@@ -12,6 +12,7 @@ import userModel from "./models/userModel";
 import * as collectionsView from "./views/collectionsView";
 import * as possessionsView from "./views/possessionsView";
 import * as productsView from "./views/productView";
+import * as cartView from "./views/cartView";
 
 //================================
 //--------------- firebase -------

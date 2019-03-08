@@ -18,4 +18,7 @@ export const elements = {
     body: document.querySelector("body"), //testing
     
     display: document.querySelector(".display"),
+
+    cartToggle: document.querySelector(".cart__toggle"),
+    cart: document.querySelector(".cart"),
 }
