@@ -9,6 +9,13 @@ export const elements = {
     cardLists: document.querySelectorAll(".card__list"),
     // productList: document.querySelector(".display > .card > .card__list"),
     // voucherList: document.querySelector(".possessions .card > .card__list"),
+    cardInfo: document.querySelector(".card__info > .product"),
+    cardPrice: document.querySelector(".card__price"),
 
     card: document.querySelectorAll(".card"),
+
+    swipe: document.querySelector(".swipe"), //testing
+    body: document.querySelector("body"), //testing
+    
+    display: document.querySelector(".display"),
 }

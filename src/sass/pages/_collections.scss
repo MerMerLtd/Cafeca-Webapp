@@ -6,4 +6,7 @@
     display: grid;
     grid-template-rows: min-content auto;
 
+    &  * {
+        z-index: 400;
+    }
 }

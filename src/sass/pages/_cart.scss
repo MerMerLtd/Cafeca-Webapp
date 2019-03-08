@@ -1,5 +1,9 @@
 .cart{
-    transform: translateY(70px);
+    position: absolute;
+    top: 0;
+    z-index: 500;
+
+    transform: translateY(-90vh);
     height: 100vh;
 
     display: grid;

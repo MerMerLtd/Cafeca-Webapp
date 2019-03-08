@@ -2,8 +2,8 @@
   transform: translateY(-60vh);
   transition: all .5s ease-out; }
 
-.animate {
-  transition: transform 0.3s ease-out; }
+.smooth {
+  transition: transform calc(var(--f, 1)*.5s) ease-out; }
 
 :root {
   --color-primary-lighter: rgba(159, 205, 205);
@@ -44,7 +44,9 @@ body {
   font-weight: 300;
   line-height: 1.6;
   color: var(--color-grey-dark-2);
-  height: 100vh; }
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; }
 
 input[type=number] {
   -moz-appearance: textfield; }
@@ -140,18 +142,24 @@ input[type=checkbox] {
 .card {
   margin: 0 auto;
   width: 80vw;
-  position: relative; }
+  position: relative;
+  overflow-x: hidden; }
   .card__list {
     list-style: none;
-    position: absolute;
-    width: 500%;
-    top: 0;
-    left: 0; }
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 60vh;
+    --length: 1;
+    width: 100%;
+    width: calc(var(--length)*100%);
+    transition: transform .5s ease-out;
+    transform: translate(calc(var(--index, 0)/var(--length)*-100%)); }
   .card__display {
     position: relative;
-    width: 80vw;
-    height: 60vh;
-    float: left; }
+    height: 100%;
+    width: 100%;
+    width: calc(100%/var(--length)); }
   .card__title {
     background-color: rgba(255, 255, 255, 0.7);
     position: absolute;
@@ -197,16 +205,12 @@ input[type=checkbox] {
     position: absolute;
     top: 45%;
     z-index: 100; }
-    .card__btn--previous, .card__btn:link--previous, .card__btn:visited--previous {
-      left: 1vw; }
-    .card__btn--next, .card__btn:link--next, .card__btn:visited--next {
-      right: 1vw; }
 
 .card__btn--previous {
-  left: -25px; }
+  left: 2vw; }
 
 .card__btn--next {
-  right: -26.5px; }
+  right: 2vw; }
 
 .column {
   height: 130px;
@@ -571,7 +575,8 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100%;
     padding: 10px;
     position: absolute;
-    top: 0; }
+    top: 0;
+    z-index: 100; }
   .voucher__qrcode {
     position: absolute;
     top: 50%;
@@ -588,6 +593,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 .container--scroll {
   overflow: scroll; }
+
+.swipe {
+  display: flex;
+  align-items: center;
+  --n: 3;
+  width: calc(100%*var(--n));
+  transition: transform .5s ease-out;
+  transform: translate(calc(var(--i, 0)/var(--n)*-100% + var(--tx, 0px))); }
+  .swipe > * {
+    width: calc(100%/var(--n));
+    pointer-events: none; }
 
 .assets {
   background-color: var(--color-grey-light-1);
@@ -666,4 +682,5 @@ input[type=number]::-webkit-outer-spin-button {
 
 .possessions {
   background-color: var(--color-secondary-light);
+  position: relative;
   height: 100vh; }

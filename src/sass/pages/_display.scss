@@ -1,6 +1,11 @@
 .display{
     background-color: var(--color-primary-light);
-    position: relative;
     height: 100vh;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    --zIndex: 300;
+    z-index: var(--zIndex);
+    
+    
+    // position: absolute;
+    // top: 0;
 }

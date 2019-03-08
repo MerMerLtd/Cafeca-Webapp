@@ -1,0 +1,21 @@
+.swipe{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 200;
+
+    --n: 3;
+    width: calc(100%*var(--n));
+
+    transition: transform .5s ease-out;
+    transform: translate(calc(var(--i, 1)/var(--n)*-100% + var(--tx, 0px)));
+
+    & > * {
+        width: calc(100%/var(--n)); 
+    }
+}
+
+img{
+    pointer-events: none; 
+}

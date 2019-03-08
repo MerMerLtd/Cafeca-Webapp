@@ -50,8 +50,11 @@ body{
     color: var(--color-grey-dark-2);
 
     height: 100vh;
-    // position: relative;
-    // overflow: hidden;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+
+
 }
 
 // https://my.oschina.net/qii/blog/341439 or  把input:number 改成 input:tel

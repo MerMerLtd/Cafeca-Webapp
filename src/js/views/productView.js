@@ -37,11 +37,13 @@ const renderProduct = product =>{
 export const renderResults = products => {
   
   products.forEach(renderProduct);
-  elements.cardLists[0].style.setProperty("--n", elements.cardLists[0].children.length);
+  elements.cardLists[0].style.setProperty("--length", elements.cardLists[0].children.length);
 
 };
 
 
+// ===========================================================
+// =====================   控制商品數量及價錢   =================
 //(參考) https://codepen.io/djgrant/pen/AwFHL
 (function (){
     window.inputNumber = (numsctrl, switchBtn, priceDisplay) => {
@@ -93,7 +95,6 @@ export const renderResults = products => {
       });
     }
   })();
-
   const els = [] 
   for (let i = 0; i < elements.numsctrls.length; i++){
     els.push({
@@ -107,28 +108,36 @@ export const renderResults = products => {
   }
   els.forEach(el => inputNumber(el.numsctrl, el.switchBtn, el.priceDisplay));
 
+// ===========================================================
+// =====  display & possession 按鈕：左右平移cardList  ==========
   (function (){
     window.swipeCardList = (cardList, prevCardBtn, nextCardBtn) => {
-      let cardIndex = 0;
+      window.cardIndex = 0;
+      const setCard = () => {
+        cardList.style.setProperty("--index", cardIndex);
+        console.log(cardList.children[cardIndex]);
+        elements.cardInfo.children[0].innerText = cardList.children[cardIndex].children[0].children[0].innerText;
+        elements.cardInfo.children[1].innerText = cardList.children[cardIndex].children[0].children[1].innerText;
+      }
       const movePrev = event => {
         event.preventDefault();
         cardIndex < cardList.children.length - 1
         ? cardIndex++
         : console.log("最後一張啦");
-        cardList.style.setProperty("--i", cardIndex);
+        setCard();
       };
       const moveNext = event => {
         event.preventDefault();
         cardIndex > 0 
         ? cardIndex--
         : console.log("這是第一張");
-        cardList.style.setProperty("--i", cardIndex);
+        setCard();
       };
       prevCardBtn.addEventListener("click", movePrev, false);
       nextCardBtn.addEventListener("click", moveNext, false);
     };
   })();
-
+  
   const cardEls = [];
   for (let i = 0; i < elements.cardLists.length; i++){
     cardEls.push({
@@ -137,8 +146,6 @@ export const renderResults = products => {
       nextCardBtn: elements.nextCardBtns[i],
     });
   }
-  console.log(cardEls);
-
   cardEls.forEach(el => swipeCardList(el.cardList, el.prevCardBtn, el.nextCardBtn));
   
 
