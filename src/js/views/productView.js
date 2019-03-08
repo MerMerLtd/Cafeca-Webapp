@@ -50,9 +50,10 @@ export const renderResults = products => {
       let max = numsDisplay.attributes.max.nodeValue || false;
 
       let priceIndex = false;
-      let value = numsDisplay.value;
 
       const init = () => {
+        let value = numsDisplay.value;
+
         const decrement = () =>{
           value > min ? value-- : null;
           value > min 
@@ -62,7 +63,9 @@ export const renderResults = products => {
         }
         const increment = () =>{
           value < max ? value++ : null;
-          priceDisplay[+priceIndex].innerText = price[+priceIndex] * value;
+          value <= max 
+          ? priceDisplay[+priceIndex].innerText = price[+priceIndex] * value
+          : null;
           numsDisplay.value = value;
         }
   
@@ -81,7 +84,6 @@ export const renderResults = products => {
       switchBtn.addEventListener("change", () => {
         // 還是有錯誤。。。
         priceIndex = !priceIndex;
-        numsDislay.value = 1;
         priceDisplay[+priceIndex].innerText = price[+priceIndex] * numsDisplay.value;;
         init();
       });
