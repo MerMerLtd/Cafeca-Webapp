@@ -185,58 +185,49 @@
 
     <div class="display">
         <div class="heading-1 mb-md">商品資訊</div>
+        <!-- Next and Previous Buttons -->
+        <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+        <a href="#" class="card__btn card__btn--next">&#8250;</a>
 
         <!-- <div class="card slideup"> -->
         <div class="card ">
-            <!-- Next and Previous Buttons -->
-            <a href="#" class="card__btn card__btn--previous">&#8249;</a>
-            <a href="#" class="card__btn card__btn--next">&#8250;</a>
-            
-            <ul class="product__list">
+            <ul class="card__list">
                 <!-- 重複單元 --> <!-- 先做成slide的換頁的方式（目前的兩種方式邏輯怪）--> 
-                <li>
-                    <div class="card__display"> 
+                <li class="card__display"> 
 
-                        <div class="card__title"> <!-- grid -->
-                            <!-- 商品 -->
-                            <div class="product__name">和解（榛果拿鐵）</div>
-                            <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
-                            <!-- 加到心願單的按鈕 -->
-                            <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
-                            <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
-                        </div>
-                        <div class="card__img-box">
-                            <img src="./img/coffee-demo-1-1.jpeg" alt="image" class="card__img">
-                        </div>
-                        <div class="card__toolbox">
-                            <!-- 選項： single or set -->
-                            <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                            <input type="checkbox" id="switch--display-2" name="set-name" class="product__switch switch__checkbox">
-                            <label for="switch--display-2" class="switch__label"></label>
-                            <!-- 商品價格 -->
-                            <!-- <p class="product__price">NT <span>260</span></p> -->
-                            <p class="product__price switch--price1">NT <span>180</span></p>
-                            <p class="product__price switch--price2">NT <span>260</span></p>
-          
-                            <!-- (不做了，感覺不夠寬)想要做的功能 👇 -->
-                            <!-- 當商品卡上滑時打卡單品結帳功能把加到購物車的按鈕換成控制購買數量的按鈕 -->  
-                            <!-- 根據情況二選一 -->
-                            <!-- 加到購物車的按鈕 -->
-                            <div class="btn btn--cart">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <!-- 購買數量 -->
-                            <!-- <div class="product__numsctrl">
-                                <span class="numsctrl__btn numsctrl__btn--increase"> <i class="fas fa-plus"></i> </span>
-                                <input type="number" name="nums" class="numsctrl__display" value="1" min="0" max="10">
-                                <span class="numsctrl__btn numsctrl__btn--decrease"> <i class="fas fa-minus"></i> </span>
-                            </div> -->
-                            <!-- 根據情況二選一 -->
-                        </div>
+                    <div class="card__title"> <!-- grid -->
+                        <!-- 商品 -->
+                        <div class="product__name">和解（榛果拿鐵）</div>
+                        <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
+                        <!-- 加到心願單的按鈕 -->
+                        <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
+                        <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
                     </div>
+
+                    <div class="card__img-box">
+                        <img src="./img/coffee-demo-1-1.jpeg" alt="image" class="card__img">
+                    </div>
+
+                    <div class="card__toolbox">
+                        <!-- 選項： single or set -->
+                        <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
+                        <input type="checkbox" id="switch--display-2" name="set-name" class="product__switch switch__checkbox">
+                        <label for="switch--display-2" class="switch__label"></label>
+                        <!-- 商品價格 -->
+                        <!-- <p class="product__price">NT <span>260</span></p> -->
+                        <p class="product__price switch--price1">NT <span>180</span></p>
+                        <p class="product__price switch--price2">NT <span>260</span></p>
+        
+                        <!-- 加到購物車的按鈕 -->
+                        <div class="btn btn--cart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div> 
+
                 </li>
                 <!-- 重複單元 -->
             </ul>
+            <!-- <div class="shop__info"> maybe 用來取代 .card__payment </div> -->
             <!-- card__instant-checkout 不是寫死在商品卡下面的，而是當商品卡 ontouch時動態生成append到card上-->
             <div class="card__payment" style="display:none">
             <!-- <div class="card__payment"> -->
@@ -306,49 +297,54 @@
                     </div>
                     <div class="credit-card__btn-checkout mt-lg">確認付款</div>  
                 </div>              
-            </div>
+            </div>  
         </div>
     </div>
 
-    <div class="possessions">
+    <div class="possessions" >
         <div class="heading-1 mb-md">我的兌換卷</div>
+        <!-- Next and Previous Buttons -->
+        <a href="#" class="card__btn card__btn--previous">&#8249;</a>
+        <a href="#" class="card__btn card__btn--next">&#8250;</a>
         <!-- voucher -->
-        <div class="voucher">
-            <!-- Next and Previous Buttons -->
-            <a href="#" class="card__btn card__btn--previous">&#8249;</a>
-            <a href="#" class="card__btn card__btn--next">&#8250;</a>
-            <div class="voucher__front-side">
-                <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
-                <div class="voucher__cover"> <!-- grid -->
-                    <!-- 商品 -->
-                    <div class="product__name">和解（榛果拿鐵）</div>
-                    <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
-                    <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
-                    <!-- 兌換資訊: qr code -->
-                    <!-- https://www.qr-code-generator.com/a1/?gclid=EAIaIQobChMIlvnZhcjb4AIVybWWCh3BZAvmEAAYASAAEgKTz_D_BwE -->
-                    <!-- <img src="./img/frame.png" alt="qrcode" class="voucher__qrcode"> -->
-                    <div class="voucher__qrcode">
-                        <i class="fas fa-qrcode"></i>
+        <div class="card">
+            <ul class="card__list">
+                <li class="voucher__display">
+                    <!-- 商品 --> <!-- 打算參考w3school coupon的設計 -->
+                    <div class="voucher__front-side"> <!-- grid -->
+                        <div class="voucher__cover"> <!-- grid -->
+                            <!-- 商品 -->
+                            <div class="product__name">和解（榛果拿鐵）</div>
+                            <div class="product__accessory">適合搭配： 栗子蒙布朗</div>
+                            <p class="product__description">「如果想征服生命中的焦慮，活在當下，活在每一個呼吸裡」</p>
+                            <!-- 兌換資訊: qr code -->
+                            <!-- https://www.qr-code-generator.com/a1/?gclid=EAIaIQobChMIlvnZhcjb4AIVybWWCh3BZAvmEAAYASAAEgKTz_D_BwE -->
+                            <!-- <img src="./img/frame.png" alt="qrcode" class="voucher__qrcode"> -->
+                            <div class="voucher__qrcode">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="voucher__barcode">
+                                <i class="fas fa-barcode"></i>
+                            </div>
+                        </div>
+                        <div class="card__img-box">
+                            <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
+                        </div>
                     </div>
-                    <div class="voucher__barcode">
-                        <i class="fas fa-barcode"></i>
-                    </div>
-                </div>
-                <div class="card__img-box">
-                    <img src="./img/coffee-demo-2.jpeg" alt="image" class="card__img">
-                </div>
-            </div>
-            <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
-            <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
-            <div class="voucher__back-side">
-                <!-- 判斷是否登入 -->
-                <!-- 已登入 -->
-                    <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
-    
-                <!-- 未登入 -->
-                    <!-- 登入以領取咖啡豆 -->
-                    <!-- 用跟assets（未登入）一樣的表格 -->
-            </div>    
+                    <!-- 兌換過的卡片會觸發卡片翻面： 參考下面的作法 -->
+                    <!-- https://tutorialzine.com/2012/02/apple-like-login-form -->
+                    <div class="voucher__back-side">
+                        <!-- 判斷是否登入 -->
+                        <!-- 已登入 -->
+                            <!-- 已領取xxx個（數量）咖啡豆貨幣 加一個可以打開assets的按鈕？-->
+            
+                        <!-- 未登入 -->
+                            <!-- 登入以領取咖啡豆 -->
+                            <!-- 用跟assets（未登入）一樣的表格 -->
+                    </div> 
+                </li>  
+            </ul>  
+            <!-- <div class="shop__info"> maybe </div> -->
         </div>
     </div>
 

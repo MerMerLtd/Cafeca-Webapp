@@ -12,6 +12,8 @@
         padding: 10px;
         position: absolute;
         top: 0;
+
+        z-index: 100; //temporary solution
     }
     &__qrcode{
         // height: 150px;

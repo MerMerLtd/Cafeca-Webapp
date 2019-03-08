@@ -2,7 +2,7 @@ import {elements} from "./base";
 
 const renderProduct = product =>{
   const markup = `
-    <div class="card__display"> 
+    <li class="card__display"> 
       <div class="card__title"> <!-- grid -->
           <div class="product__name">${product.name}</div>
           <div class="product__accessory">適合搭配： ${product.accessory}</div>
@@ -28,18 +28,22 @@ const renderProduct = product =>{
           </div>
           
       </div>
-  </div>
+  </li>
   `;
+  // https://developer.mozilla.org/zh-TW/docs/Web/API/Element/insertAdjacentHTML
+  elements.cardLists[0].insertAdjacentHTML("beforeend", markup);
 }
 
 export const renderResults = products => {
+  
   products.forEach(renderProduct);
+  elements.cardLists[0].style.setProperty("--n", elements.cardLists[0].children.length);
+
 };
 
 
-
 //(參考) https://codepen.io/djgrant/pen/AwFHL
-(function() {
+(function (){
     window.inputNumber = (numsctrl, switchBtn, priceDisplay) => {
       const price = [priceDisplay[0].innerText, priceDisplay[1].innerText];
       
@@ -69,8 +73,8 @@ export const renderResults = products => {
           numsDisplay.value = value;
         }
   
-        decBtn.addEventListener('click', decrement);
-        incBtn.addEventListener('click', increment);
+        decBtn.addEventListener('click', decrement, false);
+        incBtn.addEventListener('click', increment, false);
         numsDisplay.addEventListener('input', event =>{
           // 還沒想好
           numsDisplay.value <= min 
@@ -103,4 +107,38 @@ export const renderResults = products => {
   }
   els.forEach(el => inputNumber(el.numsctrl, el.switchBtn, el.priceDisplay));
 
+  (function (){
+    window.swipeCardList = (cardList, prevCardBtn, nextCardBtn) => {
+      let cardIndex = 0;
+      const movePrev = event => {
+        event.preventDefault();
+        cardIndex < cardList.children.length - 1
+        ? cardIndex++
+        : console.log("最後一張啦");
+        cardList.style.setProperty("--i", cardIndex);
+      };
+      const moveNext = event => {
+        event.preventDefault();
+        cardIndex > 0 
+        ? cardIndex--
+        : console.log("這是第一張");
+        cardList.style.setProperty("--i", cardIndex);
+      };
+      prevCardBtn.addEventListener("click", movePrev, false);
+      nextCardBtn.addEventListener("click", moveNext, false);
+    };
+  })();
+
+  const cardEls = [];
+  for (let i = 0; i < elements.cardLists.length; i++){
+    cardEls.push({
+      cardList: elements.cardLists[i], 
+      prevCardBtn: elements.prevCardBtns[i],
+      nextCardBtn: elements.nextCardBtns[i],
+    });
+  }
+  console.log(cardEls);
+
+  cardEls.forEach(el => swipeCardList(el.cardList, el.prevCardBtn, el.nextCardBtn));
+  
 

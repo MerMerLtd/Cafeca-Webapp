@@ -2,6 +2,9 @@
   transform: translateY(-60vh);
   transition: all .5s ease-out; }
 
+.animate {
+  transition: transform 0.3s ease-out; }
+
 :root {
   --color-primary-lighter: rgba(159, 205, 205);
   --color-primary-light: rgb(141, 182, 203);
@@ -138,15 +141,30 @@ input[type=checkbox] {
   margin: 0 auto;
   width: 80vw;
   position: relative; }
+  .card__list {
+    list-style: none;
+    position: absolute;
+    width: 500%;
+    top: 0;
+    left: 0; }
+  .card__display {
+    position: relative;
+    width: 80vw;
+    height: 60vh;
+    float: left; }
   .card__title {
     background-color: rgba(255, 255, 255, 0.7);
     position: absolute;
     top: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 10px; }
+    padding: 10px;
+    z-index: 10; }
   .card__img-box {
-    height: 60vh;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
     border-radius: 5px;
     overflow: hidden; }
   .card__img {
@@ -177,11 +195,12 @@ input[type=checkbox] {
     font-size: 4rem;
     color: var(--color-primary-dark-1);
     position: absolute;
-    top: 45%; }
+    top: 45%;
+    z-index: 100; }
     .card__btn--previous, .card__btn:link--previous, .card__btn:visited--previous {
-      left: -25px; }
+      left: 1vw; }
     .card__btn--next, .card__btn:link--next, .card__btn:visited--next {
-      right: -26.5px; }
+      right: 1vw; }
 
 .card__btn--previous {
   left: -25px; }
@@ -641,6 +660,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .display {
   background-color: var(--color-primary-light);
+  position: relative;
   height: 100vh;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); }
 

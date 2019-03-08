@@ -11,7 +11,7 @@
     "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css",
     "dev": "npm-run-all compile:sass && webpack --mode development",
     "build": "npm-run-all compile:sass && webpack --mode production",
-    "start": "npm-run-all compile:sass && webpack-dev-server --mode development --open 'firefox'"
+    "start": "npm-run-all compile:sass && webpack-dev-server --mode development --open 'google chrome'"
   },
   "repository": {
     "type": "git",

@@ -72,7 +72,8 @@ const controlProducts = async () => {
             const products = res.products;
 
             // 2.4 render results on UI
-            console.log('Success!', products);
+            console.log('Success!', Object.values(products));
+            productsView.renderResults(Object.values(products));
         })
         .catch(error => {
             console.log('Something went wrong', error);
