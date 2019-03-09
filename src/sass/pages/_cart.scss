@@ -1,11 +1,12 @@
 .cart{
+    height: 100vh;
     position: absolute;
     top: -90vh;
+    // top: -100vh;
+    // transform: translateY(-90vh);
     z-index: 500;
 
-    // transform: translateY(-90vh);
-    height: 100vh;
-
+    --ty: 0vh;
     transition: transform .5s ease-out;
     transform: translateY(var(--ty, 0px));
 

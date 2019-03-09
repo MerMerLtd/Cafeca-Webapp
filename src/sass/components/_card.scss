@@ -5,6 +5,7 @@
     position: relative;
     overflow-x: hidden;
     z-index: var(--zIndex);
+    // opacity: 0;
 
     &__list{
         // container
@@ -89,25 +90,31 @@
        padding: 10px 0;
     }
 
+    &__btn-box{
+        position: absolute;
+        top: 45%;
+        width: 100%;
+    }
     &__btn{
         &,
         &:link,
         &:visited {
             text-decoration: none;
             font-size: 4rem;
-            color: var(--color-primary-dark-1);
-            
-            position: absolute;
-            top: 45%;
+            color: var(--color-primary-dark-1);      
+            position: absolute;            
             z-index: var(--zIndex);
-        }   
+            // cursor: default;
+        } 
+        
+        &--prev{
+            left: 2vw;
+        }
+
+        &--next{
+            right: 2vw;
+        }
     }
 }
 
-.card__btn--previous{
-    left: 2vw;
-}
-.card__btn--next{
-    right: 2vw; 
-}
 
