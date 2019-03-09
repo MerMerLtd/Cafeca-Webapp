@@ -1,36 +1,5 @@
 import {elements} from "./base";
 
-export const clearResult = () => {
-  elements.productList.innerHTML = "";
-};
-export const clearBtns = btn => {
-
-  btn.parentNode.innerHTML = "";
-}
-
-export const limitProductDescription = (description, limit = 22) => {
-  const newDescription = [];
-  if (description.length > limit) {
-      description.split('，').reduce((acc, cur) => {
-          if (acc + cur.length <= limit) {
-              newDescription.push(cur);
-          }
-          return acc + cur.length;
-      }, 0);
-
-      // return the result
-      return `${newDescription.join(' ')} ...`;
-  }
-  return description;
-}
-
-export const swipeCardList = (cardList, goToIndex) => {
-  cardList.style.setProperty("--index", goToIndex);
-  // 讓display裡面的card__payment 的name 以及accessory 跟現在在畫面上的card__display一樣
-  elements.cardInfo.children[0].innerText = cardList.children[goToIndex].children[0].children[0].innerText;
-  elements.cardInfo.children[1].innerText = cardList.children[goToIndex].children[0].children[1].innerText;
-}
-
 const renderProduct = product =>{
   const markup = `
     <li class="card__display"> 
@@ -64,10 +33,6 @@ const renderProduct = product =>{
   elements.productList.insertAdjacentHTML("beforeend", markup);
  
 }
-
-// <!-- Next and Previous Buttons -->
-// <!-- <a href="#" class="card__btn card__btn--${type}" data-goto=${type === 'prev' ? index - 1 : index + 1}> -->
-
 // type: 'prev' or 'next'
 const createButton = (index, type) => `
   <a href="#" class="card__btn card__btn--${type}" data-goto=${type === 'prev' ? index - 1 : index + 1}>
@@ -75,6 +40,7 @@ const createButton = (index, type) => `
   </a>
 `;
 
+// <!-- Next and Previous Buttons -->
 const renderButtons = (index, numsProduct) => { 
   let button;
   if (index === 0 && numsProduct > 1) {
@@ -91,6 +57,46 @@ const renderButtons = (index, numsProduct) => {
       button = createButton(index, 'prev');
   }
   elements.displayBtnBox.insertAdjacentHTML("afterbegin", button);
+}
+
+export const swipeCardList = (cardList, goToIndex, products) => {
+  cardList.style.setProperty("--index", goToIndex);
+  // 讓display裡面的card__payment 的name 以及accessory 跟現在在畫面上的card__display一樣
+  console.log(goToIndex)
+
+  // 似乎可以寫成無限循環！！！
+  if(goToIndex === products.length){
+    goToIndex = 0;
+  }
+  elements.cardName.innerText = products[goToIndex].name;
+  elements.cardAccessory.innerText = products[goToIndex].accessory;
+  elements.cardPrice.innerText = true 
+                                  ? products[goToIndex].price1
+                                  : products[goToIndex].price2;
+}
+
+export const clearBtns = btn => {
+  btn.parentNode.innerHTML = "";
+}
+
+export const clearResult = () => {
+  elements.productList.innerHTML = "";
+};
+
+export const limitProductDescription = (description, limit = 22) => {
+  const newDescription = [];
+  if (description.length > limit) {
+      description.split('，').reduce((acc, cur) => {
+          if (acc + cur.length <= limit) {
+              newDescription.push(cur);
+          }
+          return acc + cur.length;
+      }, 0);
+
+      // return the result
+      return `${newDescription.join(' ')} ...`;
+  }
+  return description;
 }
 
 export const renderResults = (products, index = 0) => {

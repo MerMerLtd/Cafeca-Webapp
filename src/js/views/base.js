@@ -12,8 +12,10 @@ export const elements = {
     productList: document.querySelector(".display > .card > .card__list"),
     voucherList: document.querySelector(".possessions .card > .card__list"),
     
-    cardInfo: document.querySelector(".card__info > .product"),
-    cardPrice: document.querySelector(".card__price"),
+    // cardInfo: document.querySelector(".card__info > .product"),
+    cardName: document.querySelector(".card__info > .product > .product__name"),
+    cardAccessory: document.querySelector(".card__info > .product > .product__accessory"),
+    cardPrice: document.querySelector(".card__price > span"),
 
     card: document.querySelectorAll(".card"),
 

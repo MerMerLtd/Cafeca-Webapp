@@ -2,11 +2,12 @@ import "../sass/main.scss";
 import { elements, renderLoader, clearLoader, makeRequest, getLocation } from "./views/base";
 
 import "./views/swipe";
+import { Display } from "./models/display";
 // import CartItems from "./models/cartItems";
 import Collections from "./models/collections";
 // import creditcardModel from "./models/creditCard";
 // import possessionsModel from "./models/possessionItems"
-import Products from "./models/products";
+import Product from "./models/product";
 // import userModel from "./models/userModel";
 
 // import * as collectionsView from "./views/collectionsView";
@@ -44,50 +45,39 @@ const state = {};
 //===========================================
 //----- products || display controller ------
 const controlProducts = async () => {
-    // 1. 取得瀏覽網頁者的location
-    getLocation()
-    .then(res => {
-        console.log({
-            lat: res.coords.latitude || res.location.lat,
-            lng: res.coords.longitude || res.location.lng
-        });
-        return {
-            lat: res.coords.latitude || res.location.lat,
-            lng: res.coords.longitude || res.location.lng
-        };
-    })
-    // 2. 利用瀏覽網頁者的location，取得使用者附近店家的商品，並呈現在畫面上
-    .then(location => {  
-        // 2.1 生成 products object 
-        state.products = Object.create(Products);   
-        // 2.2 prepare UI for the result
-        productsView.clearResult();
-        renderLoader(elements.display);
-        // 2.3 取得使用者附近店家的商品
-        const opts = {
-            method: "GET",
-            url: `https://cafeca-webapp.firebaseio.com/.json`, //這裡之後要使用位置資訊
-            headers: {
-                "Access-Control-Allow-Origin" :`https://cafeca-webapp.firebaseio.com/`,
-            }
-        }
-        makeRequest(opts)
-        .then( res => {
-            // 2.4 把取得的商品們先存到state.products也就是products的model裡面
-            state.products = Object.values(res.products);
-            // 2.5 從state.products取得商品們在放到畫面上
-            // console.log("Success!", Object.values(res.products));
-            clearLoader();
-            productsView.renderResults(state.products);
-        })
-        .catch(error => {
-            console.log("Something went wrong", error);
-        });
-    })
-    .catch( error => {
-        console.log("Something went wrong: index", error);
-    });
-};
+    // 1 生成 products object 
+    state.display = Object.create(Display);
+    console.log(state.display);
+    window.displayObj = state.display;
+    console.log("displayObj", displayObj)
+
+    // 2. 取得瀏覽網頁者的location
+    try{
+        await state.display.getLocation();
+    }catch{
+        console.log("Something went wrong with getLocation");
+    }
+    console.log(state.display);
+    // 3. 整理畫面（清空畫面）
+    productsView.clearResult();
+    renderLoader(elements.display);
+
+   if(!state.display.location){
+       console.log("hi");
+    try{
+        // 4. 利用瀏覽網頁者的location，取得使用者附近店家的商品
+        await state.display.getProducts(state.display.location);
+        console.log(state.display);
+        // 5 從state.products取得商品們在放到畫面上
+        // console.log("Success!", Object.values(res.products));
+        clearLoader();
+        productsView.renderResults(state.display.products);
+
+    }catch{
+        console.log("Something went wrong with getProducts");
+    }
+   }
+}
 controlProducts();
 
 // Handling card button clicks
@@ -98,12 +88,10 @@ elements.display.addEventListener("click", e => {
     // console.log(e.target);
 
     if (e.target.matches(".card__btn")) {
-
         const goToIndex = parseInt(e.target.dataset.goto, 10);
-        productsView.swipeCardList(elements.productList, goToIndex);
+        productsView.swipeCardList(elements.productList, goToIndex, state.products);
         productsView.clearBtns(e.target);
         productsView.renderResults(state.products, goToIndex);
-
     } else if (e.target.matches(".product__switch, .product__switch *")) {
         // toggle price
         //....
