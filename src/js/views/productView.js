@@ -62,7 +62,7 @@ const renderButtons = (index, numsProduct) => {
 export const swipeCardList = (cardList, goToIndex, products) => {
   cardList.style.setProperty("--index", goToIndex);
   // 讓display裡面的card__payment 的name 以及accessory 跟現在在畫面上的card__display一樣
-  console.log(goToIndex)
+  // console.log(goToIndex)
 
   // 似乎可以寫成無限循環！！！
   if(goToIndex === products.length){

@@ -15,7 +15,6 @@ import Product from "./models/product";
 import * as productsView from "./views/productView";
 import * as cartView from "./views/cartView";
 
-
 //================================
 //--------------- firebase -------
 
@@ -47,9 +46,6 @@ const state = {};
 const controlProducts = async () => {
     // 1 生成 products object 
     state.display = Object.create(Display);
-    console.log(state.display);
-    window.displayObj = state.display;
-    console.log("displayObj", displayObj)
 
     // 2. 取得瀏覽網頁者的location
     try{
@@ -62,13 +58,13 @@ const controlProducts = async () => {
     productsView.clearResult();
     renderLoader(elements.display);
 
-   if(!state.display.location){
+   if(state.display.location){
        console.log("hi");
     try{
         // 4. 利用瀏覽網頁者的location，取得使用者附近店家的商品
         await state.display.getProducts(state.display.location);
-        console.log(state.display);
-        // 5 從state.products取得商品們在放到畫面上
+        console.log("hi",state.display);
+        // 5 從state.display.products取得商品們在放到畫面上
         // console.log("Success!", Object.values(res.products));
         clearLoader();
         productsView.renderResults(state.display.products);
@@ -89,9 +85,9 @@ elements.display.addEventListener("click", e => {
 
     if (e.target.matches(".card__btn")) {
         const goToIndex = parseInt(e.target.dataset.goto, 10);
-        productsView.swipeCardList(elements.productList, goToIndex, state.products);
+        productsView.swipeCardList(elements.productList, goToIndex, state.display.products);
         productsView.clearBtns(e.target);
-        productsView.renderResults(state.products, goToIndex);
+        productsView.renderResults(state.display.products, goToIndex);
     } else if (e.target.matches(".product__switch, .product__switch *")) {
         // toggle price
         //....
@@ -112,21 +108,21 @@ const controlCartitems = () => {};
 //------------ collections controller ---------
 const controlCollections = () => {
     if (!state.collections) state.collections = Object.create(Collections);
-    const currentID = state.products.id;
+    const currentID = state.display.products.id;
 
-    console.log(state.products);
+    console.log(state.display.products);
     console.log(currentID);
     // User has NOT yet add current product to collections
     if (!state.collections.isItemExist(currentID)) {
         // Add item to the state
         const newCollectionItem = state.collections.addItem(
             currentID,
-            state.products.name, 
-            state.products.accessory, 
-            state.products.price1, 
-            state.products.price2, 
-            state.products.img, 
-            state.products.description
+            state.display.products.name, 
+            state.display.products.accessory, 
+            state.display.products.price1, 
+            state.display.products.price2, 
+            state.display.products.img, 
+            state.display.products.description
         );
         // Toggle the both collection button in cart and display
         

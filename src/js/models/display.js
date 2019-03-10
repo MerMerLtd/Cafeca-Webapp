@@ -1,7 +1,7 @@
-import { makeRequest, getLocation } from "../helper";
+import { makeRequest, getLocation } from "../views/base";
 export const Display = {
     getLocation: function () {
-         getLocation()
+        return getLocation()
         .then(res => {
             // return {
             //     lat: res.coords.latitude || res.location.lat,
@@ -11,6 +11,7 @@ export const Display = {
                 lat: res.coords.latitude || res.location.lat,
                 lng: res.coords.longitude || res.location.lng
             };
+            return Promise.resolve(true);
             // console.log(this.location);
         })
         .catch(error => {
@@ -26,10 +27,11 @@ export const Display = {
                 "Access-Control-Allow-Origin" :`https://cafeca-webapp.firebaseio.com/`,
             }
         };
-        makeRequest(opts)
+        return makeRequest(opts)
         .then(res => {
-            // console.log(res);
+            console.log(res);
             this.products = Object.values(res.products);
+            return Promise.resolve(true);
         })
         .catch(error => {
             console.log("Something went wrong at makeRequest", error);
