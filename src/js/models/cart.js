@@ -1,5 +1,5 @@
 
-export default class CartItems{
+export default class Cart{
     constructor(){
         this.cartItems = [];
     }

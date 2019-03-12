@@ -4,13 +4,13 @@ export const elements = {
     priceDisplays2: document.querySelectorAll(".switch--price2 > span"),
     switchs: document.querySelectorAll(".product__switch"),
 
-    // prevCardBtns: document.querySelectorAll(".card__btn--previous"),
-    // nextCardBtns: document.querySelectorAll(".card__btn--next"),
-    // cardList: document.querySelectorAll(".card__list"),
+   
     display: document.querySelector(".display"),
+    possessions: document.querySelector(".possessions"),
     displayBtnBox: document.querySelector(".display > .card__btn-box"),
+    possessionBtnBox: document.querySelector(".possessions > .card__btn-box"),
     productList: document.querySelector(".display > .card > .card__list"),
-    voucherList: document.querySelector(".possessions .card > .card__list"),
+    voucherList: document.querySelector(".possessions > .card > .card__list"),
     
     // cardInfo: document.querySelector(".card__info > .product"),
     cardName: document.querySelector(".card__info > .product > .product__name"),

@@ -29,7 +29,6 @@ export const Display = {
         };
         return makeRequest(opts)
         .then(res => {
-            console.log(res);
             this.products = Object.values(res.products);
             return Promise.resolve(true);
         })

@@ -3,7 +3,7 @@ import { elements, renderLoader, clearLoader, makeRequest, getLocation } from ".
 
 import "./views/swipe";
 import { Display } from "./models/display";
-// import CartItems from "./models/cartItems";
+import Cart from "./models/cart";
 import Collections from "./models/collections";
 // import creditcardModel from "./models/creditCard";
 // import possessionsModel from "./models/possessionItems"
@@ -46,26 +46,21 @@ const state = {};
 const controlProducts = async () => {
     // 1 生成 products object 
     state.display = Object.create(Display);
-
     // 2. 取得瀏覽網頁者的location
     try{
         await state.display.getLocation();
     }catch{
         console.log("Something went wrong with getLocation");
     }
-    console.log(state.display);
+
     // 3. 整理畫面（清空畫面）
     productsView.clearResult();
     renderLoader(elements.display);
-
-   if(state.display.location){
-       console.log("hi");
+    if(state.display.location){
     try{
         // 4. 利用瀏覽網頁者的location，取得使用者附近店家的商品
         await state.display.getProducts(state.display.location);
-        console.log("hi",state.display);
         // 5 從state.display.products取得商品們在放到畫面上
-        // console.log("Success!", Object.values(res.products));
         clearLoader();
         productsView.renderResults(state.display.products);
 
@@ -80,25 +75,27 @@ controlProducts();
 elements.display.addEventListener("click", e => {
 
     const card = e.target.closest(".card");
-   
-    // console.log(e.target);
 
     if (e.target.matches(".card__btn")) {
         const goToIndex = parseInt(e.target.dataset.goto, 10);
         productsView.swipeCardList(elements.productList, goToIndex, state.display.products);
         productsView.clearBtns(e.target);
+        // productsView.clearResult();
         productsView.renderResults(state.display.products, goToIndex);
+
     } else if (e.target.matches(".product__switch, .product__switch *")) {
         // toggle price
         //....
 
     } else if (e.target.matches(".product__btn-collections, .product__btn-collections *")) {
         // collections controller: add product to collections
-        controlCollections();
+        controlCollections(e);
+
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
         // cart controller: add product to cart
         controlCart();
     }
+
 });
 //===========================================
 //------------ cartItems controller ---------
@@ -106,12 +103,10 @@ const controlCartitems = () => {};
 
 //===========================================
 //------------ collections controller ---------
-const controlCollections = () => {
+const controlCollections = e => {
     if (!state.collections) state.collections = Object.create(Collections);
-    const currentID = state.display.products.id;
-
-    console.log(state.display.products);
-    console.log(currentID);
+    // const currentID = state.display.products.id;
+    console.log(e.target.closest(".card__display"));
     // User has NOT yet add current product to collections
     if (!state.collections.isItemExist(currentID)) {
         // Add item to the state
