@@ -46,14 +46,15 @@ const renderButtons = (index, numsProduct) => {
   if (index === 0 && numsProduct > 1) {
       // Only button to go to next product
       button = createButton(index, 'next');
-  } else if (index < numsProduct) {
+  } else if (index < numsProduct - 1 ) {
       // Both buttons
       button = `
           ${createButton(index, 'prev')}
           ${createButton(index, 'next')}
       `;
-  } else if (index === numsProduct && numsProduct > 1) {
+  } else if (index === numsProduct - 1  && numsProduct > 1) {
       // Only button to go to prev product
+      console.log(index);
       button = createButton(index, 'prev');
   }
   elements.displayBtnBox.insertAdjacentHTML("afterbegin", button);
@@ -64,7 +65,6 @@ export const swipeCardList = (cardList, goToIndex, products) => {
   // 讓display裡面的card__payment 的name 以及accessory 跟現在在畫面上的card__display一樣
   // console.log(goToIndex)
 
-  // 似乎可以寫成無限循環！！！
   if(goToIndex === products.length){
     goToIndex = 0;
   }
@@ -105,6 +105,10 @@ export const renderResults = (products, index = 0) => {
 
   renderButtons(index, products.length);
 };
+
+export const reRenderButtons = index => {
+  renderButtons(index, elements.productList.children.length);
+}
 
 
 // ===========================================================

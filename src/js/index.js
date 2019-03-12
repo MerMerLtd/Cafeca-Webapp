@@ -81,7 +81,8 @@ elements.display.addEventListener("click", e => {
         productsView.swipeCardList(elements.productList, goToIndex, state.display.products);
         productsView.clearBtns(e.target);
         // productsView.clearResult();
-        productsView.renderResults(state.display.products, goToIndex);
+        // productsView.renderResults(state.display.products, goToIndex);
+        productsView.reRenderButtons(goToIndex);
 
     } else if (e.target.matches(".product__switch, .product__switch *")) {
         // toggle price
