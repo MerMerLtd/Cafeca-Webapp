@@ -4,7 +4,7 @@
     &:visited {
         text-decoration: none;
         display: block;
-        color: var(--color-grey-light-1);
+        color: var(--color-grey-dark-2);
     }
 
     &--card{
@@ -35,8 +35,8 @@
 
     &--collections > i{
         -webkit-text-fill-color: #ffffff00;
-        -webkit-text-stroke: 2px white;
+        -webkit-text-stroke: 2px var(--color-grey-dark-2);
         -moz-text-fill-color: #ffffff00;
-        -moz-text-stroke: 2px white;
+        -moz-text-stroke: 2px var(--color-grey-dark-2);
     }
 }

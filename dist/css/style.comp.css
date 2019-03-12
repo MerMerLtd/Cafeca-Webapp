@@ -152,6 +152,7 @@ input[type=checkbox] {
     align-items: center;
     height: 60vh;
     --length: 1;
+    --index: 0;
     width: 100%;
     width: calc(var(--length)*100%);
     transition: transform .5s ease-out;

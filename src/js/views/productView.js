@@ -1,26 +1,25 @@
 import {elements} from "./base";
 
-const renderProduct = product =>{
+const renderProduct = (product, index) =>{
   const markup = `
-    <li class="card__display"> 
+    <li class="card__display" data-model="${product.main.id}"> 
       <div class="card__title"> <!-- grid -->
-          <div class="product__name">${product.name}</div>
-          <div class="product__accessory">適合搭配： ${product.accessory}</div>
-          
+          <div class="product__name">${product.main.name}</div>
+          <div class="product__accessory">適合搭配： ${product.accessory[Math.floor((new Date().getTime()/86400000)+index)% product.accessory.length].name}</div>
           <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
-          <p class="product__description">「${limitProductDescription(product.description)}」</p>
+          <p class="product__description">「${limitProductDescription(product.main.description)}」</p>
       </div>
     
       <div class="card__img-box">
-          <img src="${product.img}" alt="image" class="card__img">
+          <img src="${product.main.img}" alt="image" class="card__img">
       </div>
 
       <div class="card__toolbox">
 
-          <input type="checkbox" id=${product.id} name="set-name" class="product__switch switch__checkbox">
-          <label for=${product.id} class="switch__label"></label> 
+          <input type="checkbox" id="${product.main.id}" name="set-name" class="product__switch switch__checkbox">
+          <label for="${product.main.id}" class="switch__label"></label> 
 
-          <p class="product__price">NT <span>${product.withSet ? product.price2: product.price1}</span></p>
+          <p class="product__price">NT <span>${product.price}</span></p>
           
           <div class="btn btn--cart">
               <i class="fas fa-shopping-cart"></i>
@@ -102,6 +101,7 @@ export const limitProductDescription = (description, limit = 22) => {
 export const renderResults = (products, index = 0) => {
   products.forEach(renderProduct);
   elements.productList.style.setProperty("--length", elements.productList.children.length);
+  elements.productList.style.setProperty("--index", index); // for add to collections or add to cart
 
   renderButtons(index, products.length);
 };

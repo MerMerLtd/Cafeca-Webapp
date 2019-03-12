@@ -1,4 +1,5 @@
-const Collections = {
+export const List = {
+    // can be use on Collection and Cart
     items:[],
     addItem: function (id, name, accessory, price1, price2, img, description){
         const item = {id, name, accessory, price1, price2, img, description}
@@ -19,14 +20,16 @@ const Collections = {
     getItemsNums: function (){
         return this.items.length;
     },
-    persistData: function() {
-        localStorage.setItem("Collections", JSON.stringify(this.items));
+    persistData: function (type) {
+        // localStorage.setItem("Collections", JSON.stringify(this.items));
+        localStorage.setItem(type, JSON.stringify(this.items));
     },
-    readStorage: function (){
-        const storage = JSON.parse(localStorage.getItem("Collections"));
+    readStorage: function (type){
+        // const storage = JSON.parse(localStorage.getItem("Collections"));
+        const storage = JSON.parse(localStorage.getItem("type"));
 
         if (storage) this.items = storage;
     }
 }
 
-export default Collections;
+// export default Collections;

@@ -1,4 +1,5 @@
 import { makeRequest, getLocation } from "../views/base";
+import { Set } from "./order";
 export const Display = {
     getLocation: function () {
         return getLocation()
@@ -29,7 +30,21 @@ export const Display = {
         };
         return makeRequest(opts)
         .then(res => {
-            this.products = Object.values(res.products);
+            const sets = Object.values(res.products)
+            .filter(product => product.main)
+            .map(product => {
+                const set = Object.create(Set);
+                set.main = product;
+                return set;
+            });
+            sets.map(set => 
+                set.accessory = Object.values(res.products)
+                .filter(product => !product.main)
+            );
+            console.log(sets);
+ 
+            // this.products = Object.values(res.products);
+            this.products = sets;
             return Promise.resolve(true);
         })
         .catch(error => {

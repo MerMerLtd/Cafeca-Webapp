@@ -1,10 +1,15 @@
-const Set = {
+export const Set = {
     main: {}, //product
-    sub: [], //products
-    discountPercentage: null,
-    discountMinus: null,
+    accessory: [], //products
     price: null,
-    count: null, 
+    discountPercentage: .1,
+    discountMinus: -30,
+    count: 1, 
+    withSet: false,
+}
+
+const Order = {
+    items: [],
 }
 
 // sets = [...set];

@@ -3,15 +3,9 @@ import { elements, renderLoader, clearLoader, makeRequest, getLocation } from ".
 
 import "./views/swipe";
 import { Display } from "./models/display";
-import Cart from "./models/cart";
-import Collections from "./models/collections";
-// import creditcardModel from "./models/creditCard";
-// import possessionsModel from "./models/possessionItems"
-import Product from "./models/product";
-// import userModel from "./models/userModel";
+import { List } from "./models/list";
+import { Order } from "./models/order";
 
-// import * as collectionsView from "./views/collectionsView";
-// import * as possessionsView from "./views/possessionsView";
 import * as productsView from "./views/productView";
 import * as cartView from "./views/cartView";
 
@@ -60,12 +54,13 @@ const controlProducts = async () => {
     try{
         // 4. 利用瀏覽網頁者的location，取得使用者附近店家的商品
         await state.display.getProducts(state.display.location);
+        console.log(state.display);
         // 5 從state.display.products取得商品們在放到畫面上
         clearLoader();
         productsView.renderResults(state.display.products);
 
-    }catch{
-        console.log("Something went wrong with getProducts");
+    }catch(error){
+        console.log(error);
     }
    }
 }
@@ -105,9 +100,12 @@ const controlCartitems = () => {};
 //===========================================
 //------------ collections controller ---------
 const controlCollections = e => {
-    if (!state.collections) state.collections = Object.create(Collections);
-    // const currentID = state.display.products.id;
-    console.log(e.target.closest(".card__display"));
+    if (!state.collections) state.collections = Object.create(List);
+
+    const index = e.target.closest(".card__list").style.getPropertyValue("--index");
+    const currentID = state.display.products[index].main.id;
+
+    console.log(currentID);
     // User has NOT yet add current product to collections
     if (!state.collections.isItemExist(currentID)) {
         // Add item to the state
@@ -129,7 +127,7 @@ const controlCollections = e => {
     // User HAS collect current product
     } else {
         // Remove item from the state
-        state.collections.deleteItem(currentID);
+        // state.collections.deleteItem(currentID);
 
         // Toggle the both collection button in cart and display
         
