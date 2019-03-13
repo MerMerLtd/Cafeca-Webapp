@@ -1,6 +1,6 @@
 import {elements} from "./base";
 
-const renderProduct = (product, index) =>{
+const renderProduct = product =>{
   const markup = `
     <li class="card__display" data-model="${product.id}"> 
       <div class="card__title"> <!-- grid -->
@@ -53,7 +53,6 @@ const renderButtons = (index, numsProduct) => {
       `;
   } else if (index === numsProduct - 1  && numsProduct > 1) {
       // Only button to go to prev product
-      console.log(index);
       button = createButton(index, 'prev');
   }
   elements.displayBtnBox.insertAdjacentHTML("afterbegin", button);
@@ -96,6 +95,12 @@ export const limitProductDescription = (description, limit = 22) => {
       return `${newDescription.join(' ')} ...`;
   }
   return description;
+}
+export const updateSetState = (product, index) => {
+  // update price 
+  // console.log(product)
+  document.querySelectorAll(".product__price > span")[index].textContent = product.price;
+  // update img
 }
 
 export const renderResults = (products, index = 0) => {

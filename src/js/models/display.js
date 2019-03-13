@@ -33,18 +33,18 @@ export const Display = {
         return makeRequest(opts)
         .then(res => {
             // seperate main products
-            const sets = Object.values(res.products)
+            const products = Object.values(res.products)
             .filter(product => product.main)
             // Using Set model to create set
             .map(product => {
                 const set = Object.create(Set);
                 // 給每個set 一個unique Id
-                set.id = uniqid();
+                set.id = uniqid(); // 等等我突然意識到id似乎不該放在這裏
                 // 把每個 main product 加進set
                 set.main = product;
                 return set;
             });
-            sets.map((set, i) => {
+            products.map((set, i) => {
                 // seperate main products
                 const accessories = Object.values(res.products)
                 .filter(product => !product.main);
@@ -54,16 +54,23 @@ export const Display = {
                 set.accessory = accessories[index];
                 // 決定好每個set裡面的 main product 以及 accessory 就可以計算整個set 的價格了
                 // ?? 如何決定使用 discountPercentage 還是 discountMinus
-                set.price = (set.main.price + set.accessory.price) - set.discountMinus;
+                set.price = set.withSet ? (set.main.price + set.accessory.price) - set.discountMinus : set.main.price;
             });
 
-            this.products = sets;
+            this.products = products;
+            // console.log(this);
+            // console.log(this.products)
             return Promise.resolve(true);
         })
         .catch(error => {
             console.log("Something went wrong at makeRequest", error);
         });
     },
+    toggleSet: function (product){
+        const updateSet = !product.withSet;
+        product.withSet = updateSet;
+        product.price = product.withSet ? (product.main.price + product.accessory.price) - product.discountMinus : product.main.price;
+    }
 }
 
 // const newProducts = Object.values(res.products).map(product => {

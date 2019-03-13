@@ -6,10 +6,12 @@ export const elements = {
 
    
     display: document.querySelector(".display"),
-    possessions: document.querySelector(".possessions"),
     displayBtnBox: document.querySelector(".display > .card__btn-box"),
-    possessionBtnBox: document.querySelector(".possessions > .card__btn-box"),
+    productCard: document.querySelector(".display > .card"),
     productList: document.querySelector(".display > .card > .card__list"),
+
+    possessions: document.querySelector(".possessions"),
+    possessionBtnBox: document.querySelector(".possessions > .card__btn-box"),
     voucherList: document.querySelector(".possessions > .card > .card__list"),
     
     // cardInfo: document.querySelector(".card__info > .product"),
@@ -17,13 +19,15 @@ export const elements = {
     cardAccessory: document.querySelector(".card__info > .product > .product__accessory"),
     cardPrice: document.querySelector(".card__price > span"),
 
-    card: document.querySelectorAll(".card"),
 
     swipe: document.querySelector(".swipe"), //testing
     body: document.querySelector("body"), //testing
 
     // cartToggle: document.querySelector(".cart__toggle"),
     cart: document.querySelector(".cart"),
+    cartList: document.querySelector(".cart > .column__list"),
+    
+    collectionList: document.querySelector(".collections > .column__list"),
 }
 
 export const elementStrings = {

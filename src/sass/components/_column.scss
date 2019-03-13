@@ -15,6 +15,10 @@
     > * {
         transition: all .2s ease;
     }
+    
+    &__list{
+        overflow: scroll;
+    }
 
     &__display{
         // grid-area: display;

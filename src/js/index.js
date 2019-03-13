@@ -6,7 +6,7 @@ import { Display } from "./models/display";
 import { List } from "./models/list";
 import { Order } from "./models/order";
 
-import * as productsView from "./views/productView";
+import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
 
 //================================
@@ -48,16 +48,16 @@ const controlProducts = async () => {
     }
 
     // 3. 整理畫面（清空畫面）
-    productsView.clearResult();
+    displayView.clearResult();
     renderLoader(elements.display);
     if(state.display.location){
     try{
         // 4. 利用瀏覽網頁者的location，取得使用者附近店家的商品
         await state.display.getProducts(state.display.location);
-        console.log(state.display);
+        // console.log(state.display);
         // 5 從state.display.products取得商品們在放到畫面上
         clearLoader();
-        productsView.renderResults(state.display.products);
+        displayView.renderResults(state.display.products);
 
     }catch(error){
         console.log(error);
@@ -66,33 +66,54 @@ const controlProducts = async () => {
 }
 controlProducts();
 
-// Handling card button clicks
-elements.display.addEventListener("click", e => {
+elements.cartList.addEventListener("click", e => {
+    if(e.target.matches(".btn--increase, .btn--increase *")){
+        state.list.updateCount("inc");
+    }else if(e.target.matches(".btn--decrease, .btn--decrease *")){
+        state.list.updateCount("dec");
+    }
+});
 
-    const card = e.target.closest(".card");
+elements.productCard.addEventListener("click", e => {
+    let currentId = e.target.closest(".card__display").dataset.model;
+    let index = state.display.products.findIndex(product => product.id === currentId);
 
-    if (e.target.matches(".card__btn")) {
-        const goToIndex = parseInt(e.target.dataset.goto, 10);
-        productsView.swipeCardList(elements.productList, goToIndex, state.display.products);
-        productsView.clearBtns(e.target);
-        // productsView.clearResult();
-        // productsView.renderResults(state.display.products, goToIndex);
-        productsView.reRenderButtons(goToIndex);
-
-    } else if (e.target.matches(".product__switch, .product__switch *")) {
-        // toggle price
-        //....
-
+    if (e.target.matches(".product__switch, .product__switch *")) {
+        console.log(currentId);
+        // console.log(index);
+        state.display.toggleSet(state.display.products[index]);
+        displayView.updateSetState(state.display.products[index], index);
     } else if (e.target.matches(".product__btn-collections, .product__btn-collections *")) {
         // collections controller: add product to collections
-        controlCollections(e);
-
+        // controlCollections(e);
+    
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
         // cart controller: add product to cart
         controlCart();
     }
+});
+
+elements.productCard.addEventListener("touchmove", e => {
 
 });
+
+// Handling card button clicks
+elements.display.addEventListener("click", e => {
+
+    if (e.target.matches(".card__btn")) {
+        const goToIndex = parseInt(e.target.dataset.goto, 10);
+        displayView.swipeCardList(elements.productList, goToIndex, state.display.products);
+        displayView.clearBtns(e.target);
+        // displayView.clearResult();
+        // displayView.renderResults(state.display.products, goToIndex);
+        displayView.reRenderButtons(goToIndex);
+
+    }
+
+});
+
+
+
 //===========================================
 //------------ cartItems controller ---------
 const controlCartitems = () => {};
@@ -107,7 +128,6 @@ const controlCollections = e => {
     
     const currentID = e.target.closest(".card__display").dataset.model;
 
-    console.log(currentID);
     // User has NOT yet add current product to collections
     if (!state.collections.isItemExist(currentID)) {
         // Add item to the state
