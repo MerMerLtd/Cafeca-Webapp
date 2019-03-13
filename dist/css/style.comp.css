@@ -107,7 +107,7 @@ input[type=checkbox] {
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
   display: block;
-  color: var(--color-grey-light-1); }
+  color: var(--color-grey-dark-2); }
 
 .btn--card {
   color: var(--color-primary-dark-2);
@@ -136,9 +136,9 @@ input[type=checkbox] {
 
 .btn--collections > i {
   -webkit-text-fill-color: #ffffff00;
-  -webkit-text-stroke: 2px white;
+  -webkit-text-stroke: 2px var(--color-grey-dark-2);
   -moz-text-fill-color: #ffffff00;
-  -moz-text-stroke: 2px white; }
+  -moz-text-stroke: 2px var(--color-grey-dark-2); }
 
 .card {
   margin: 0 auto;
@@ -152,7 +152,6 @@ input[type=checkbox] {
     align-items: center;
     height: 60vh;
     --length: 1;
-    --index: 0;
     width: 100%;
     width: calc(var(--length)*100%);
     transition: transform .5s ease-out;
@@ -228,6 +227,8 @@ input[type=checkbox] {
   grid-template-columns: repeat(2, 1fr); }
   .column > * {
     transition: all .2s ease; }
+  .column__list {
+    overflow: scroll; }
   .column__display {
     grid-column: 1/ span 2;
     grid-row: 1/  span 2;
@@ -648,9 +649,6 @@ input[type=number]::-webkit-outer-spin-button {
     top: 80%;
     font-size: 6rem; }
 
-.container--scroll {
-  overflow: scroll; }
-
 .swipe {
   display: flex;
   align-items: center;
@@ -698,7 +696,7 @@ input[type=number]::-webkit-outer-spin-button {
   grid-template-rows: min-content auto repeat(2, min-content); }
   .cart .heading-1 {
     background-color: var(--color-secondary-light); }
-  .cart .container--scroll {
+  .cart .column__list {
     background-color: var(--color-secondary-light); }
   .cart__toggle {
     height: 10vh;
@@ -741,9 +739,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: var(--color-secondary);
   height: 100vh;
   display: grid;
-  grid-template-rows: min-content auto; }
-  .collections * {
-    z-index: 400; }
+  grid-template-rows: min-content auto;
+  pointer-events: auto; }
 
 .display {
   background-color: var(--color-primary-light);
@@ -756,4 +753,5 @@ input[type=number]::-webkit-outer-spin-button {
 .possessions {
   background-color: var(--color-secondary-light);
   position: relative;
-  height: 100vh; }
+  height: 100vh;
+  pointer-events: auto; }
