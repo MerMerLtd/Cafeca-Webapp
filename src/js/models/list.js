@@ -2,16 +2,19 @@ export const List = {
     // can be use on Collection and Cart
     collections:[],
     cartItems:[],
-    addItem: function (item){
-        // const item = {id, name, accessory, price1, price2, img, description}
-        this.items.push(item);
+    addItem: function (list, item){
+        console.log(list, item)
+        list === "cart" 
+        ? this.cartItems.push(item)
+        : this.collections.push(item);
 
         this.persistData();
         return item;
     },
-    deleteItem: function (id){
-        const index = this.items.findIndex(item => item.id ===id);
-        this.items.splice(index, 1);
+    deleteItem: function (list, id){
+        const items = list === "cart" ? this.cartItems : this.collections;
+        const index = items.findIndex(item => item.id ===id);
+        items.splice(index, 1);
 
         this.persistData();
     },
@@ -24,21 +27,23 @@ export const List = {
     //     this.items.findIndex(item => item.id ===id).count = newCount;
     // },
 
-    isItemExist: function (id){
-        return this.items.findIndex(item => item.id === id) !== -1;
+    isItemExist: function (list, id){
+        const items = list === "cart" ? this.cartItems : this.collections;
+        return items.findIndex(item => item.id === id) !== -1;
     },
     getItemsNums: function (){
         return this.items.length;
     },
-    persistData: function (type) {
+    persistData: function (list) {
         // localStorage.setItem("Collections", JSON.stringify(this.items));
-        localStorage.setItem(type, JSON.stringify(this.items));
+        localStorage.setItem(list, JSON.stringify(this.items));
     },
-    readStorage: function (type){
+    readStorage: function (list){
         // const storage = JSON.parse(localStorage.getItem("Collections"));
-        const storage = JSON.parse(localStorage.getItem("type"));
+        const storage = JSON.parse(localStorage.getItem("list"));
 
-        if (storage) this.items = storage;
+        const items = list === "cart" ? this.cartItems : this.collections;
+        if (storage) items = storage;
     }
 }
 

@@ -4,32 +4,31 @@ export const cartToggle = () => elements.cart.style.getPropertyValue("--ty") ===
                                     ? elements.cart.style.setProperty("--ty", "90vh")
                                     : elements.cart.style.setProperty("--ty", "0vh");
 
-const renderItem = product => {
+export const renderItem = product => {
     const markup = `
-        <div class="column" data-itemid="${product.id}> 
+        <!-- 重複單元 -->
+        <div class="column" data-model="${product.id}> 
             <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
-            <input type="checkbox" name="column" id="column--cart" class="column__checkbox">
-            <label for="column--cart" class="column__toggle">
+            <input type="checkbox" name="column" id="column--cart${product.id}" class="column__checkbox">
+            <label for="column--cart${product.id}" class="column__toggle">
                 <i class="fas fa-ellipsis-v"></i>
             </label>
 
             <div class="column__display"> <!-- gird -->
                 <!-- 商品 -->
                 <!-- <div class="product__img-box"> -->
-                <img src="./img/coffee-demo-7.jpeg" alt="image" class="product__img">
+                <img src="${product.withSet? product.main.img: product.accessory.img}" alt="image" class="product__img">
                 <!-- </div> -->
-                <div class="product__name">戴綠帽</div>
-                <div class="product__accessory">紳士馬卡龍</div>
+                <div class="product__name">${product.main.name}</div>
+                <div class="product__accessory">${product.accessory.name}</div>
 
                 <!-- 選項： single or set -->
                 <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                <input type="checkbox" id="switch--display" name="set-name" class="product__switch switch__checkbox">
+                <input type="checkbox" id="switch--display" name="set-name" class="product__switch switch__checkbox" checked="${product.withSet}">
                 <label for="switch--display" class="switch__label"></label>
 
                 <!-- 商品價格 -->
-                <!-- <p class="product__price">NT <span>260</span></p> -->
-                <p class="product__price switch--price1">NT <span>180</span></p>
-                <p class="product__price switch--price2">NT <span>260</span></p>
+                <p class="product__price">NT <span>${product.price}</span></p>
 
                 <!-- 購買數量 -->
                 <div class="product__numsctrl">
@@ -55,13 +54,15 @@ const renderItem = product => {
         </div>
         <!-- 重複單元 -->
     `;
-}
-
-//move item to collection
-export const moveItem = id => {
-
+    elements.cartList.insertAdjacentHTML("beforeend", markup);
 }
 
 export const deleteItem = id => {
-
+    const item = document.querySelector(`[data-model="${id}"]`);
+    item.parentElement.removeChild(item);
 }
+
+//move item to collection
+// export const moveItem = id => {
+    
+// }

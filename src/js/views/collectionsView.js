@@ -1,20 +1,21 @@
+import { elements } from "./base";
 
-const renderItem = product => {
+export const renderItem = product => {
     const markup = `
     <!-- 重複單元 -->
-    <div class="column" data-itemid="${product.id}"> 
+    <div class="column" data-model="${product.id}"> 
         <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
-        <input type="checkbox" name="column" id="column--collections" class="column__checkbox">
-        <label for="column--collections" class="column__toggle">
+        <input type="checkbox" name="column" id="column--collections${product.id}" class="column__checkbox">
+        <label for="column--collections${product.id}" class="column__toggle">
             <i class="fas fa-ellipsis-v"></i>
         </label>
         <div class="column__display"> <!-- gird -->
             <!-- 商品 -->
             <!-- <div class="product__img-box"> -->
-                <img src="./img/coffee-demo-3.jpeg" alt="image" class="product__img">
+                <img src="${product.main.img}" alt="image" class="product__img">
             <!-- </div> -->
-            <div class="product__name">戴綠帽</div>
-            <div class="product__accessory">紳士馬卡龍</div>
+            <div class="product__name">${product.main.name}</div>
+            <div class="product__accessory">${product.accessory.name}</div>
 
             <p class="product__description">「在孤獨中形成的事物，往往也能用來救贖孤獨」</p>
         </div>
@@ -31,4 +32,6 @@ const renderItem = product => {
     </div>
     <!-- 重複單元 -->
     `;
+    elements.collectionList.insertAdjacentHTML("beforeend", markup);
+
 }

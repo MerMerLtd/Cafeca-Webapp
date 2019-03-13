@@ -8,6 +8,7 @@ import { Order } from "./models/order";
 
 import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
+import * as collectionsView from "./views/collectionsView";
 
 //================================
 //--------------- firebase -------
@@ -24,9 +25,6 @@ const config = {
 }
 firebase.initializeApp(config);
 
-
-
- 
 /** Global state of the app
  * - products object
  * - cart object
@@ -40,6 +38,7 @@ const state = {};
 const controlProducts = async () => {
     // 1 生成 products object 
     state.display = Object.create(Display);
+
     // 2. 取得瀏覽網頁者的location
     try{
         await state.display.getLocation();
@@ -66,6 +65,20 @@ const controlProducts = async () => {
 }
 controlProducts();
 
+
+//===========================================
+//------------ List( cart || collections ) controller ---------
+const controlList = (list, item) => {
+    if(!state.list) state.list = Object.create(List);
+    state.list.addItem(list, item);
+    list === "cart" 
+    ? cartView.renderItem(item) 
+    : collectionsView.renderItem(item);
+};
+
+
+
+
 elements.cartList.addEventListener("click", e => {
     if(e.target.matches(".btn--increase, .btn--increase *")){
         state.list.updateCount("inc");
@@ -77,19 +90,24 @@ elements.cartList.addEventListener("click", e => {
 elements.productCard.addEventListener("click", e => {
     let currentId = e.target.closest(".card__display").dataset.model;
     let index = state.display.products.findIndex(product => product.id === currentId);
+    let item = state.display.products[index];
 
     if (e.target.matches(".product__switch, .product__switch *")) {
-        console.log(currentId);
+        // console.log(currentId);
         // console.log(index);
-        state.display.toggleSet(state.display.products[index]);
-        displayView.updateSetState(state.display.products[index], index);
+        state.display.toggleSet(item);
+        // console.log(state.display.products);
+        displayView.updateSetState(item, index);
+
     } else if (e.target.matches(".product__btn-collections, .product__btn-collections *")) {
         // collections controller: add product to collections
-        // controlCollections(e);
+        controlList("collections", item);
+        console.log(state.list.collections);
     
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
         // cart controller: add product to cart
-        controlCart();
+        controlList("cart", item);
+        console.log(state.list.cartItems);
     }
 });
 
@@ -112,11 +130,6 @@ elements.display.addEventListener("click", e => {
 
 });
 
-
-
-//===========================================
-//------------ cartItems controller ---------
-const controlCartitems = () => {};
 
 //===========================================
 //------------ collections controller ---------
