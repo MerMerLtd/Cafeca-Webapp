@@ -102,8 +102,10 @@ const controlCartitems = () => {};
 const controlCollections = e => {
     if (!state.collections) state.collections = Object.create(List);
 
-    const index = e.target.closest(".card__list").style.getPropertyValue("--index");
-    const currentID = state.display.products[index].main.id;
+    // const index = e.target.closest(".card__list").style.getPropertyValue("--index");
+    // const currentID = state.display.products[index].main.id;
+    
+    const currentID = e.target.closest(".card__display").dataset.model;
 
     console.log(currentID);
     // User has NOT yet add current product to collections

@@ -2,10 +2,10 @@ import {elements} from "./base";
 
 const renderProduct = (product, index) =>{
   const markup = `
-    <li class="card__display" data-model="${product.main.id}"> 
+    <li class="card__display" data-model="${product.id}"> 
       <div class="card__title"> <!-- grid -->
           <div class="product__name">${product.main.name}</div>
-          <div class="product__accessory">適合搭配： ${product.accessory[Math.floor((new Date().getTime()/86400000)+index)% product.accessory.length].name}</div>
+          <div class="product__accessory">適合搭配： ${product.accessory.name}</div>
           <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
           <p class="product__description">「${limitProductDescription(product.main.description)}」</p>
       </div>

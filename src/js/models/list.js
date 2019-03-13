@@ -1,8 +1,8 @@
 export const List = {
     // can be use on Collection and Cart
     items:[],
-    addItem: function (id, name, accessory, price1, price2, img, description){
-        const item = {id, name, accessory, price1, price2, img, description}
+    addItem: function (id, set){
+        // const item = {id, name, accessory, price1, price2, img, description}
         this.items.push(item);
 
         this.persistData();
