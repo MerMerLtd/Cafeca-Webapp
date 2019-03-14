@@ -3,7 +3,7 @@ import { elements } from "./base";
 export const renderItem = product => {
     const markup = `
     <!-- 重複單元 -->
-    <div class="column" data-model="${product.id}"> 
+    <div class="column mb-sm" data-model="${product.id}"> 
         <!-- 點擊後水平移動顯示加入購物車或是刪除的按鈕 -->
         <input type="checkbox" name="column" id="column--collections${product.id}" class="column__checkbox">
         <label for="column--collections${product.id}" class="column__toggle">

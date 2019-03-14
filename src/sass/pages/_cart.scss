@@ -2,25 +2,28 @@
     height: 100vh;
     position: absolute;
     top: -90vh;
-    // top: -100vh;
-    // transform: translateY(-90vh);
     z-index: 500;
 
     --ty: 0vh;
     transition: transform .5s ease-out;
     transform: translateY(var(--ty, 0px));
 
-    display: grid;
-    grid-template-rows: min-content auto repeat(2, min-content);
+    display: flex;
+    flex-direction: column;
+    // display: grid;
+    // grid-template-rows: min-content auto repeat(2, min-content);
 
     .heading-1{
         background-color: var( --color-secondary-light);
     }
-    .column__list{
+
+    &__panel{
+        width: 100vw;
         background-color: var( --color-secondary-light);
+        overflow: scroll;
+        flex: 1;
     }
     
-
     &__toggle{
         height: 10vh;
         background-color: transparent;

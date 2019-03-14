@@ -25,9 +25,9 @@ export const elements = {
 
     // cartToggle: document.querySelector(".cart__toggle"),
     cart: document.querySelector(".cart"),
-    cartList: document.querySelector(".cart > .column__list"),
+    cartList: document.querySelector(".cart > .cart__panel > .column__list"),
     
-    collectionList: document.querySelector(".collections > .column__list"),
+    collectionList: document.querySelector(".collections > .collections__panel > .column__list"),
 }
 
 export const elementStrings = {

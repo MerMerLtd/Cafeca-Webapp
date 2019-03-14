@@ -2,8 +2,8 @@
     height: 130px;
     overflow: hidden;
 
-    margin: 0 auto;
-    width: 80vw;
+    // margin: 0 auto;
+    width: 100%;
     border-radius: 5px;
     overflow: hidden;
     display: grid;
@@ -17,7 +17,10 @@
     }
     
     &__list{
-        overflow: scroll;
+        height: 100%;
+        // overflow: scroll;
+        width: 80vw;
+        margin: 0 auto;
     }
 
     &__display{
