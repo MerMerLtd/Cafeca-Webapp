@@ -20,11 +20,12 @@ export const renderItem = product => {
                 <img src="${product.img}" alt="image" class="product__img">
                 <!-- </div> -->
                 <div class="product__name">${product.main.name}</div>
-                <div class="product__accessory"><span class="line">${product.accessory.name}</span></div>
+                <div class="product__accessory"><span>${product.accessory.name}</span></div>
 
                 <!-- 選項： single or set -->
                 <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                <input type="checkbox" id="switch--display${product.id}" name="set-name" class="product__switch switch__checkbox" ${product.withSet? "checked" : null}>
+                
+                <input type="checkbox" id="switch--display${product.id}" name="set-name" class="product__switch switch__checkbox"}> <!-- ${product.withSet? "checked" : null }-->
                 <label for="switch--display${product.id}" class="switch__label"></label>
 
                 <!-- 商品價格 -->
@@ -58,20 +59,18 @@ export const renderItem = product => {
 }
 
 export const updateColumn = item => {
-    console.log("hi")
-    
     // img
-    console.log(document.querySelector(`.cart [data-model="${item.id}"] .product__img`))
     document.querySelector(`.cart [data-model="${item.id}"] .product__img`).src = item.img;
     // switchState
-    document.querySelector(`.cart [data-model="${item.id}"] .column__checkbox`).checked = item.withSet;
+    document.querySelector(`.cart [data-model="${item.id}"] .product__switch`).checked = item.withSet;
     // accessory
-    document.querySelector(`.cart [data-model="${item.id}"] .product__accessory > span`).classList.toggle("line");
+    item.withSet
+    ? document.querySelector(`.cart [data-model="${item.id}"] .product__accessory > span`).classList.remove("line")
+    : document.querySelector(`.cart [data-model="${item.id}"] .product__accessory > span`).classList.add("line");
     // numsctrl
     document.querySelector(`.cart [data-model="${item.id}"] .numsctrl__display`).value = item.count;
     // price
-    document.querySelector(`.cart [data-model="${item.id}"] .product__price span`).textContent = item.price * item.count;
-    
+    document.querySelector(`.cart [data-model="${item.id}"] .product__price span`).textContent = item.price * item.count;  
 }
 
 export const deleteItem = id => {

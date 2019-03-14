@@ -85,6 +85,8 @@ const controlCartList = item => {
     newItem.count === 1
     ? cartView.renderItem(newItem)
     : cartView.updateColumn(newItem);
+    cartView.updateColumn(newItem);
+
 }
 
 // ===========================================
@@ -129,11 +131,12 @@ elements.cartList.addEventListener("click", e => {
 
         // delete item UI
         cartView.deleteItem(currentId);
-        console.log(state.cart.cartItems);
+
     }else if(e.target.matches(".switch__label")){
-        // switch: 合併column
-        item = state.cart.updateProduct(currentId);
+        // switch: 合併column ??
+        state.cart.updateProduct(currentId);
         cartView.updateColumn(item);
+
         // return false;
     }
 

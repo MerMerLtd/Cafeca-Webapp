@@ -14,6 +14,7 @@ export const Cart = {
             img: item.withSet
                 ? item.accessory.img
                 : item.main.img,
+            discountMinus: item.discountMinus,
             };
 
         let index = this.cartItems.findIndex(i => i.id === newItem.id);
@@ -60,16 +61,17 @@ export const Cart = {
     },
     updateProduct: function (id){
         const index = this.cartItems.findIndex(item => item.id === id);
-        let oldItem = {...this.cartItems[index]};
-        this.cartItems[index].withSet = !oldItem.withSet;
-        console.log(oldItem.withSet, this.cartItems[index].withSet);
-        this.cartItems[index].price = !oldItem.withSet
-        ? ( (oldItem.main.price + oldItem.accessory.price) - oldItem.discountMinus ) 
-        : (oldItem.main.price) ;
-        this.cartItems[index].img = !oldItem.withSet
-        ? oldItem.accessory.img
-        : oldItem.main.img;
-        console.log((oldItem.discountMinus) , typeof oldItem.discountMinus);
-        return {...this.cartItems[index]}
+        const item = this.cartItems[index];
+        const oldItem = {...item};
+        item.withSet = !oldItem.withSet;
+       
+        item.price = !oldItem.withSet
+        ? ( (item.main.price + item.accessory.price) - item.discountMinus ) 
+        : (item.main.price) ;
+        item.img = !oldItem.withSet
+        ? item.accessory.img
+        : item.main.img;
+       
+        return item;
     }
 }
