@@ -82,7 +82,7 @@ controlProducts();
 const controlCartList = item => {
     if(!state.cart) state.cart = Object.create(Cart);
     const newItem = state.cart.addItem(item);
-    typeof newItem === "object"
+    newItem.count === 1
     ? cartView.renderItem(newItem)
     : cartView.updateColumn(newItem);
 }
@@ -99,21 +99,28 @@ const controlCollectiontList = item => {
 
 
 elements.cartList.addEventListener("click", e => {
+
     if(!state.cart){
         return
     }
+
     let currentId = e.target.closest(".column").dataset.model;
+    let index = state.cart.cartItems.findIndex(item => item.id === currentId);
+    let item = state.cart.cartItems[index];
 
     if(e.target.matches(".btn--increase, .btn--increase *")){
-        // state.list.updateCount("inc", index);
+        state.cart.updateCount(currentId, "inc");
+        cartView.updateColumn(item);
+
     }else if(e.target.matches(".btn--decrease, .btn--decrease *")){
-        // state.list.updateCount("dec", index);
+        state.cart.updateCount(currentId, "dec");
+        cartView.updateColumn(item);
+
     }else if(e.target.matches(".numsctrl__display")){
         // input value
+    
     }else if(e.target.matches(".column__btn--top, .column__btn--top *")){
         // add to collection
-        let index = state.cart.cartItems.findIndex(item => item.id === currentId);
-        let item = state.cart.cartItems[index];
         controlCollectiontList(item)
 
     }else if(e.target.matches(".column__btn--bottom, .column__btn--bottom *")){
@@ -125,6 +132,9 @@ elements.cartList.addEventListener("click", e => {
         console.log(state.cart.cartItems);
     }else if(e.target.matches(".switch__label")){
         // switch: 合併column
+        item = state.cart.updateProduct(currentId);
+        cartView.updateColumn(item);
+        // return false;
     }
 
 });
@@ -163,20 +173,10 @@ elements.productCard.addEventListener("click", e => {
     } else if (e.target.matches(".product__btn-collections, .product__btn-collections *")) {
         // collections controller: add product to collections // 
         controlCollectiontList(item);
-        // if(!state.collections) state.collections = Object.create(Collections);
-        // const newItem = state.collections.addItem(item);
-        // newItem
-        // ? collectionsView.renderItem(newItem)
-        // : console.log("已經在collection裡面啦");
-
+       
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
         // cart controller: add product to cart // 
         controlCartList(item);
-        // if(!state.cart) state.cart = Object.create(Cart);
-        // const newItem = state.cart.addItem(item);
-        // typeof newItem === "object"
-        // ? cartView.renderItem(newItem)
-        // : cartView.updateColumn(newItem);
   
     }
 });

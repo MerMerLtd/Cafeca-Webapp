@@ -5,7 +5,7 @@ const renderProduct = product =>{
     <li class="card__display" data-model="${product.id}"> 
       <div class="card__title"> <!-- grid -->
           <div class="product__name">${product.main.name}</div>
-          <div class="product__accessory">適合搭配： ${product.accessory.name}</div>
+          <div class="product__accessory ">適合搭配： <span class="line">${product.accessory.name}</span></div>
           <div class="product__btn-collections btn btn--collections"><i class="fas fa-bookmark"></i></div>
           <p class="product__description">「${limitProductDescription(product.main.description)}」</p>
       </div>
@@ -98,12 +98,17 @@ export const limitProductDescription = (description, limit = 22) => {
 }
 export const updateSetState = (product, index) => {
   // update price 
-  document.querySelectorAll(".display .product__price > span")[index].textContent 
+  document.querySelectorAll(".display .product__price > span").item(index).textContent 
   = product.withSet 
   ? (product.main.price + product.accessory.price) - product.discountMinus 
   : product.main.price;
   // update img
-  
+  document.querySelectorAll(".display .card__img").item(index).src 
+  = product.withSet 
+  ? product.accessory.img 
+  : product.main.img;
+  // update accessory name
+  document.querySelectorAll(".display .product__accessory > span").item(index).classList.toggle("line");
 }
 
 export const renderResults = (products, index = 0) => {

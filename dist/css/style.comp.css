@@ -104,6 +104,9 @@ input[type=checkbox] {
 .mt-hg {
   margin-top: 5rem; }
 
+.line {
+  text-decoration: line-through; }
+
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
   display: block;

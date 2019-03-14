@@ -17,14 +17,14 @@ export const renderItem = product => {
             <div class="column__display"> <!-- gird -->
                 <!-- 商品 -->
                 <!-- <div class="product__img-box"> -->
-                <img src="${!product.withSet ? product.main.img: product.accessory.img}" alt="image" class="product__img">
+                <img src="${product.img}" alt="image" class="product__img">
                 <!-- </div> -->
                 <div class="product__name">${product.main.name}</div>
-                <div class="product__accessory">${product.accessory.name}</div>
+                <div class="product__accessory"><span class="line">${product.accessory.name}</span></div>
 
                 <!-- 選項： single or set -->
                 <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                <input type="checkbox" id="switch--display${product.id}" name="set-name" class="product__switch switch__checkbox" checked="${product.withSet}">
+                <input type="checkbox" id="switch--display${product.id}" name="set-name" class="product__switch switch__checkbox" ${product.withSet? "checked" : null}>
                 <label for="switch--display${product.id}" class="switch__label"></label>
 
                 <!-- 商品價格 -->
@@ -57,15 +57,25 @@ export const renderItem = product => {
     elements.cartList.insertAdjacentHTML("beforeend", markup);
 }
 
-export const updateColumn = index => {
-    console.log(index);
+export const updateColumn = item => {
+    console.log("hi")
+    
+    // img
+    console.log(document.querySelector(`.cart [data-model="${item.id}"] .product__img`))
+    document.querySelector(`.cart [data-model="${item.id}"] .product__img`).src = item.img;
+    // switchState
+    document.querySelector(`.cart [data-model="${item.id}"] .column__checkbox`).checked = item.withSet;
+    // accessory
+    document.querySelector(`.cart [data-model="${item.id}"] .product__accessory > span`).classList.toggle("line");
+    // numsctrl
+    document.querySelector(`.cart [data-model="${item.id}"] .numsctrl__display`).value = item.count;
+    // price
+    document.querySelector(`.cart [data-model="${item.id}"] .product__price span`).textContent = item.price * item.count;
+    
 }
+
 export const deleteItem = id => {
     const item = document.querySelector(`.cart [data-model="${id}"]`);
     item.parentElement.removeChild(item);
 }
 
-//move item to collection
-// export const moveItem = id => {
-    
-// }
