@@ -218,8 +218,7 @@ input[type=checkbox] {
 .column {
   height: 130px;
   overflow: hidden;
-  margin: 0 auto;
-  width: 80vw;
+  width: 100%;
   border-radius: 5px;
   overflow: hidden;
   display: grid;
@@ -228,7 +227,9 @@ input[type=checkbox] {
   .column > * {
     transition: all .2s ease; }
   .column__list {
-    overflow: scroll; }
+    height: 100%;
+    width: 80vw;
+    margin: 0 auto; }
   .column__display {
     grid-column: 1/ span 2;
     grid-row: 1/  span 2;
@@ -692,12 +693,15 @@ input[type=number]::-webkit-outer-spin-button {
   --ty: 0vh;
   transition: transform .5s ease-out;
   transform: translateY(var(--ty, 0px));
-  display: grid;
-  grid-template-rows: min-content auto repeat(2, min-content); }
+  display: flex;
+  flex-direction: column; }
   .cart .heading-1 {
     background-color: var(--color-secondary-light); }
-  .cart .column__list {
-    background-color: var(--color-secondary-light); }
+  .cart__panel {
+    width: 100vw;
+    background-color: var(--color-secondary-light);
+    overflow: scroll;
+    flex: 1; }
   .cart__toggle {
     height: 10vh;
     background-color: transparent;
@@ -741,6 +745,10 @@ input[type=number]::-webkit-outer-spin-button {
   display: grid;
   grid-template-rows: min-content auto;
   pointer-events: auto; }
+  .collections__panel {
+    width: 100vw;
+    height: 75vh;
+    overflow: scroll; }
 
 .display {
   background-color: var(--color-primary-light);

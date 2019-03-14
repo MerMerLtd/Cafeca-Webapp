@@ -30,6 +30,7 @@ export const elements = {
     collectionList: document.querySelector(".collections > .collections__panel > .column__list"),
 }
 
+
 export const elementStrings = {
     loader: "lds-ellipsis",
 }

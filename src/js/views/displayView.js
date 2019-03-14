@@ -16,8 +16,8 @@ const renderProduct = product =>{
 
       <div class="card__toolbox">
 
-          <input type="checkbox" id="${product.main.id}" name="set-name" class="product__switch switch__checkbox">
-          <label for="${product.main.id}" class="switch__label"></label> 
+          <input type="checkbox" id="${product.main.id}--display" name="set-name" class="product__switch switch__checkbox">
+          <label for="${product.main.id}--display" class="switch__label"></label> 
 
           <p class="product__price">NT <span>${product.price}</span></p>
           
@@ -98,8 +98,7 @@ export const limitProductDescription = (description, limit = 22) => {
 }
 export const updateSetState = (product, index) => {
   // update price 
-  // console.log(product)
-  document.querySelectorAll(".product__price > span")[index].textContent = product.price;
+  document.querySelectorAll(".display .product__price > span")[index].textContent = product.price;
   // update img
 }
 

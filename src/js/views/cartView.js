@@ -17,7 +17,7 @@ export const renderItem = product => {
             <div class="column__display"> <!-- gird -->
                 <!-- 商品 -->
                 <!-- <div class="product__img-box"> -->
-                <img src="${product.withSet? product.main.img: product.accessory.img}" alt="image" class="product__img">
+                <img src="${!product.withSet ? product.main.img: product.accessory.img}" alt="image" class="product__img">
                 <!-- </div> -->
                 <div class="product__name">${product.main.name}</div>
                 <div class="product__accessory">${product.accessory.name}</div>
@@ -57,6 +57,9 @@ export const renderItem = product => {
     elements.cartList.insertAdjacentHTML("beforeend", markup);
 }
 
+export const updateColumn = index => {
+    console.log(index);
+}
 export const deleteItem = id => {
     const item = document.querySelector(`[data-model="${id}"]`);
     item.parentElement.removeChild(item);

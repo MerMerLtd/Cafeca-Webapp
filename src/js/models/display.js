@@ -40,6 +40,7 @@ export const Display = {
                 const set = Object.create(Set);
                 // 給每個set 一個unique Id
                 set.id = uniqid(); // 等等我突然意識到id似乎不該放在這裏
+                // set.id = product.id;
                 // 把每個 main product 加進set
                 set.main = product;
                 return set;

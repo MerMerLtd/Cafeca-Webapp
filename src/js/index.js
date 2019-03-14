@@ -3,7 +3,10 @@ import { elements, renderLoader, clearLoader, makeRequest, getLocation } from ".
 
 import "./views/swipe";
 import { Display } from "./models/display";
-import { List } from "./models/list";
+
+import { Collections } from "./models/collections";
+import { Cart } from "./models/cart";
+
 import { Order } from "./models/order";
 
 import * as displayView from "./views/displayView";
@@ -68,18 +71,30 @@ controlProducts();
 
 //===========================================
 //------------ List( cart || collections ) controller ---------
-const controlList = (list, item) => {
-    if(!state.list) state.list = Object.create(List);
-    state.list.addItem(list, item);
-    list === "cart" 
-    ? cartView.renderItem(item) 
-    : collectionsView.renderItem(item);
-};
+// const controlList = (list, item) => {
+//     if(!state.list) state.list = Object.create(List);
+//     const newItem = state.list.addItem(list, item);
+//     list === "cart" 
+//     ? cartView.renderItem(newItem) 
+//     : collectionsView.renderItem(newItem);
+// };
 
-
+//===========================================
+//------------ Cart controller ---------
+const controlCartList = item => {
+    if(!state.cartList) state.cartList = Object.create(Cart);
+    const newItem = state.cartList.addItem(item);
+    typeof newItem === "object"
+    ? cartView.renderItem(newItem)
+    : cartView.updateColumn(newItem);
+}
 
 
 elements.cartList.addEventListener("click", e => {
+    // let currentId = e.target.closest(".column").dataset.model;
+    // let index = state.list.cartItems.findIndex(product => product.id === currentId);
+    // let item = state.display.products[index];
+
     if(e.target.matches(".btn--increase, .btn--increase *")){
         state.list.updateCount("inc");
     }else if(e.target.matches(".btn--decrease, .btn--decrease *")){
@@ -93,21 +108,25 @@ elements.productCard.addEventListener("click", e => {
     let item = state.display.products[index];
 
     if (e.target.matches(".product__switch, .product__switch *")) {
-        // console.log(currentId);
-        // console.log(index);
         state.display.toggleSet(item);
-        // console.log(state.display.products);
         displayView.updateSetState(item, index);
 
     } else if (e.target.matches(".product__btn-collections, .product__btn-collections *")) {
-        // collections controller: add product to collections
-        controlList("collections", item);
-        console.log(state.list.collections);
-    
+        // collections controller: add product to collections // controlList("collections", item);
+        if(!state.collections) state.collections = Object.create(Collections);
+        const newItem = state.collections.addItem(item);
+        newItem
+        ? collectionsView.renderItem(newItem)
+        : console.log("已經在collection裡面啦");
+        
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
-        // cart controller: add product to cart
-        controlList("cart", item);
-        console.log(state.list.cartItems);
+        // cart controller: add product to cart // controlCartList(item);
+        if(!state.cartList) state.cartList = Object.create(Cart);
+        const newItem = state.cartList.addItem(item);
+        typeof newItem === "object"
+        ? cartView.renderItem(newItem)
+        : cartView.updateColumn(newItem);
+  
     }
 });
 
