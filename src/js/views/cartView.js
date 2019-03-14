@@ -24,8 +24,8 @@ export const renderItem = product => {
 
                 <!-- 選項： single or set -->
                 <!-- https://codepen.io/guuslieben/pen/YyPRVP -->
-                <input type="checkbox" id="switch--display" name="set-name" class="product__switch switch__checkbox" checked="${product.withSet}">
-                <label for="switch--display" class="switch__label"></label>
+                <input type="checkbox" id="switch--display${product.id}" name="set-name" class="product__switch switch__checkbox" checked="${product.withSet}">
+                <label for="switch--display${product.id}" class="switch__label"></label>
 
                 <!-- 商品價格 -->
                 <p class="product__price">NT <span>${product.price}</span></p>
@@ -61,7 +61,7 @@ export const updateColumn = index => {
     console.log(index);
 }
 export const deleteItem = id => {
-    const item = document.querySelector(`[data-model="${id}"]`);
+    const item = document.querySelector(`.cart [data-model="${id}"]`);
     item.parentElement.removeChild(item);
 }
 

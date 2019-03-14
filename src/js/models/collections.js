@@ -1,13 +1,19 @@
 export const Collections = {
-    collections: [],
+    collectionItems: [],
     addItem: function (item) {
-        let newItem = {...item};
-        if(this.collections.findIndex(i => i.id === newItem.id) !== -1){
+        let newItem = {...item,
+            withSet: false,
+            };
+        if(this.collectionItems.findIndex(i => i.id === newItem.id) !== -1){
             return;
         }
-        this.collections.push(item);
-        return item;
-    }
+        this.collectionItems.push(newItem);
+        return newItem;
+    },
+    deleteItem: function (id){   
+        const index = this.collectionItems.findIndex(item => item.id === id);
+        this.collectionItems.splice(index, 1);
+    },
 }
 
 // export const List = {

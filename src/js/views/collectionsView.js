@@ -35,3 +35,9 @@ export const renderItem = product => {
     elements.collectionList.insertAdjacentHTML("beforeend", markup);
 
 }
+
+export const deleteItem = id => {
+    const item = document.querySelector(`.collections [data-model="${id}"]`);
+    console.log("hi",item)
+    item.parentElement.removeChild(item);
+}

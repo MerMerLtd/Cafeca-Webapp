@@ -98,8 +98,12 @@ export const limitProductDescription = (description, limit = 22) => {
 }
 export const updateSetState = (product, index) => {
   // update price 
-  document.querySelectorAll(".display .product__price > span")[index].textContent = product.price;
+  document.querySelectorAll(".display .product__price > span")[index].textContent 
+  = product.withSet 
+  ? (product.main.price + product.accessory.price) - product.discountMinus 
+  : product.main.price;
   // update img
+  
 }
 
 export const renderResults = (products, index = 0) => {

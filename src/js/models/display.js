@@ -70,7 +70,7 @@ export const Display = {
     toggleSet: function (product){
         const updateSet = !product.withSet;
         product.withSet = updateSet;
-        product.price = product.withSet ? (product.main.price + product.accessory.price) - product.discountMinus : product.main.price;
+        // product.price = product.withSet ? (product.main.price + product.accessory.price) - product.discountMinus : product.main.price;
     }
 }
 

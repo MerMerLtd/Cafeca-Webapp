@@ -3,11 +3,9 @@ import { elements, renderLoader, clearLoader, makeRequest, getLocation } from ".
 
 import "./views/swipe";
 import { Display } from "./models/display";
-
 import { Collections } from "./models/collections";
 import { Cart } from "./models/cart";
-
-import { Order } from "./models/order";
+// import { Order } from "./models/order";
 
 import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
@@ -79,27 +77,78 @@ controlProducts();
 //     : collectionsView.renderItem(newItem);
 // };
 
-//===========================================
-//------------ Cart controller ---------
+// ===========================================
+// ------------ Cart controller ---------
 const controlCartList = item => {
-    if(!state.cartList) state.cartList = Object.create(Cart);
-    const newItem = state.cartList.addItem(item);
+    if(!state.cart) state.cart = Object.create(Cart);
+    const newItem = state.cart.addItem(item);
     typeof newItem === "object"
     ? cartView.renderItem(newItem)
     : cartView.updateColumn(newItem);
 }
 
+// ===========================================
+// ------------ Collections controller ---------
+const controlCollectiontList = item => {
+    if(!state.collections) state.collections = Object.create(Collections);
+    const newItem = state.collections.addItem(item);
+    newItem
+    ? collectionsView.renderItem(newItem)
+    : console.log("已經在collection裡面啦");
+}
+
 
 elements.cartList.addEventListener("click", e => {
-    // let currentId = e.target.closest(".column").dataset.model;
-    // let index = state.list.cartItems.findIndex(product => product.id === currentId);
-    // let item = state.display.products[index];
+    if(!state.cart){
+        return
+    }
+    let currentId = e.target.closest(".column").dataset.model;
 
     if(e.target.matches(".btn--increase, .btn--increase *")){
-        state.list.updateCount("inc");
+        // state.list.updateCount("inc", index);
     }else if(e.target.matches(".btn--decrease, .btn--decrease *")){
-        state.list.updateCount("dec");
+        // state.list.updateCount("dec", index);
+    }else if(e.target.matches(".numsctrl__display")){
+        // input value
+    }else if(e.target.matches(".column__btn--top, .column__btn--top *")){
+        // add to collection
+        let index = state.cart.cartItems.findIndex(item => item.id === currentId);
+        let item = state.cart.cartItems[index];
+        controlCollectiontList(item)
+
+    }else if(e.target.matches(".column__btn--bottom, .column__btn--bottom *")){
+        // delete item from state
+        state.cart.deleteItem(currentId);
+
+        // delete item UI
+        cartView.deleteItem(currentId);
+        console.log(state.cart.cartItems);
+    }else if(e.target.matches(".switch__label")){
+        // switch: 合併column
     }
+
+});
+
+elements.collectionList.addEventListener("click", e => {
+    if(!state.collections){
+        return
+    }
+    let currentId = e.target.closest(".column").dataset.model;
+
+    if(e.target.matches(".column__btn--top, .column__btn--top *")){
+        // add to cart
+        let index = state.collections.collectionItems.findIndex(item => item.id === currentId);
+        let item = state.collections.collectionItems[index];
+        controlCartList(item);
+    }else if(e.target.matches(".column__btn--bottom, .column__btn--bottom *")){
+        // delete item from state
+        state.collections.deleteItem(currentId);
+
+        // delete item UI
+        collectionsView.deleteItem(currentId);
+        console.log(state.collections.collectionItems);
+    }
+
 });
 
 elements.productCard.addEventListener("click", e => {
@@ -112,20 +161,22 @@ elements.productCard.addEventListener("click", e => {
         displayView.updateSetState(item, index);
 
     } else if (e.target.matches(".product__btn-collections, .product__btn-collections *")) {
-        // collections controller: add product to collections // controlList("collections", item);
-        if(!state.collections) state.collections = Object.create(Collections);
-        const newItem = state.collections.addItem(item);
-        newItem
-        ? collectionsView.renderItem(newItem)
-        : console.log("已經在collection裡面啦");
-        
+        // collections controller: add product to collections // 
+        controlCollectiontList(item);
+        // if(!state.collections) state.collections = Object.create(Collections);
+        // const newItem = state.collections.addItem(item);
+        // newItem
+        // ? collectionsView.renderItem(newItem)
+        // : console.log("已經在collection裡面啦");
+
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
-        // cart controller: add product to cart // controlCartList(item);
-        if(!state.cartList) state.cartList = Object.create(Cart);
-        const newItem = state.cartList.addItem(item);
-        typeof newItem === "object"
-        ? cartView.renderItem(newItem)
-        : cartView.updateColumn(newItem);
+        // cart controller: add product to cart // 
+        controlCartList(item);
+        // if(!state.cart) state.cart = Object.create(Cart);
+        // const newItem = state.cart.addItem(item);
+        // typeof newItem === "object"
+        // ? cartView.renderItem(newItem)
+        // : cartView.updateColumn(newItem);
   
     }
 });
@@ -148,50 +199,6 @@ elements.display.addEventListener("click", e => {
     }
 
 });
-
-
-//===========================================
-//------------ collections controller ---------
-const controlCollections = e => {
-    if (!state.collections) state.collections = Object.create(List);
-
-    // const index = e.target.closest(".card__list").style.getPropertyValue("--index");
-    // const currentID = state.display.products[index].main.id;
-    
-    const currentID = e.target.closest(".card__display").dataset.model;
-
-    // User has NOT yet add current product to collections
-    if (!state.collections.isItemExist(currentID)) {
-        // Add item to the state
-        const newCollectionItem = state.collections.addItem(
-            currentID,
-            state.display.products.name, 
-            state.display.products.accessory, 
-            state.display.products.price1, 
-            state.display.products.price2, 
-            state.display.products.img, 
-            state.display.products.description
-        );
-        // Toggle the both collection button in cart and display
-        
-
-        // Add item to UI list
-       
-
-    // User HAS collect current product
-    } else {
-        // Remove item from the state
-        // state.collections.deleteItem(currentID);
-
-        // Toggle the both collection button in cart and display
-        
-
-        // Remove item from UI list
-       
-    }
-    // collectionItemsView.toggleLikeMenu(state.collectionItems.getNumCollectionItems());
-};
-
 
 
 // 打開購物車

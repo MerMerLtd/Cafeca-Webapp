@@ -8,6 +8,9 @@ export const Cart = {
             id: item.withSet
                 ? item.id + "set"
                 : item.id,
+            price: item.withSet
+                ? (item.main.price + item.accessory.price) - item.discountMinus 
+                : item.main.price
             };
 
         let index = this.cartItems.findIndex(i => i.id === newItem.id);
@@ -25,5 +28,9 @@ export const Cart = {
 
         // this.persistData();
         return newItem;
+    },
+    deleteItem: function (id){    
+        const index = this.cartItems.findIndex(item => item.id === id);
+        this.cartItems.splice(index, 1);
     },
 }
