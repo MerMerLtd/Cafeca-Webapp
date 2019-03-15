@@ -58,7 +58,7 @@ export const renderItem = product => {
     elements.cartList.insertAdjacentHTML("beforeend", markup);
 }
 
-export const updateColumn = item => {
+export const updateColumn = (item, isCollected) => {
     // img
     document.querySelector(`.cart [data-model="${item.id}"] .product__img`).src = item.img;
     // switchState
@@ -70,7 +70,8 @@ export const updateColumn = item => {
     // numsctrl
     document.querySelector(`.cart [data-model="${item.id}"] .numsctrl__display`).value = item.count;
     // price
-    document.querySelector(`.cart [data-model="${item.id}"] .product__price span`).textContent = item.price * item.count;  
+    document.querySelector(`.cart [data-model="${item.id}"] .product__price span`).textContent = item.price * item.count; 
+ 
 }
 
 export const deleteItem = id => {

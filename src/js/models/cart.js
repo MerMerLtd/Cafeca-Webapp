@@ -75,5 +75,10 @@ export const Cart = {
         : item.main.img;
        
         return item;
+    },
+    isInCart: function(id){
+        return this.cartItems.findIndex(item => item.id === id) !== -1 
+        ? this.cartItems.findIndex(item => item.id === id)
+        : false;
     }
 }

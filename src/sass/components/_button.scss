@@ -34,9 +34,9 @@
     }
 
     &--collections > i{
-        -webkit-text-fill-color: #ffffff00;
+        -webkit-text-fill-color: var(--filled);
         -webkit-text-stroke: 2px var(--color-grey-dark-2);
-        -moz-text-fill-color: #ffffff00;
+        -moz-text-fill-color: var(--filled);
         -moz-text-stroke: 2px var(--color-grey-dark-2);
     }
 }

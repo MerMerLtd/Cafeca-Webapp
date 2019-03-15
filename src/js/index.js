@@ -83,10 +83,17 @@ controlProducts();
 const controlCartList = item => {
     if(!state.cart) state.cart = Object.create(Cart);
     const newItem = state.cart.addItem(item);
+
     newItem.count === 1
-    ? cartView.renderItem(newItem)
-    : cartView.updateColumn(newItem);
-    cartView.updateColumn(newItem);
+        ? cartView.renderItem(newItem)
+        : cartView.updateColumn(newItem);
+
+    if(state.collections){
+        state.collections.isCollected(item.id)
+        ? collectionsView.toggleCollectBtn([document.querySelectorAll(".cart .column .fa-bookmark").item(state.cart.isInCart(item.id))], true)
+        : null
+    }
+    
 
 }
 
@@ -94,10 +101,37 @@ const controlCartList = item => {
 // ------------ Collections controller ---------
 const controlCollectiontList = item => {
     if(!state.collections) state.collections = Object.create(Collections);
-    const newItem = state.collections.addItem(item);
-    newItem
-    ? collectionsView.renderItem(newItem)
-    : console.log("已經在collection裡面啦");
+    const currentId = item.id;
+    const els = [];
+
+    // 選取在display 裡面對應item 的 card__display 的 icon 然後放到 els array 裡面
+    if(state.display) els.push(document.querySelectorAll(".display .card__display .fa-bookmark").item(state.display.products.findIndex(i => i.id === item.id)));
+    // 選取在cart 裡面對應item 的 column 的 icon 然後放到 els array 裡面
+    if(state.cart) state.cart.isInCart 
+    ? els.push(document.querySelectorAll(".cart .column .fa-bookmark").item(state.cart.isInCart(currentId)))
+    : null;
+    console.log(els);
+
+    if(!state.collections.isCollected(currentId)){
+        // add item to the state.collections
+        const newItem = state.collections.addItem(item);
+        // render item to collections UI
+        collectionsView.renderItem(newItem);
+        // toggle collection Buttons both in display and cart(if it is in cart)
+        collectionsView.toggleCollectBtn(els, true);
+
+    }else{
+        // remove item from the state.collections
+        state.collections.deleteItem(currentId);
+        // delete item from collections UI
+        collectionsView.deleteItem(currentId);
+        // toggle collection Buttons both in display and cart(if it is in cart)
+        collectionsView.toggleCollectBtn(els, false);        
+    }
+
+    // newItem
+    // ? collectionsView.renderItem(newItem)
+    // : console.log("已經在collection裡面啦");
 }
 
 

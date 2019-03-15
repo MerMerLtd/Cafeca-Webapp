@@ -3,16 +3,21 @@ export const Collections = {
     addItem: function (item) {
         let newItem = {...item,
             withSet: false,
+            discountPercentage: item.discountPercentage,
+            discountMinus: item.discountMinus,
             };
-        if(this.collectionItems.findIndex(i => i.id === newItem.id) !== -1){
-            return;
-        }
+        // if(this.collectionItems.findIndex(i => i.id === newItem.id) !== -1){
+        //     return;
+        // }
         this.collectionItems.push(newItem);
         return newItem;
     },
     deleteItem: function (id){   
         const index = this.collectionItems.findIndex(item => item.id === id);
         this.collectionItems.splice(index, 1);
+    },
+    isCollected: function (id){
+        return this.collectionItems.findIndex(item => item.id === id) !== -1;
     },
 }
 

@@ -38,6 +38,11 @@ export const renderItem = product => {
 
 export const deleteItem = id => {
     const item = document.querySelector(`.collections [data-model="${id}"]`);
-    console.log("hi",item)
     item.parentElement.removeChild(item);
+    // console.log("deleteItem");
+}
+
+export const toggleCollectBtn = (elements, isCollected) => {
+    elements.forEach(el => el.style.setProperty("--filled", isCollected ? "#0": "#ffffff00"));
+    // console.log( getComputedStyle(document.documentElement).getPropertyValue("--filled"));
 }
