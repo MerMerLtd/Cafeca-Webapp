@@ -132,7 +132,7 @@ elements.cartList.addEventListener("click", e => {
         // delete item UI
         cartView.deleteItem(currentId);
 
-    }else if(e.target.matches(".product__switch .product__switch *")){
+    }else if(e.target.matches(".product__switch, .product__switch *")){
         // switch: 合併column ??
         state.cart.updateProduct(currentId);
         cartView.updateColumn(item);
@@ -159,7 +159,6 @@ elements.collectionList.addEventListener("click", e => {
 
         // delete item UI
         collectionsView.deleteItem(currentId);
-        console.log(state.collections.collectionItems);
     }
 
 });

@@ -14,6 +14,8 @@ export const Cart = {
             img: item.withSet
                 ? item.accessory.img
                 : item.main.img,
+            withSet: item.withSet,
+            discountPercentage: item.discountPercentage,
             discountMinus: item.discountMinus,
             };
 
