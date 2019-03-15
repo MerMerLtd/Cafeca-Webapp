@@ -33,6 +33,7 @@ firebase.initializeApp(config);
  * - possessions object
  */
 const state = {};
+window.state = state;//test purpose
 
 //===========================================
 //----- products || display controller ------
@@ -132,7 +133,7 @@ elements.cartList.addEventListener("click", e => {
         // delete item UI
         cartView.deleteItem(currentId);
 
-    }else if(e.target.matches(".product__switch, .product__switch *")){
+    }else if(e.target.matches(".product__switch")){
         // switch: 合併column ??
         state.cart.updateProduct(currentId);
         cartView.updateColumn(item);
@@ -179,7 +180,9 @@ elements.productCard.addEventListener("click", e => {
     }else if (e.target.matches(".btn--cart, .btn--cart *")) {
         // cart controller: add product to cart // 
         controlCartList(item);
-  
+
+        // add notication
+        displayView.renderNotification();
     }
 });
 
@@ -204,8 +207,13 @@ elements.display.addEventListener("click", e => {
 
 
 // 打開購物車
-elements.cart.addEventListener("click", e => {
+elements.cartToggle.addEventListener("click", e => {
     if(e.target.matches(".cart__toogle--logo")){
         cartView.cartToggle();
     }
+});
+
+// 監聽add to cart notification animation end 
+elements.cartToggle.addEventListener("animationend", e=>{
+    e.target.parentElement.removeChild(e.target);
 });

@@ -26,6 +26,7 @@ export const elements = {
     // cartToggle: document.querySelector(".cart__toggle"),
     cart: document.querySelector(".cart"),
     cartList: document.querySelector(".cart > .cart__panel > .column__list"),
+    cartToggle: document.querySelector(".cart__toggle"),
     
     collectionList: document.querySelector(".collections > .collections__panel > .column__list"),
 }

@@ -51,10 +51,16 @@
             width: 24px;
             text-align: center;
             border-radius: 24px;
-            background-color: var(--color-grey-dark-2);
+            background-color: var(--color-secondary-dark);
+            
+            animation: show 2s ease;
+            // opacity: 0;
             
         }
     }
+    // &__notify{
+    //     animation: show 2s ease;
+    // }
     &__btn-order{
         color: var(--color-primary-dark-2);
         font-weight: 300;

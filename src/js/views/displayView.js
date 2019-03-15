@@ -123,6 +123,14 @@ export const reRenderButtons = index => {
   renderButtons(index, elements.productList.children.length);
 }
 
+export const renderNotification = () => {
+  const markup = `
+    <!-- https://www.w3schools.com/howto/howto_css_notification_button.asp -->
+    <div class="cart__toggle--notification"> &#33; </div>
+  `;
+  elements.cartToggle.insertAdjacentHTML("beforeend", markup);
+}
+
 
 // ===========================================================
 // =====================   控制商品數量及價錢   =================
