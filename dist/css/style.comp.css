@@ -5,6 +5,15 @@
 .smooth {
   transition: transform calc(var(--f, 1)*.5s) ease-out; }
 
+@keyframes show {
+  0% {
+    opacity: 1; }
+  25% {
+    transform: scale(1.05); }
+  100% {
+    opacity: 0;
+    transform: scale(0.8); } }
+
 :root {
   --color-primary-lighter: rgba(159, 205, 205);
   --color-primary-light: rgb(141, 182, 203);
@@ -26,7 +35,8 @@
   --modal-dark:  #0000004d;
   --modal-light:  #0000000f;
   --line: 1px solid var(--color-grey-light-2);
-  --font-display: sans-serif; }
+  --font-display: sans-serif;
+  --filled: #ffffff00; }
 
 *,
 *::after,
@@ -138,9 +148,9 @@ input[type=checkbox] {
   width: 100vw; }
 
 .btn--collections > i {
-  -webkit-text-fill-color: #ffffff00;
+  -webkit-text-fill-color: var(--filled);
   -webkit-text-stroke: 2px var(--color-grey-dark-2);
-  -moz-text-fill-color: #ffffff00;
+  -moz-text-fill-color: var(--filled);
   -moz-text-stroke: 2px var(--color-grey-dark-2); }
 
 .card {
@@ -726,7 +736,8 @@ input[type=number]::-webkit-outer-spin-button {
       width: 24px;
       text-align: center;
       border-radius: 24px;
-      background-color: var(--color-grey-dark-2); }
+      background-color: var(--color-secondary-dark);
+      animation: show 2s ease; }
   .cart__btn-order {
     color: var(--color-primary-dark-2);
     font-weight: 300;

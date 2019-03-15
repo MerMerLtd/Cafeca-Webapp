@@ -88,6 +88,7 @@ const controlCartList = item => {
         ? cartView.renderItem(newItem)
         : cartView.updateColumn(newItem);
 
+    // toggle collection Btn if collect before add
     if(state.collections){
         state.collections.isCollected(item.id)
         ? collectionsView.toggleCollectBtn([document.querySelectorAll(".cart .column .fa-bookmark").item(state.cart.isInCart(item.id))], true)

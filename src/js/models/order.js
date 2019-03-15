@@ -1,15 +1,22 @@
-export const Set = {
-    main: {}, //product
-    accessory: [], //products
-    price: null,
-    discountPercentage: .1,
-    discountMinus: 30,
-    count: 1, 
-    withSet: false,
-}
 
-const Order = {
-    items: [],
+export const Order = {
+    orderList:[],
+    getOrder: function (cartList){
+        cartList.forEach(item => {
+            const newItem = {...item};
+            this.orderList.push({
+                main: newItem.main.name,
+                accessory: newItem.withSet 
+                    ? newItem.accessory.name 
+                    : null,
+                price: newItem.price,
+                count: newItem.count,
+                img: newItem.withSet 
+                ? newItem.accessory.img 
+                : newItem.main.img,
+            });
+        });
+    },
+    postOrder: function(){},
+    cleanOrder: function(){}
 }
-
-// sets = [...set];

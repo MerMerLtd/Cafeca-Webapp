@@ -1,5 +1,5 @@
 import { makeRequest, getLocation } from "../views/base";
-import { Set } from "./order";
+import { Set } from "./set";
 import uniqid from "uniqid";
 
 export const Display = {
