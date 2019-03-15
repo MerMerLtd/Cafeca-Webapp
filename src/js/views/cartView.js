@@ -62,6 +62,7 @@ export const updateColumn = item => {
     // img
     document.querySelector(`.cart [data-model="${item.id}"] .product__img`).src = item.img;
     // switchState
+    console.log(item.withSet)
     document.querySelector(`.cart [data-model="${item.id}"] .product__switch`).checked = item.withSet;
     // accessory
     item.withSet
