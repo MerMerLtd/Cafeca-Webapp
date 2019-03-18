@@ -1,0 +1,14 @@
+.mark{
+    width: 110px;
+    height: 110px;
+    border: 5px solid var(--color-secondary-dark);
+    border-radius: 110px;
+    color: var(--color-secondary-dark);
+    z-index: 150;
+    position: absolute;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 60px;
+    left: 40px;
+    transform: rotate(15deg);
+}

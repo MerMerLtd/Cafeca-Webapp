@@ -11,6 +11,7 @@ import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
 import * as collectionsView from "./views/collectionsView";
 import * as orderView from "./views/orderView";
+import * as possessionsView from "./views/possessionsView"
 
 //================================
 //--------------- firebase -------
@@ -42,16 +43,23 @@ window.state = state;//test purpose
 const controlOrder = async () => {
     if(!state.order) state.order = Object.create(Order);
 
+    // 共用displayView method 整理畫面（清空畫面）
+    displayView.clearResult(elements.voucherList);
+    renderLoader(elements.possessions);
+
+    // makeRequest to get purchased goods
     try{
         await state.order.getOrders();
-        console.log(state.order);
-
+        clearLoader();
+        console.log(state.order.purchased)
+        displayView.renderPurchasedProducts(state.order.purchased);
+        
     }catch(error){
-        console.log(error)
+        console.log("Something went wrong with getOrders", error)
     }
     
 }
-
+controlOrder();
 //===========================================
 //----- products || display controller ------
 const controlProducts = async () => {
@@ -66,7 +74,7 @@ const controlProducts = async () => {
     }
 
     // 3. 整理畫面（清空畫面）
-    displayView.clearResult();
+    displayView.clearResult(elements.productList);
     renderLoader(elements.display);
     if(state.display.location){
     try{
@@ -84,6 +92,33 @@ const controlProducts = async () => {
 }
 controlProducts();
 
+// Handling card button clicks
+elements.display.addEventListener("click", e => {
+
+    if (e.target.matches(".card__btn")) {
+        const goToIndex = parseInt(e.target.dataset.goto, 10);
+        displayView.swipeCardList(elements.productList, goToIndex, state.display.products);
+        displayView.clearBtns(e.target);
+        // displayView.clearResult();
+        // displayView.renderResults(state.display.products, goToIndex);
+        displayView.reRenderButtons(goToIndex, elements.productList.children.length, elements.displayBtnBox);
+
+    }
+
+});
+elements.possessions.addEventListener("click", e => {
+
+    if (e.target.matches(".card__btn")) {
+        const goToIndex = parseInt(e.target.dataset.goto, 10);
+        displayView.swipeCardList(elements.voucherList, goToIndex, state.order.purchased);
+        displayView.clearBtns(e.target);
+        // displayView.clearResult();
+        // displayView.renderResults(state.display.products, goToIndex);
+        displayView.reRenderButtons(goToIndex, elements.voucherList.children.length, elements.possessionBtnBox);
+
+    }
+
+});
 
 //===========================================
 //------------ List( cart || collections ) controller ---------
@@ -237,21 +272,6 @@ elements.productCard.addEventListener("click", e => {
 });
 
 elements.productCard.addEventListener("touchmove", e => {
-
-});
-
-// Handling card button clicks
-elements.display.addEventListener("click", e => {
-
-    if (e.target.matches(".card__btn")) {
-        const goToIndex = parseInt(e.target.dataset.goto, 10);
-        displayView.swipeCardList(elements.productList, goToIndex, state.display.products);
-        displayView.clearBtns(e.target);
-        // displayView.clearResult();
-        // displayView.renderResults(state.display.products, goToIndex);
-        displayView.reRenderButtons(goToIndex);
-
-    }
 
 });
 

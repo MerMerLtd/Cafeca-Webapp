@@ -1,6 +1,7 @@
 import {elements} from "./base";
 
 const renderProduct = product =>{
+  console.log(product)
   const markup = `
     <li class="card__display" data-model="${product.id}"> 
       <div class="card__title"> <!-- grid -->
@@ -32,6 +33,35 @@ const renderProduct = product =>{
   elements.productList.insertAdjacentHTML("beforeend", markup);
  
 }
+
+// for possessions page
+const renderPurchasedProduct = product =>{
+  const markup = `
+    <li class="voucher__display" data-model="${product.id}">
+        <div class="voucher__cover"> <!-- grid -->
+            <!-- 商品 -->
+            <div class="product__name">${product.main.name}  <span>（x${product.count}）</span></div>
+            <div class="product__accessory">適合搭配： <span class="${product.withSet? null: "line"}">${product.accessory.name}</span></div>
+            <p class="product__description">${product.main.description}</p>
+
+            <!-- 兌換資訊: qr code -->
+            <div class="voucher__qrcode">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <div class="voucher__barcode">
+                <i class="fas fa-barcode"></i>
+            </div>
+        </div>
+        <!-- 商品圖片 -->
+        <div class="card__img-box">
+            <img src="${product.img}" alt="image" class="card__img">
+        </div>  
+    </li> 
+  `;
+  // https://developer.mozilla.org/zh-TW/docs/Web/API/Element/insertAdjacentHTML
+  elements.voucherList.insertAdjacentHTML("beforeend", markup);
+}
+
 // type: 'prev' or 'next'
 const createButton = (index, type) => `
   <a href="#" class="card__btn card__btn--${type}" data-goto=${type === 'prev' ? index - 1 : index + 1}>
@@ -40,7 +70,7 @@ const createButton = (index, type) => `
 `;
 
 // <!-- Next and Previous Buttons -->
-const renderButtons = (index, numsProduct) => { 
+export const renderButtons = (index, numsProduct, btnBox) => { 
   let button;
   if (index === 0 && numsProduct > 1) {
       // Only button to go to next product
@@ -55,31 +85,63 @@ const renderButtons = (index, numsProduct) => {
       // Only button to go to prev product
       button = createButton(index, 'prev');
   }
-  elements.displayBtnBox.insertAdjacentHTML("afterbegin", button);
+  btnBox.insertAdjacentHTML("afterbegin", button);
 }
 
-export const swipeCardList = (cardList, goToIndex, products) => {
+export const swipeCardList = (cardList, goToIndex) => {
   cardList.style.setProperty("--index", goToIndex);
-  // 讓display裡面的card__payment 的name 以及accessory 跟現在在畫面上的card__display一樣
-  // console.log(goToIndex)
-
-  if(goToIndex === products.length){
-    goToIndex = 0;
-  }
-  elements.cardName.innerText = products[goToIndex].name;
-  elements.cardAccessory.innerText = products[goToIndex].accessory;
-  elements.cardPrice.innerText = true 
-                                  ? products[goToIndex].price1
-                                  : products[goToIndex].price2;
 }
 
 export const clearBtns = btn => {
   btn.parentNode.innerHTML = "";
 }
 
-export const clearResult = () => {
-  elements.productList.innerHTML = "";
+export const clearResult = cardList => {
+  cardList.innerHTML = "";
 };
+
+export const reRenderButtons = (index, length, btnBox) => {
+  renderButtons(index, length, btnBox);
+}
+
+export const renderResults = (products, index = 0) => {
+  products.forEach(renderProduct);
+  elements.productList.style.setProperty("--length",elements.productList.children.length);
+  elements.productList.style.setProperty("--index", index); // for add to collections or add to cart
+
+  renderButtons(index, products.length, elements.displayBtnBox);
+};
+
+export const renderPurchasedProducts = (products, index = 0) => {
+  products.forEach(renderPurchasedProduct);
+  elements.voucherList.style.setProperty("--length",elements.voucherList.children.length);
+  elements.voucherList.style.setProperty("--index", index); // for add to collections or add to cart
+
+  renderButtons(index, products.length, elements.possessionBtnBox);
+};
+
+export const updateSetState = (product, index) => {
+  // update price 
+  document.querySelectorAll(".display .product__price > span").item(index).textContent 
+  = product.withSet 
+  ? (product.main.price + product.accessory.price) - product.discountMinus 
+  : product.main.price;
+  // update img
+  document.querySelectorAll(".display .card__img").item(index).src 
+  = product.withSet 
+  ? product.accessory.img 
+  : product.main.img;
+  // update accessory name
+  document.querySelectorAll(".display .product__accessory > span").item(index).classList.toggle("line");
+}
+
+export const renderNotification = () => {
+  const markup = `
+    <!-- https://www.w3schools.com/howto/howto_css_notification_button.asp -->
+    <div class="cart__toggle--notification"> &#33; </div>
+  `;
+  elements.cartToggle.insertAdjacentHTML("beforeend", markup);
+}
 
 export const limitProductDescription = (description, limit = 20) => {
   const newDescription = [];
@@ -96,42 +158,6 @@ export const limitProductDescription = (description, limit = 20) => {
   }
   return description;
 }
-export const updateSetState = (product, index) => {
-  // update price 
-  document.querySelectorAll(".display .product__price > span").item(index).textContent 
-  = product.withSet 
-  ? (product.main.price + product.accessory.price) - product.discountMinus 
-  : product.main.price;
-  // update img
-  document.querySelectorAll(".display .card__img").item(index).src 
-  = product.withSet 
-  ? product.accessory.img 
-  : product.main.img;
-  // update accessory name
-  document.querySelectorAll(".display .product__accessory > span").item(index).classList.toggle("line");
-}
-
-export const renderResults = (products, index = 0) => {
-  products.forEach(renderProduct);
-  elements.productList.style.setProperty("--length", elements.productList.children.length);
-  elements.productList.style.setProperty("--index", index); // for add to collections or add to cart
-
-  renderButtons(index, products.length);
-};
-
-export const reRenderButtons = index => {
-  renderButtons(index, elements.productList.children.length);
-}
-
-export const renderNotification = () => {
-  const markup = `
-    <!-- https://www.w3schools.com/howto/howto_css_notification_button.asp -->
-    <div class="cart__toggle--notification"> &#33; </div>
-  `;
-  elements.cartToggle.insertAdjacentHTML("beforeend", markup);
-}
-
-
 // ===========================================================
 // =====================   控制商品數量及價錢   =================
 //(參考) https://codepen.io/djgrant/pen/AwFHL
