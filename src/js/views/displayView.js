@@ -81,7 +81,7 @@ export const clearResult = () => {
   elements.productList.innerHTML = "";
 };
 
-export const limitProductDescription = (description, limit = 22) => {
+export const limitProductDescription = (description, limit = 20) => {
   const newDescription = [];
   if (description.length > limit) {
       description.split('，').reduce((acc, cur) => {

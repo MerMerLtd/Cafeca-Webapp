@@ -67,7 +67,7 @@
         </div>
 
         <!-- 當購物資料為空時disable toggle 功能 -->
-        <a href="#order" class="btn cart__btn-order heading-2">結 帳</a>
+        <a href="#order-form" class="btn cart__btn-order heading-2">結 帳</a>
 
         <!-- 購物車開關功能 -->
         <div class="cart__toggle">
@@ -79,29 +79,81 @@
         </div>
     </div>
      <!-- 訂單 -->
-    <div class="order-form" id="order">
+    <div class="order" id="order-form">
         <a href="#cart" class="btn btn--modal">&nbsp;</a>
-        <div class="order-form__container">
-        <!-- 商品條列： 名稱 & 價格 -->
-            <div class="item">
-                <span class="item__name">戴綠帽</span>
-                <span class="item__nums"> x1</span>
-                <span class="item__price">NT 260</span>
+        <div class="order__container">
+            <div class="heading-2">訂單資訊</div>
+            <div class="order__list">
+                <div class="order__item">
+                    <!-- <div class="product">
+                        <span class="product__name">戴綠帽</span>
+                        <span class="product__accessory"> - 紳士馬卡龍</span>
+                    </div>
+                    <p class="product__count">購買數量： <span>1</span></p>
+                    <p class="product__price">NT$ <span>260</span></p>  -->
+                </div>
             </div>
-
+            <!-- total price -->
+            <div class="order__price mb-sm">總計:<span>NT$ 0</span></div>    
             <!-- 付款資訊： total price & 輸入信用卡資訊 -->
             <!-- https://www.w3schools.com/howto/howto_css_checkout_form.asp -->
-            <div class="payment">
-                <!-- total price -->
-                <div class="payment__price">TOTAL: NT. 1890</div>    
-                <!-- payment-form -->
-                <!-- https://codepen.io/quinlo/pen/YONMEa  -->
-                <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 -->       
-                <div class="credit-card">
-                    <!-- base.js renderCreditCard -->
-                </div>                      
-            </div>            
-        </div>            
+            <!-- https://codepen.io/quinlo/pen/YONMEa  -->
+            <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 --> 
+            <div class="heading-2 mb-xs">輸入卡片資訊</div>
+            <div class="credit-card">
+                    <div class="credit-card__info">
+                        <label for="card-number" class="credit-card__num">信用卡號</label>
+                        <input type="text" id="card-number" class="credit-card__numi credit-card__numi--1" maxlength="4" />
+                        <input type="text" id="card-number-1" class="credit-card__numi credit-card__numi--2" maxlength="4" />
+                        <input type="text" id="card-number-2" class="credit-card__numi credit-card__numi--3" maxlength="4" />
+                        <input type="text" id="card-number-3" class="credit-card__numi credit-card__numi--4" maxlength="4" />
+                        
+                        <label for="name" class="credit-card__name">持卡人姓名</label>
+                        <input type="text" name="name" id="name" class="credit-card__name-input">
+
+                        <label class="credit-card__expire">有效期限</label>
+                    
+                        <select id="month" class="credit-card__mon">
+                            <option>...</option>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+
+                        <select id="year" class="credit-card__year">
+                            <option>...</option>
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                            <option>2030</option>
+                            <option>2031</option>
+                            <option>2032</option>
+                        </select>
+
+                        <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
+                        <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3" />    
+                        
+                    </div> 
+                </div>        
+                          
+            <div class="order__btn-checkout mt-md">確認付款</div>             
+        </div> 
     </div>
 
     <div class="display">
@@ -299,7 +351,8 @@
             <a href="#assets" class="login-form__btn btn">關閉</a>
         </div>
     </div>
-   
+
+
     <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
     <script>

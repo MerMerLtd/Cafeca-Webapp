@@ -29,6 +29,10 @@ export const elements = {
     cartToggle: document.querySelector(".cart__toggle"),
     
     collectionList: document.querySelector(".collections > .collections__panel > .column__list"),
+    
+    order: document.querySelector(".order"),
+    orderList: document.querySelector(".order__list"),
+    orderPrice: document.querySelector(".order__price > span"),
 }
 
 
@@ -152,7 +156,7 @@ export const makeRequest = (opts) => {
         Object.keys(opts.headers).forEach(key => xhr.setRequestHeader(key, opts.headers[key]));
       }
       // Send the request
-      xhr.send();
+      xhr.send(opts.payload);
     });
   }
  //================================

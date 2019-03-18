@@ -5,11 +5,12 @@ import "./views/swipe";
 import { Display } from "./models/display";
 import { Collections } from "./models/collections";
 import { Cart } from "./models/cart";
-// import { Order } from "./models/order";
+import { Order } from "./models/order";
 
 import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
 import * as collectionsView from "./views/collectionsView";
+import * as orderView from "./views/orderView";
 
 //================================
 //--------------- firebase -------
@@ -35,6 +36,22 @@ firebase.initializeApp(config);
 const state = {};
 window.state = state;//test purpose
 
+
+//===========================================
+//--------- Order controller (post)----------
+const controlOrder = async () => {
+    if(!state.order) state.order = Object.create(Order);
+
+    try{
+        await state.order.getOrders();
+        console.log(state.order);
+
+    }catch(error){
+        console.log(error)
+    }
+    
+}
+
 //===========================================
 //----- products || display controller ------
 const controlProducts = async () => {
@@ -44,8 +61,8 @@ const controlProducts = async () => {
     // 2. 取得瀏覽網頁者的location
     try{
         await state.display.getLocation();
-    }catch{
-        console.log("Something went wrong with getLocation");
+    }catch(error){
+        console.log("Something went wrong with getLocation", error);
     }
 
     // 3. 整理畫面（清空畫面）
@@ -94,8 +111,6 @@ const controlCartList = item => {
         ? collectionsView.toggleCollectBtn([document.querySelectorAll(".cart .column .fa-bookmark").item(state.cart.isInCart(item.id))], true)
         : null
     }
-    
-
 }
 
 // ===========================================
@@ -242,13 +257,45 @@ elements.display.addEventListener("click", e => {
 
 
 // 打開購物車
-elements.cartToggle.addEventListener("click", e => {
+elements.cart.addEventListener("click", e => {
     if(e.target.matches(".cart__toogle--logo")){
         cartView.cartToggle();
+    }else if(e.target.matches(".cart__btn-order")){
+        if(!state.order){
+            state.order = Object.create(Order);
+        } 
+        // 生成訂單資料存入order model 
+        if(!state.cart){
+            orderView.renderOrderList();
+            return
+        }
+        state.order.createOrderData(state.cart.cartItems); // state.order.orderData
+        // 清空畫面for 新的 訂單
+        orderView.cleanPreOrderList();
+        // 利用 order model 裡面的 orderData 畫到 UI 上
+        orderView.renderOrderList(state.order.orderData);
+
+    }
+});
+
+elements.order.addEventListener("click", e => {
+    if(e.target.matches(".order__btn-checkout")){
+        state.order.postOrder(state.order.orderData)
+        .then(res => {
+            if(res){
+                // request order list
+                controlOrder();
+                // open possesions (show loader first)
+            }
+        })
+        ;
     }
 });
 
 // 監聽add to cart notification animation end 
-elements.cartToggle.addEventListener("animationend", e=>{
+elements.cartToggle.addEventListener("animationend", e => {
     e.target.parentElement.removeChild(e.target);
 });
+
+
+  

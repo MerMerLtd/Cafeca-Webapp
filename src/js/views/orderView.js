@@ -1,25 +1,33 @@
 import { elements } from "./base";
 
-const renderOderItem = item => {
+const renderOrderItem = item => {
     const markup = `
-        <div class="column__display"> <!-- gird -->
-
-            <!-- 商品 -->
-            <!-- <div class="product__img-box"> -->
-            <img src="${product.img}" alt="image" class="product__img">
-            <!-- </div> -->
-            <div class="product__name">${product.main.name}</div>
-            <div class="product__accessory"><span>${product.accessory.name}</span></div>
-
-            <!-- 商品價格 -->
-            <p class="product__price">NT <span>${product.price}</span></p>
-
-            <!-- 購買數量 -->
-            <div class="product__numsctrl">
-                <p class="product__count">x <span>${product.count}</span></p>
-            </div>
-        
-        </div> 
+    <div class="order__item">
+        <div class="product">
+            <span class="product__name">${item.main.name}</span>
+            <span class="product__accessory ${!item.withSet? "line": null}"> - ${item.accessory.name}</span>
+        </div>
+        <p class="product__count">購買數量： <span>${item.count}</span></p>
+        <p class="product__price">NT$ <span>${item.count * item.price}</span></p> 
+    </div>
     `;
-    
+    elements.orderList.insertAdjacentHTML("beforeend", markup);
+}
+
+//之後加
+const renderBtn = () => {
+    // 購物車是空的喔 
+    // ～去逛逛～  btn
+    const markup = ``
+}
+export const cleanPreOrderList = () =>{
+    elements.orderList.innerHTML = "";
+}
+
+export const renderOrderList = (orderData) => {
+    if(!orderData){
+        return 
+    }
+    orderData.products.forEach(renderOrderItem);
+    elements.orderPrice.textContent = `NT$${orderData.price}` 
 }
