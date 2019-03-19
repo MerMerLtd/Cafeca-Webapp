@@ -363,6 +363,7 @@ elements.creditCard.addEventListener("click", e => {
         elements.cardInputs.forEach(input => {
             input.addEventListener("input", e => {
                 const regEx = new RegExp("^[0-9]{16}$");
+                console.log(input);
                 if(input.getAttribute("type") === "number" &&!regEx.test(e.data)){
                     e.target.value = "";
                 }
