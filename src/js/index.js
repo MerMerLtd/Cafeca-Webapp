@@ -19,7 +19,7 @@ import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
 
-const h = window.innerHeight;
+const h = document.documentElement.clientHeight;
 document.querySelector("body").style.height = h;
 
 //================================
