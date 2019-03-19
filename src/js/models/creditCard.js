@@ -19,7 +19,8 @@ export const CreditCard = {
         }
     },
     checkValidity: (value, rules) => {
-        
+        //https://medium.com/hootsuite-engineering/a-comprehensive-guide-to-validating-and-formatting-credit-cards-b9fa63ec7863
+        const regEx = /^[0-9]+$/;
     },
     getInputValue: () => {
         this.info

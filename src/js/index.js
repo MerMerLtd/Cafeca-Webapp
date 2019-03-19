@@ -362,6 +362,10 @@ elements.creditCard.addEventListener("click", e => {
     if(e.target.matches(".card-input")){
         elements.cardInputs.forEach(input => {
             input.addEventListener("input", e => {
+                const regEx = new RegExp("^[0-9]{16}$");
+                if(input.getAttribute("type") === "number" &&!regEx.test(e.data)){
+                    e.target.value = "";
+                }
                 state.creditCard.next(e.target.dataset.idx);
             });
         });
