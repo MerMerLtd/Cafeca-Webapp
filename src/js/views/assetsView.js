@@ -8,7 +8,7 @@ export const clearAssetsContainer = () => {
 export const renderAsset = (assets) => {
     const markup = `
         <div class="assets__amount mb-sm">
-            資產： 2340顆咖啡豆 - <a href="" class="assets__link">打開App以使用咖啡豆</a>
+            資產： 2340顆咖啡豆 - <a href="#" class="assets__link">打開App以使用咖啡豆</a>
         </div>
         <div class="assets__report">
             <ul class="assets__list">

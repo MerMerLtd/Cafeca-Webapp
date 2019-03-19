@@ -44,6 +44,17 @@ firebase.initializeApp(config);
 const state = {};
 window.state = state;//test purpose
 
+//===========================================
+//------------ assets controller ------------
+const controlAssets = async userId => {
+    if(!state.assets) state.assets = Object.create(Assets);
+
+    try{
+        await state.assets.getAssets(userId); //state.assets.assetsList = await state.assets.getAssets(userId)
+    }catch(error){
+        console.log("Something went wrong with getAssets", error)
+    }
+}
 
 //===========================================
 //--------- Order controller (post)----------
@@ -355,17 +366,27 @@ if(!state.user){
 } else{
     assetsView.renderAsset();
 }
+
 elements.loginForm.addEventListener("click", e => {
     if(e.target.matches(".login-form__btn--login")){
         // check user state
         // if(state.user)
+        const userId = "#00001test";
+        controlAssets(userId);
+
         assetsView.clearAssetsContainer();
         renderLoader(elements.assetsContainer);
         setTimeout(()=> {
+            
             clearLoader();
             assetsView.clearAssetsContainer();
             assetsView.renderAsset();
-        }, 1500);
-           
+        }, 1500);     
     }
 });
+
+elements.assetsContainer.addEventListener("click", e => {
+    if(e.target.matches(".assets__link")){
+        state.assets.openApp();
+    }
+})
