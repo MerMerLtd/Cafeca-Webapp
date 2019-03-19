@@ -2,16 +2,20 @@ import "../sass/main.scss";
 import { elements, renderLoader, clearLoader, makeRequest, getLocation } from "./views/base";
 
 import "./views/swipe";
+import "./models/creditCard";
+
 import { Display } from "./models/display";
 import { Collections } from "./models/collections";
 import { Cart } from "./models/cart";
 import { Order } from "./models/order";
+import { CreditCard } from "./models/creditCard";
 
 import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
 import * as collectionsView from "./views/collectionsView";
 import * as orderView from "./views/orderView";
-import * as possessionsView from "./views/possessionsView"
+import * as possessionsView from "./views/possessionsView";
+
 
 //================================
 //--------------- firebase -------
@@ -19,6 +23,7 @@ import * as possessionsView from "./views/possessionsView"
 import firebase from "firebase/app";
 import "firebase/database";
 import { get } from "https";
+import { isNumber } from "util";
 const config = {
   // http://blog.kenyang.net/2017/08/25/firebase-realtime-database-web
   apiKey: "AIzaSyBNulErK-OblwR4nCl5oB4C62q4ytrl_RY",
@@ -281,25 +286,27 @@ elements.cart.addEventListener("click", e => {
     if(e.target.matches(".cart__toogle--logo")){
         cartView.cartToggle();
     }else if(e.target.matches(".cart__btn-order")){
+        if(!state.cart || state.cart.cartItems.length === 0){
+            orderView.renderNotification(); //去逛逛
+            return;
+        }
         if(!state.order){
             state.order = Object.create(Order);
-        } 
-        // 生成訂單資料存入order model 
-        if(!state.cart){
-            orderView.renderOrderList();
-            return
         }
+        // 生成訂單資料存入order model
+        orderView.renderOrderList();
         state.order.createOrderData(state.cart.cartItems); // state.order.orderData
         // 清空畫面for 新的 訂單
         orderView.cleanPreOrderList();
         // 利用 order model 裡面的 orderData 畫到 UI 上
         orderView.renderOrderList(state.order.orderData);
-
     }
 });
 
 elements.order.addEventListener("click", e => {
     if(e.target.matches(".order__btn-checkout")){
+        cartView.cartToggle();
+        elements.swipe.style.setProperty("--i", 2);
         state.order.postOrder(state.order.orderData)
         .then(res => {
             if(res){
@@ -307,8 +314,9 @@ elements.order.addEventListener("click", e => {
                 controlOrder();
                 // open possesions (show loader first)
             }
-        })
-        ;
+        });
+    }else if(e.target.matches(".order__btn-walkaround")){
+        cartView.cartToggle();
     }
 });
 
@@ -317,5 +325,14 @@ elements.cartToggle.addEventListener("animationend", e => {
     e.target.parentElement.removeChild(e.target);
 });
 
-
-  
+// credit card
+if(!state.creditCard) state.creditCard = Object.create(CreditCard);
+elements.creditCard.addEventListener("click", e => {
+    if(e.target.matches(".card-input")){
+        elements.cardInputs.forEach(input => {
+            input.addEventListener("input", e => {
+                state.creditCard.next(e.target.dataset.idx);
+            });
+        });
+    }
+})

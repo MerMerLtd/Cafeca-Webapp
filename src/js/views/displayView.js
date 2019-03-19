@@ -113,7 +113,7 @@ export const renderResults = (products, index = 0) => {
 };
 
 export const renderPurchasedProducts = (products, index = 0) => {
-  products.forEach(renderPurchasedProduct);
+  products.reverse().forEach(renderPurchasedProduct);
   elements.voucherList.style.setProperty("--length",elements.voucherList.children.length);
   elements.voucherList.style.setProperty("--index", index); // for add to collections or add to cart
 

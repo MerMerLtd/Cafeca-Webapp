@@ -13,21 +13,30 @@ const renderOrderItem = item => {
     `;
     elements.orderList.insertAdjacentHTML("beforeend", markup);
 }
-
-//之後加
-const renderBtn = () => {
-    // 購物車是空的喔 
-    // ～去逛逛～  btn
-    const markup = ``
-}
 export const cleanPreOrderList = () =>{
     elements.orderList.innerHTML = "";
 }
 
 export const renderOrderList = (orderData) => {
+    const markupBtn = `<a class="btn order__btn-checkout" href="#display">確認付款</a>`;
+    
     if(!orderData){
         return 
     }
+   
     orderData.products.forEach(renderOrderItem);
-    elements.orderPrice.textContent = `NT$${orderData.price}` 
+    elements.orderPrice.textContent = `NT$${orderData.price}`;
+    
+    elements.orderBtnBox.innerHTML = "";
+    elements.orderBtnBox.insertAdjacentHTML("afterbegin", markupBtn);
+}
+
+// 如果購物車是空的
+export const renderNotification = () => {
+    const markupText = `<div class="order__notify"> ~ 我是空的哦 ~ </div>`;
+    const markupBtn = `<a class="btn order__btn-walkaround" href="#display">再去逛逛</a>`;
+    elements.orderBtnBox.innerHTML = "";
+    elements.orderBtnBox.insertAdjacentHTML("afterbegin", markupBtn);
+    elements.orderList.insertAdjacentHTML("afterbegin", markupText);
+
 }

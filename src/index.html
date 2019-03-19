@@ -84,14 +84,15 @@
         <div class="order__container">
             <div class="heading-2">訂單資訊</div>
             <div class="order__list">
-                <div class="order__item">
-                    <!-- <div class="product">
+                <div class="order__notify"> ~ 我是空的哦 ~ </div>
+                <!-- <div class="order__item">
+                    <div class="product">
                         <span class="product__name">戴綠帽</span>
                         <span class="product__accessory"> - 紳士馬卡龍</span>
                     </div>
                     <p class="product__count">購買數量： <span>1</span></p>
-                    <p class="product__price">NT$ <span>260</span></p>  -->
-                </div>
+                    <p class="product__price">NT$ <span>260</span></p> 
+                </div> -->
             </div>
             <!-- total price -->
             <div class="order__price mb-sm">總計:<span>NT$ 0</span></div>    
@@ -101,62 +102,65 @@
             <!-- https://codepen.io/tomma5o/pen/ZOxQrJ focus 後會跳下一個的 --> 
             <div class="heading-2 mb-xs">輸入卡片資訊</div>
             <div class="credit-card">
-                    <div class="credit-card__info">
-                        <label for="card-number" class="credit-card__num">信用卡號</label>
-                        <input type="text" id="card-number" class="credit-card__numi credit-card__numi--1" maxlength="4" />
-                        <input type="text" id="card-number-1" class="credit-card__numi credit-card__numi--2" maxlength="4" />
-                        <input type="text" id="card-number-2" class="credit-card__numi credit-card__numi--3" maxlength="4" />
-                        <input type="text" id="card-number-3" class="credit-card__numi credit-card__numi--4" maxlength="4" />
-                        
-                        <label for="name" class="credit-card__name">持卡人姓名</label>
-                        <input type="text" name="name" id="name" class="credit-card__name-input">
-
-                        <label class="credit-card__expire">有效期限</label>
+                <div class="credit-card__info">
+                    <label for="card-number-0" class="credit-card__num">信用卡號</label>
+                    <input type="tel" class="card-input" id="card-number-0" name="card-number-0" maxlength="4" data-idx="0"/>
+                    <input type="tel" class="card-input" id="card-number-1" name="card-number-1" maxlength="4" data-idx="1"/>
+                    <input type="tel" class="card-input" id="card-number-2" name="card-number-2" maxlength="4" data-idx="2"/>
+                    <input type="tel" class="card-input" id="card-number-3" name="card-number-3" maxlength="4" data-idx="3"/>
                     
-                        <select id="month" class="credit-card__mon">
-                            <option>...</option>
-                            <option>Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option>Dec</option>
-                        </select>
+                    <label for="name" class="credit-card__name">持卡人姓名</label>
+                    <input type="text" name="name" id="name" class="credit-card__name-input card-input" data-idx="4">
 
-                        <select id="year" class="credit-card__year">
-                            <option>...</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                            <option>2023</option>
-                            <option>2024</option>
-                            <option>2025</option>
-                            <option>2027</option>
-                            <option>2028</option>
-                            <option>2029</option>
-                            <option>2030</option>
-                            <option>2031</option>
-                            <option>2032</option>
-                        </select>
+                    <label class="credit-card__expire">有效期限</label>
+                    <!-- <input type="tel" maxlength="2" id="month" class="card-input credit-card__mon" data-idx="5">
+                    <input type="tel" maxlength="2" id="year" class="card-input credit-card__year" data-idx="6"> -->
 
-                        <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
-                        <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3" />    
-                        
-                    </div> 
-                </div>        
-                          
-            <div class="order__btn-checkout mt-md">確認付款</div>             
+                    <select id="month" class="credit-card__mon">
+                        <option>...</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
+
+                    <select id="year" class="credit-card__year">
+                        <option>...</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                        <option>2032</option>
+                    </select>
+
+                    <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
+                    <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3"/>    
+                    
+                </div> 
+            </div>        
+            <div class="order__btnBox mt-md">
+                <a class="btn order__btn-walkaround" href="#display"> ~ 去逛逛 ~ </a>
+            </div>        
         </div> 
     </div>
 
-    <div class="display">
+    <div class="display" id="diplay">
         <!-- Next and Prev Buttons -->
         <div class="card__btn-box"></div>
 

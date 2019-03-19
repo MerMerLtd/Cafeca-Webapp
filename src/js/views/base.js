@@ -33,6 +33,18 @@ export const elements = {
     order: document.querySelector(".order"),
     orderList: document.querySelector(".order__list"),
     orderPrice: document.querySelector(".order__price > span"),
+    orderBtnBox: document.querySelector(".order__btnBox"),
+
+    // credit card
+    creditCard: document.querySelector(".credit-card"),
+    cardInputs : document.querySelectorAll(".card-input"),
+
+    // cardInput1: document.querySelector("#card-number-1"),
+    // cardInput2: document.querySelector("#card-number-2"),
+    // cardInput3: document.querySelector("#card-number-3"),
+    // cardInput4: document.querySelector("#card-number-4"),
+
+    // cardInput5: document.querySelector("#name"),
 }
 
 

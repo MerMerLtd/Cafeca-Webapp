@@ -782,7 +782,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: var(--color-grey-light-2);
     background-color: var(--color-grey-dark-2);
     border-radius: 5px; }
-  .order__btn-checkout {
+  .order__btn-checkout, .order__btn-walkaround {
     font-size: 1.25rem;
     letter-spacing: 1.2px;
     text-align: center;
@@ -796,7 +796,8 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 5px 0;
     margin: 10px 0;
     height: 21vh;
-    overflow: scroll; }
+    overflow: scroll;
+    position: relative; }
   .order__item {
     display: grid;
     grid-template-columns: minmax(50%, 75%) minmax(25%, 50%);
@@ -827,6 +828,11 @@ input[type=number]::-webkit-outer-spin-button {
       clear: both; }
     .order__price > span {
       float: right; }
+  .order__notify {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 .possessions {
   background-color: var(--color-secondary-light);
