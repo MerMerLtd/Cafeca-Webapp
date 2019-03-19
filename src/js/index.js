@@ -19,12 +19,16 @@ import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
 
-let h = window.screen.availHeight;
-document.querySelector("body").style.height = `${h}px`;
+const sizeControl = () => {
+    let h = window.screen.availHeight;
+    let w = window.screen.availWidth;
+    document.querySelector("body").style.height = `${h}px`;
+    document.querySelector("body").style.width = `${w}px`;
+    displayView.renderTest(h, w);
+}
 
 document.body.addEventListener("touchmove", () => {
-    h = window.screen.availHeight;
-    document.querySelector("body").style.height = `${h}px`;
+    sizeControl();
 });
 
 //================================
@@ -155,6 +159,7 @@ elements.possessions.addEventListener("click", e => {
 // };
 // Restore cartItems on page load
 window.addEventListener('load', () => {
+    sizeControl();
     state.cart = Object.create(Cart);
     
     // Restore cartItems

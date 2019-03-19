@@ -27,7 +27,18 @@
 @import "pages/order";
 @import "pages/possessions";
 
-
+.test{
+    height: 200px;
+    width: 86vw;
+    font-size: 28px;
+    background-color: rgba(#917f58, .6);
+    text-align: center;
+    padding: 50px;
+    position: fixed;
+    @include absCenter;
+    z-index: 5000;
+    color: white;
+}
 
 
 
