@@ -40,6 +40,10 @@ export const Cart = {
         this.cartItems.splice(index, 1);
         this.persistData();
     },
+    cleanCart: function(){
+        this.cartItems = [];
+        this.persistData();
+    },
     updateCount: function (id, type){
         const index = this.cartItems.findIndex(item => item.id === id);
         const oldCount = this.cartItems[index].count;

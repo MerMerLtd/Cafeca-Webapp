@@ -18,7 +18,7 @@ export const CreditCard = {
             nextTarget.focus();
         }
     },
-    inputValidation: () => {
+    checkValidity: (value, rules) => {
         
     },
     getInputValue: () => {

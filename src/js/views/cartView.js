@@ -57,6 +57,9 @@ export const renderItem = product => {
     `;
     elements.cartList.insertAdjacentHTML("beforeend", markup);
 }
+export const cleanCartView = () => {
+    elements.cartList.innerHTML = "";
+}
 
 export const updateColumn = (item, isCollected) => {
     // img

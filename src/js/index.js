@@ -325,18 +325,27 @@ elements.cart.addEventListener("click", e => {
     }
 });
 
-elements.order.addEventListener("click", e => {
+elements.order.addEventListener("click", async e => {
     if(e.target.matches(".order__btn-checkout")){
+        // 按下購買後
+        // 關閉購物車
         cartView.cartToggle();
+        // 打開possessions UI
         elements.swipe.style.setProperty("--i", 2);
-        state.order.postOrder(state.order.orderData)
-        .then(res => {
-            if(res){
-                // request order list
-                controlOrder();
-                // open possesions (show loader first)
-            }
-        });
+        // post order 到 backend
+        try{
+            const res = await state.order.postOrder(state.order.orderData)
+            // .then(res => {
+                // post success
+                if(res){
+                    controlOrder();
+                }
+            // });
+        }catch(error){
+            console.log(error)
+        }
+        state.cart.cleanCart();
+        cartView.cleanCartView();
     }else if(e.target.matches(".order__btn-walkaround")){
         cartView.cartToggle();
     }
