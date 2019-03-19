@@ -122,8 +122,7 @@ input[type=checkbox] {
 
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
-  display: block;
-  color: var(--color-grey-dark-2); }
+  display: block; }
 
 .btn--card {
   color: var(--color-primary-dark-2);
@@ -351,6 +350,9 @@ input[type=checkbox] {
   border-radius: 50%;
   background: #fff;
   animation-timing-function: cubic-bezier(0, 1, 1, 0); }
+
+.assets .lds-ellipsis div {
+  background: var(--color-primary); }
 
 .lds-ellipsis div:nth-child(1) {
   left: 6px;
@@ -675,6 +677,9 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   bottom: 0;
   transform: translateY(65vh); }
+  .assets__container {
+    width: 88vw;
+    margin: 0 auto; }
   .assets__btn-open {
     font-size: 4rem;
     line-height: 1;
@@ -684,6 +689,11 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 700; }
   .assets__checkbox:checked ~ .assets {
     transform: translateY(0vh); }
+  .assets__report {
+    display: flex;
+    justify-content: space-between; }
+  .assets__list {
+    list-style: none; }
 
 .cart {
   height: 100vh;
@@ -729,7 +739,7 @@ input[type=number]::-webkit-outer-spin-button {
       background-color: var(--color-secondary-dark);
       animation: show 2s ease; }
   .cart__btn-order {
-    color: var(--color-primary-dark-2);
+    color: var(--color-secondary-light);
     font-weight: 300;
     font-size: 1.25rem;
     background-color: var(--color-primary);
