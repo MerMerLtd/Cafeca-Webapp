@@ -19,9 +19,8 @@ import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
 
-const h = document.documentElement.clientHeight * .9;
-console.log(h);
-document.querySelector("body").style.height = h;
+const h = window.screen.availHeight;
+document.querySelector("body").style.height = `${h}px`;
 
 //================================
 //--------------- firebase -------
