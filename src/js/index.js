@@ -20,8 +20,8 @@ import * as assetsView from "./views/assetsView";
 
 
 const sizeControl = () => {
-    let h = window.screen.availHeight;
-    let w = window.screen.availWidth;
+    let h = document.body.clientHeight;
+    let w = document.body.clientWidth;
     document.querySelector("body").style.height = `${h}px`;
     document.querySelector("body").style.width = `${w}px`;
     displayView.renderTest(h, w);
