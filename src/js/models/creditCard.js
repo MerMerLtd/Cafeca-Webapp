@@ -10,17 +10,23 @@ export const CreditCard = {
 
     next: function(idx){
         const target = elements.cardInputs[idx];
+        console.log(idx);
         if(target.value.length === parseInt(target.getAttribute("maxlength")) ){
             const nextTarget = elements.cardInputs[++idx];
-            nextTarget.focus();
+            nextTarget && nextTarget.focus();
         }else if (target.value.length === 0 && parseInt(idx) !== 0){
             const nextTarget = elements.cardInputs[--idx];
             nextTarget.focus();
         }
+        return true;
     },
     checkValidity: (value, rules) => {
         //https://medium.com/hootsuite-engineering/a-comprehensive-guide-to-validating-and-formatting-credit-cards-b9fa63ec7863
-        const regEx = /^[0-9]+$/;
+        let isValid = false;
+
+        if(rules.required){
+            isValid = value.trim() !== ""
+        }
     },
     getInputValue: () => {
         this.info

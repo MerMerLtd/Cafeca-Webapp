@@ -19,6 +19,9 @@ import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
 
+const h = window.innerHeight;
+document.querySelector("body").style.height = h;
+
 //================================
 //--------------- firebase -------
 
@@ -328,6 +331,9 @@ elements.cart.addEventListener("click", e => {
 elements.order.addEventListener("click", async e => {
     if(e.target.matches(".order__btn-checkout")){
         // 按下購買後
+        // check input validity
+        // ...
+
         // 關閉購物車
         cartView.cartToggle();
         // 打開possessions UI
@@ -362,11 +368,12 @@ elements.creditCard.addEventListener("click", e => {
     if(e.target.matches(".card-input")){
         elements.cardInputs.forEach(input => {
             input.addEventListener("input", e => {
+                // 阻止非數字輸入
                 const regEx = new RegExp("^[0-9]{16}$");
-                console.log(input);
-                if(input.getAttribute("type") === "number" &&!regEx.test(e.data)){
-                    e.target.value = "";
-                }
+                console.log(!regEx.test(e.data));
+                // if(input.getAttribute("type") === "number" && !regEx.test(e.data)){
+                //     e.target.value = "";
+                // }
                 state.creditCard.next(e.target.dataset.idx);
             });
         });
