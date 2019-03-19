@@ -19,8 +19,13 @@ import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
 
-const h = window.screen.availHeight;
+let h = window.screen.availHeight;
 document.querySelector("body").style.height = `${h}px`;
+
+document.body.addEventListener("touchmove", () => {
+    h = window.screen.availHeight;
+    document.querySelector("body").style.height = `${h}px`;
+});
 
 //================================
 //--------------- firebase -------
