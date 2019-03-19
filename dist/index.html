@@ -8,6 +8,12 @@
     <title>Cafeca Order Page</title>
 </head>
 <body>
+    <div class="test"> 
+        <div>height: <span class="height"></span>px </div>
+        <div>width: <span class="width"></span>px </div>
+
+    </div>
+    
     <div class="cart" id="cart">
         <div class="heading-1 pb-sm">購物車</div>
         <div class="cart__panel">
@@ -104,10 +110,10 @@
             <div class="credit-card">
                 <div class="credit-card__info">
                     <label for="card-number-0" class="credit-card__num">信用卡號</label>
-                    <input type="tel" class="card-input" id="card-number-0" name="card-number-0" maxlength="4" data-idx="0"/>
-                    <input type="tel" class="card-input" id="card-number-1" name="card-number-1" maxlength="4" data-idx="1"/>
-                    <input type="tel" class="card-input" id="card-number-2" name="card-number-2" maxlength="4" data-idx="2"/>
-                    <input type="tel" class="card-input" id="card-number-3" name="card-number-3" maxlength="4" data-idx="3"/>
+                    <input type="number" class="card-input" id="card-number-0" name="card-number-0" maxlength="4" data-idx="0"/>
+                    <input type="number" class="card-input" id="card-number-1" name="card-number-1" maxlength="4" data-idx="1"/>
+                    <input type="number" class="card-input" id="card-number-2" name="card-number-2" maxlength="4" data-idx="2"/>
+                    <input type="number" class="card-input" id="card-number-3" name="card-number-3" maxlength="4" data-idx="3"/>
                     
                     <label for="name" class="credit-card__name">持卡人姓名</label>
                     <input type="text" name="name" id="name" class="credit-card__name-input card-input" data-idx="4">
@@ -150,7 +156,7 @@
                     </select>
 
                     <label for="card-cvv" class="credit-card__cvv">信用卡背面末三碼</label>
-                    <input type="text" id="card-cvv" class="credit-card__cvv-input" maxlength="3"/>    
+                    <input maxlength="3"  id="card-cvv" class="card-input credit-card__cvv-input" data-idx="5"/>    
                     
                 </div> 
             </div>        
