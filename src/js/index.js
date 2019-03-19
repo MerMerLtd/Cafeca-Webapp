@@ -9,12 +9,14 @@ import { Collections } from "./models/collections";
 import { Cart } from "./models/cart";
 import { Order } from "./models/order";
 import { CreditCard } from "./models/creditCard";
+import { Assets } from "./models/assets";
 
 import * as displayView from "./views/displayView";
 import * as cartView from "./views/cartView";
 import * as collectionsView from "./views/collectionsView";
 import * as orderView from "./views/orderView";
 import * as possessionsView from "./views/possessionsView";
+import * as assetsView from "./views/assetsView";
 
 
 //================================
@@ -336,3 +338,25 @@ elements.creditCard.addEventListener("click", e => {
         });
     }
 })
+
+// assets
+// user 未登入
+if(!state.user){
+    assetsView.renderLoginBtn();
+} else{
+    assetsView.renderAsset();
+}
+elements.loginForm.addEventListener("click", e => {
+    if(e.target.matches(".login-form__btn--login")){
+        // check user state
+        // if(state.user)
+        assetsView.clearAssetsContainer();
+        renderLoader(elements.assetsContainer);
+        setTimeout(()=> {
+            clearLoader();
+            assetsView.clearAssetsContainer();
+            assetsView.renderAsset();
+        }, 1500);
+           
+    }
+});

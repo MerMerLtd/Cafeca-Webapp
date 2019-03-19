@@ -39,12 +39,11 @@ export const elements = {
     creditCard: document.querySelector(".credit-card"),
     cardInputs : document.querySelectorAll(".card-input"),
 
-    // cardInput1: document.querySelector("#card-number-1"),
-    // cardInput2: document.querySelector("#card-number-2"),
-    // cardInput3: document.querySelector("#card-number-3"),
-    // cardInput4: document.querySelector("#card-number-4"),
+    //assets
+    assetsContainer: document.querySelector(".assets__container"),
 
-    // cardInput5: document.querySelector("#name"),
+    // loginForm
+    loginForm: document.querySelector(".login-form"),
 }
 
 

@@ -11,6 +11,10 @@
     position: absolute;
     bottom: 0;
     transform: translateY(65vh);
+    &__container{
+        width: 88vw;
+        margin: 0 auto;
+    }
     &__btn-open{
         font-size: 4rem;
         line-height: 1;
@@ -22,5 +26,12 @@
 
     &__checkbox:checked ~ &{
         transform: translateY(0vh);
+    }
+    &__report{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__list{
+        list-style: none;
     }
 }

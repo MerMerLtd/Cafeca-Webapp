@@ -298,18 +298,43 @@
     <!-- sack 是pro 才能使用  -->
     
     <div class="assets" id="assets">
-        <!-- 判斷是否登入 -->
         <div class="heading-1 mb-sm">咖啡豆存摺</div>
-        
-        <!-- 已登入 -->
+   
+        <div class="assets__container">
+        <!-- 判斷是否登入 -->
+
+            <!-- 已登入 -->
             <!-- 顯示可用的咖啡豆貨幣 -->
             <!-- 下載app按鈕：顯示下載app以使用咖啡豆貨幣 -->
-            
-        <!-- 未登入 -> 打算參考screea app 的設計 -->
-        <!-- https://codepen.io/mrtuanphong/pen/NqvePZ -->
-        <a class="btn btn--open-lgf" href="#login">登入查看</a>
+            <!-- <div class="assets__amount mb-sm">
+                資產： 2340顆咖啡豆 - <a href="" class="assets__link">打開App以使用咖啡豆</a>
+            </div>
+            <div class="assets__report">
+                <ul class="assets__list">
+                    <div class="assets__title">已兌換的咖啡卷</div>
+                    <li class="assets__item">黛綠帽 - 紳士馬卡龍</li>
+                    <li class="assets__item">粉紅話語（單點）</li>
+                    <li class="assets__item">和解（單點）</li>
+                </ul>
+                <ul class="assets__list">
+                    <div class="assets__title">已到過的店家</div>
+                    <li class="assets__item">三%</li>
+                    <li class="assets__item">不死鳥</li>
+                    <li class="assets__item">COCA</li>
+                    <div class="assets__map"></div>
+                </ul>
+            </div> -->
+
+            <!-- 未登入 -> 打算參考screea app 的設計 -->
+            <!-- https://codepen.io/mrtuanphong/pen/NqvePZ -->
+            <!-- <a class="btn btn--open-lgf" href="#login">登入查看</a> -->
+    
+        </div>
     </div>
+            
+
     <div class="login-form" id="login">
+        <a href="#assets" class="btn btn--modal">&nbsp;</a>
         <div class="login-form__container">
             <input type="checkbox" name="signup-btn" id="signup-btn" class="login-form__checkbox">
             <div class="login-form__option mb-sm">
@@ -352,9 +377,9 @@
                     <input type="password" class="login-form__input" placeholder="請再次輸入密碼" id="password2" required>
                 </div>
             </div>
-            <div class="login-form__btn login-form__btn--login mt-sm">登入</div>
+            <a href="#assets" class="btn login-form__btn login-form__btn--login mt-sm">登入</a>
             <!-- https://sweetalert2.github.io/ -->
-            <a href="#assets" class="login-form__btn btn">關閉</a>
+            <a href="#assets" class="btn login-form__btn">關閉</a>
         </div>
     </div>
 
