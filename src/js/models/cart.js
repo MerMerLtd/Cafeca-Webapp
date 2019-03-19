@@ -25,19 +25,20 @@ export const Cart = {
         if(index !== -1){
             this.cartItems[index].count++;
 
-            // this.persistData();
+            this.persistData();
             return this.cartItems[index];
         }
         
         //如果這個組合還不在list裡面
         this.cartItems.push(newItem);
 
-        // this.persistData();
+        this.persistData();
         return newItem;
     },
     deleteItem: function (id){    
         const index = this.cartItems.findIndex(item => item.id === id);
         this.cartItems.splice(index, 1);
+        this.persistData();
     },
     updateCount: function (id, type){
         const index = this.cartItems.findIndex(item => item.id === id);
@@ -80,5 +81,16 @@ export const Cart = {
         return this.cartItems.findIndex(item => item.id === id) !== -1 
         ? this.cartItems.findIndex(item => item.id === id)
         : false;
+    },
+    persistData: function(){
+        console.log(this.cartItems)
+        localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+    },
+    readStorage: function() {
+        const storage = JSON.parse(localStorage.getItem('cartItems'));
+        console.log(storage);
+        
+        // Restoring likes from the localStorage
+        if (storage) this.cartItems = storage;
     }
 }

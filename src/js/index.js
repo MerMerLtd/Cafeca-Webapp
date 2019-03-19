@@ -58,7 +58,6 @@ const controlOrder = async () => {
     try{
         await state.order.getOrders();
         clearLoader();
-        console.log(state.order.purchased)
         displayView.renderPurchasedProducts(state.order.purchased);
         
     }catch(error){
@@ -98,7 +97,6 @@ const controlProducts = async () => {
    }
 }
 controlProducts();
-
 // Handling card button clicks
 elements.display.addEventListener("click", e => {
 
@@ -136,18 +134,29 @@ elements.possessions.addEventListener("click", e => {
 //     ? cartView.renderItem(newItem) 
 //     : collectionsView.renderItem(newItem);
 // };
+// Restore cartItems on page load
+window.addEventListener('load', () => {
+    state.cart = Object.create(Cart);
+    
+    // Restore cartItems
+    state.cart.readStorage();
 
+    state.cart.cartItems.forEach(item => {
+        // Render the existing items to cart
+        cartView.renderItem(item);
+    });
+});
 // ===========================================
 // ------------ Cart controller ---------
 const controlCartList = item => {
-    if(!state.cart) state.cart = Object.create(Cart);
+    // if(!state.cart) state.cart = Object.create(Cart);
     const newItem = state.cart.addItem(item);
 
     newItem.count === 1
         ? cartView.renderItem(newItem)
         : cartView.updateColumn(newItem);
 
-    // toggle collection Btn if collect before add
+    // toggle collection Btn if collect before add to cart
     if(state.collections){
         state.collections.isCollected(item.id)
         ? collectionsView.toggleCollectBtn([document.querySelectorAll(".cart .column .fa-bookmark").item(state.cart.isInCart(item.id))], true)
@@ -168,7 +177,7 @@ const controlCollectiontList = item => {
     if(state.cart) state.cart.isInCart 
     ? els.push(document.querySelectorAll(".cart .column .fa-bookmark").item(state.cart.isInCart(currentId)))
     : null;
-    console.log(els);
+    // console.log(els);
 
     if(!state.collections.isCollected(currentId)){
         // add item to the state.collections

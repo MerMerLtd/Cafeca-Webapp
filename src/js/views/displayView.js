@@ -1,7 +1,6 @@
 import {elements} from "./base";
 
 const renderProduct = product =>{
-  console.log(product)
   const markup = `
     <li class="card__display" data-model="${product.id}"> 
       <div class="card__title"> <!-- grid -->

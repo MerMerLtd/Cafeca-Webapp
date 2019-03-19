@@ -6,7 +6,6 @@ export const clearAssetsContainer = () => {
 }
 
 export const renderAsset = (assets) => {
-    console.log("renderAsset");
     const markup = `
         <div class="assets__amount mb-sm">
             資產： 2340顆咖啡豆 - <a href="" class="assets__link">打開App以使用咖啡豆</a>
@@ -31,8 +30,6 @@ export const renderAsset = (assets) => {
 }
 
 export const renderLoginBtn = () => {
-    console.log("renderBtn");
-
     const markup = `<a class="btn btn--open-lgf" href="#login">登入查看</a>`;
     elements.assetsContainer.insertAdjacentHTML("afterbegin", markup);
 }
