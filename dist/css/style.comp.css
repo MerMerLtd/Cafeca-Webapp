@@ -856,7 +856,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .test {
   width: 88vw;
-  background-color: rgba(99, 145, 88, 0.6);
+  background-color: rgba(145, 88, 98, 0.6);
   text-align: center;
   padding: 20px;
   position: absolute;
