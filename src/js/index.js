@@ -21,7 +21,7 @@ import * as assetsView from "./views/assetsView";
 let h, w;
 
 const sizeControl = () => {
-    h = window.screen.availHeight;
+    h = window.screen.height;
     w = document.body.clientWidth;
     document.querySelector("body").style.height = `${h}px`;
     document.querySelector("body").style.width = `${w}px`;
