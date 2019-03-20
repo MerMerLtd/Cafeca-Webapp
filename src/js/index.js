@@ -307,7 +307,7 @@ elements.productCard.addEventListener("touchmove", e => {
 // 打開購物車
 elements.cart.addEventListener("click", e => {
     if(e.target.matches(".cart__toogle--logo")){
-        cartView.cartToggle(h);
+        cartView.cartToggle();
     }else if(e.target.matches(".cart__btn-order")){
         if(!state.cart || state.cart.cartItems.length === 0){
             orderView.renderNotification(); //去逛逛
@@ -333,7 +333,7 @@ elements.order.addEventListener("click", async e => {
         // ...
 
         // 關閉購物車
-        cartView.cartToggle(h);
+        cartView.cartToggle();
         // 打開possessions UI
         elements.swipe.style.setProperty("--i", 2);
         // post order 到 backend
@@ -351,7 +351,7 @@ elements.order.addEventListener("click", async e => {
         state.cart.cleanCart();
         cartView.cleanCartView();
     }else if(e.target.matches(".order__btn-walkaround")){
-        cartView.cartToggle(h);
+        cartView.cartToggle();
     }
 });
 
