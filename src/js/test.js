@@ -40,7 +40,7 @@ export const renderSize = () => {
         <div>网页被卷去的左: <span class="width7"></span>px </div>
     </div>
     `;
-    document.querySelector(".container").insertAdjacentHTML("afterbegin", markup);
+    document.body.insertAdjacentHTML("afterbegin", markup);
     getSize();
     window.addEventListener("resize", getSize);
 }
