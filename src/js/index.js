@@ -19,7 +19,7 @@ import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
 import * as test from "./test";
-
+test.renderSize();
 //================================
 //--------------- firebase -------
 
