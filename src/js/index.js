@@ -18,14 +18,47 @@ import * as orderView from "./views/orderView";
 import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
-let h, w;
+
+const height1=window.screen.height;
+const width1=window.screen.width;
+
+const height2=window.screen.availHeight;
+const width2=window.screen.availWidth;
+
+const height3=window.screenTop;
+const left3=window.screenLeft;
+
+const height4=document.body.clientHeight;
+const width4=document.body.clientWidth;
+
+const height5=document.body.offsetHeight;
+const width5=document.body.offsetWidth;
+
+const height6=document.body.scrollHeight;
+const width6=document.body.scrollWidth;
+
+const height7=document.body.scrollTop;
+const left7=document.body.scrollLeft;
+
+document.querySelector(".height1").textContent = height1;
+document.querySelector(".width1").textContent = width1;
+document.querySelector(".height2").textContent = height2;
+document.querySelector(".width2").textContent = width2;
+document.querySelector(".height3").textContent = height3;
+document.querySelector(".width3").textContent = left3;
+document.querySelector(".height4").textContent = height4;
+document.querySelector(".width4").textContent = width4;
+document.querySelector(".height5").textContent = height5;
+document.querySelector(".width5").textContent = width5;
+document.querySelector(".height6").textContent = height6;
+document.querySelector(".width6").textContent = width6;
+document.querySelector(".height7").textContent = height7;
+document.querySelector(".width7").textContent = left7;
+
 
 const sizeControl = () => {
-    h = window.screen.height;
-    w = document.body.clientWidth;
-    document.querySelector("body").style.height = `${h}px`;
-    document.querySelector("body").style.width = `${w}px`;
-    displayView.renderTest(h, w);
+    document.querySelector("body").style.height = `${height1}px`;
+    document.querySelector("body").style.width = `${width1}px`;
 }
 
 document.body.addEventListener("touchmove", () => {

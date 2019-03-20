@@ -1,10 +1,6 @@
 import {elements} from "./base";
 
-export const renderTest = (h, w) => {
-  document.querySelector(".height").textContent = h;
-  document.querySelector(".width").textContent = w;
 
-}
 
 const renderProduct = product =>{
   const markup = `
