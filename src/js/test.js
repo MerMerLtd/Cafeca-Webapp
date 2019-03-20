@@ -1,4 +1,5 @@
-const size =  (e) => {
+const getSize =  (e) => {
+    console.log("I am called")
     document.querySelector(".height1").textContent = window.screen.height;
     document.querySelector(".width1").textContent = window.screen.width;
 
@@ -41,12 +42,12 @@ export const renderSize = () => {
     </div>
     `;
     document.querySelector(".container").insertAdjacentHTML("afterbegin", markup);
-    document.body.addEventListener("touchmove", size);
+    window.addEventListener("resize", getSize);
 }
 
 export const cleanSize = () => {
     document.querySelector(".test").innerHTML = "";
-    document.body.removeEventListener("touchmove", size);
+    window.removeEventListener("resize", getSize);
 
 }
 
