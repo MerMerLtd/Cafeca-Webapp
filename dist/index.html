@@ -8,7 +8,10 @@
     <title>Cafeca Order Page</title>
 </head>
 <body>
+
     <div class="container"></div>
+    <div id="show"></div>
+
     <div class="cart" id="cart">
         <div class="heading-1 pb-sm">購物車</div>
         <div class="cart__panel">
@@ -383,21 +386,13 @@
             <a href="#" class="btn login-form__btn">關閉</a>
         </div>
     </div>
-
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
     <script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBNulErK-OblwR4nCl5oB4C62q4ytrl_RY",
-        authDomain: "cafeca-webapp.firebaseapp.com",
-        databaseURL: "https://cafeca-webapp.firebaseio.com",
-        projectId: "cafeca-webapp",
-        storageBucket: "cafeca-webapp.appspot.com",
-        messagingSenderId: "553572864812"
-    };
-    firebase.initializeApp(config);
-    </script> -->
+    $(function(){
+      var w = $(window).width();
+      var h = $(window).height();
+      $("#show").html(w+":"+h);
+    });
+    </script>
 <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>
