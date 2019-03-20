@@ -1,5 +1,4 @@
 const getSize =  (e) => {
-    console.log("I am called")
     document.querySelector(".height1").textContent = window.screen.height;
     document.querySelector(".width1").textContent = window.screen.width;
 
@@ -42,6 +41,7 @@ export const renderSize = () => {
     </div>
     `;
     document.querySelector(".container").insertAdjacentHTML("afterbegin", markup);
+    getSize();
     window.addEventListener("resize", getSize);
 }
 
