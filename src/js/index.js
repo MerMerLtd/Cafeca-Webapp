@@ -18,10 +18,11 @@ import * as orderView from "./views/orderView";
 import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
+let h, w;
 
 const sizeControl = () => {
-    let h = document.body.clientHeight;
-    let w = document.body.clientWidth;
+    h = window.screen.availHeight;
+    w = document.body.clientWidth;
     document.querySelector("body").style.height = `${h}px`;
     document.querySelector("body").style.width = `${w}px`;
     displayView.renderTest(h, w);
@@ -319,7 +320,7 @@ elements.productCard.addEventListener("touchmove", e => {
 // 打開購物車
 elements.cart.addEventListener("click", e => {
     if(e.target.matches(".cart__toogle--logo")){
-        cartView.cartToggle();
+        cartView.cartToggle(h);
     }else if(e.target.matches(".cart__btn-order")){
         if(!state.cart || state.cart.cartItems.length === 0){
             orderView.renderNotification(); //去逛逛
@@ -345,7 +346,7 @@ elements.order.addEventListener("click", async e => {
         // ...
 
         // 關閉購物車
-        cartView.cartToggle();
+        cartView.cartToggle(h);
         // 打開possessions UI
         elements.swipe.style.setProperty("--i", 2);
         // post order 到 backend
@@ -363,7 +364,7 @@ elements.order.addEventListener("click", async e => {
         state.cart.cleanCart();
         cartView.cleanCartView();
     }else if(e.target.matches(".order__btn-walkaround")){
-        cartView.cartToggle();
+        cartView.cartToggle(h);
     }
 });
 
