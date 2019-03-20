@@ -71,7 +71,7 @@ export const Display = {
         const updateSet = !product.withSet;
         product.withSet = updateSet;
         // product.price = product.withSet ? (product.main.price + product.accessory.price) - product.discountMinus : product.main.price;
-    }
+    },
 }
 
 // const newProducts = Object.values(res.products).map(product => {

@@ -18,15 +18,14 @@ import * as orderView from "./views/orderView";
 import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
-import * as test from "./test";
-test.renderSize();
+// import * as test from "./test";
+// test.renderSize();
+
 //================================
 //--------------- firebase -------
 
 import firebase from "firebase/app";
 import "firebase/database";
-import { get } from "https";
-import { isNumber } from "util";
 const config = {
   // http://blog.kenyang.net/2017/08/25/firebase-realtime-database-web
   apiKey: "AIzaSyBNulErK-OblwR4nCl5oB4C62q4ytrl_RY",
@@ -147,7 +146,10 @@ elements.possessions.addEventListener("click", e => {
 //     : collectionsView.renderItem(newItem);
 // };
 // Restore cartItems on page load
+
 window.addEventListener('load', () => {
+    displayView.setSize();
+
     state.cart = Object.create(Cart);
     
     // Restore cartItems
@@ -158,6 +160,9 @@ window.addEventListener('load', () => {
         cartView.renderItem(item);
     });
 });
+
+// window.addEventListener("resize", displayView.setSize);
+
 // ===========================================
 // ------------ Cart controller ---------
 const controlCartList = item => {

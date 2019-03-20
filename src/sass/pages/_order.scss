@@ -2,8 +2,8 @@
     position: fixed;
     top: 0;
     // background-color: var(--modal-light);
-    width: 100vw;
-    height: 100vh;
+    width: var(--width);
+    height: var(--height);
     opacity: 0;
     transform: scale(0.01);
     z-index: -1;

@@ -1,11 +1,9 @@
 .display{
     background-color: var(--color-primary-light);
-    height: 100vh;
+    height: var(--height);
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     --zIndex: 300;
     z-index: var(--zIndex);
     
-    
     position: relative;
-    // top: 0;
 }

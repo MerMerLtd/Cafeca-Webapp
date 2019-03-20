@@ -159,71 +159,8 @@ export const limitProductDescription = (description, limit = 20) => {
   }
   return description;
 }
-// ===========================================================
-// =====================   控制商品數量及價錢   =================
-//(參考) https://codepen.io/djgrant/pen/AwFHL
-// (function (){
-//     window.inputNumber = (numsctrl, switchBtn, priceDisplay) => {
-//       const price = [priceDisplay[0].innerText, priceDisplay[1].innerText];
-      
-//       let incBtn = numsctrl.children[0];
-//       let decBtn = numsctrl.children[2];
-//       let numsDisplay = numsctrl.children[1]; //input
-//       let min = numsDisplay.attributes.min.nodeValue || false;
-//       let max = numsDisplay.attributes.max.nodeValue || false;
 
-//       let priceIndex = false;
-
-//       const init = () => {
-//         let value = numsDisplay.value;
-
-//         const decrement = () =>{
-//           value > min ? value-- : null;
-//           value > min 
-//           ? priceDisplay[+priceIndex].innerText =  price[+priceIndex] * value
-//           : priceDisplay[+priceIndex].innerText =  price[+priceIndex];
-//           numsDisplay.value = value;
-//         }
-//         const increment = () =>{
-//           value < max ? value++ : null;
-//           value <= max 
-//           ? priceDisplay[+priceIndex].innerText = price[+priceIndex] * value
-//           : null;
-//           numsDisplay.value = value;
-//         }
-  
-//         decBtn.addEventListener('click', decrement, false);
-//         incBtn.addEventListener('click', increment, false);
-//         numsDisplay.addEventListener('input', event =>{
-//           // 還沒想好
-//           numsDisplay.value <= min 
-//           ? priceDisplay[+priceIndex].innerText =  price[+priceIndex]
-//           : priceDisplay[+priceIndex].innerText =  price[+priceIndex] * numsDisplay.value;
-//         });
-//       }
-      
-//       init();
-
-//       switchBtn.addEventListener("change", () => {
-//         // 還是有錯誤。。。
-//         priceIndex = !priceIndex;
-//         priceDisplay[+priceIndex].innerText = price[+priceIndex] * numsDisplay.value;;
-//         init();
-//       });
-//     }
-//   })();
-//   const els = [] 
-//   for (let i = 0; i < elements.numsctrls.length; i++){
-//     els.push({
-//       numsctrl: elements.numsctrls[i], 
-//       switchBtn: elements.switchs[i],
-//       priceDisplay: [
-//         elements.priceDisplays1[i], 
-//         elements.priceDisplays2[i]
-//       ],
-//     });
-//   }
-//   els.forEach(el => inputNumber(el.numsctrl, el.switchBtn, el.priceDisplay));
-
-
- 
+export const setSize = () =>{
+  document.documentElement.style.setProperty("--height", document.body.clientHeight + "px");
+  document.documentElement.style.setProperty("--width", document.body.clientWidth + "px");
+}

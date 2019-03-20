@@ -43,7 +43,6 @@ export const renderSize = () => {
     document.body.insertAdjacentHTML("afterbegin", markup);
     getSize();
     window.addEventListener("resize", getSize);
-    window.addEventListener("touch", getSize);
 }
 
 export const cleanSize = () => {

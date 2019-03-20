@@ -36,7 +36,10 @@
   --modal-light:  #0000000f;
   --line: 1px solid var(--color-grey-light-2);
   --font-display: sans-serif;
-  --filled: #ffffff00; }
+  --filled: #ffffff00;
+  --height: 667px;
+  --width: 375px
+; }
 
 *,
 *::after,
@@ -54,9 +57,9 @@ body {
   font-weight: 300;
   line-height: 1.6;
   color: var(--color-grey-dark-2);
-  height: 100%;
-  width: 100%;
-  position: relative;
+  height: var(--height);
+  width: var(--width);
+  position: fixed;
   overflow: hidden; }
 
 input[type=number] {
@@ -69,6 +72,19 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=checkbox] {
   display: none; }
+
+.test {
+  width: 88vw;
+  background-color: rgba(145, 88, 98, 0.6);
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 5000;
+  color: white; }
 
 .heading-1, .heading-2, .heading-3, .heading-4 {
   font-family: var(--font-display);
@@ -662,7 +678,7 @@ input[type=number]::-webkit-outer-spin-button {
   top: 0;
   z-index: 500;
   --n: 3;
-  width: calc(100%*var(--n));
+  width: calc(var(--width)*var(--n));
   transition: transform .5s ease-out;
   transform: translate(calc(var(--i, 1)/var(--n)*-100% + var(--tx, 0px)));
   pointer-events: none; }
@@ -670,8 +686,8 @@ input[type=number]::-webkit-outer-spin-button {
     width: calc(100%/var(--n)); }
 
 .assets {
-  width: 100vw;
-  height: 65vh;
+  width: var(--width);
+  height: calc(0.65 * var(--height));
   background-color: var(--color-grey-light-1);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -679,7 +695,7 @@ input[type=number]::-webkit-outer-spin-button {
   z-index: 600;
   position: absolute;
   bottom: 0;
-  transform: translateY(65vh); }
+  transform: translateY(calc(0.65 * var(--height))); }
   .assets__container {
     width: 88vw;
     margin: 0 auto; }
@@ -699,11 +715,10 @@ input[type=number]::-webkit-outer-spin-button {
     list-style: none; }
 
 .cart {
-  height: 100%;
+  height: var(--height);
   position: absolute;
-  top: -90%;
+  top: calc(-0.9 * var(--height));
   z-index: 500;
-  --ty: 0vh;
   transition: transform .5s ease-out;
   transform: translateY(var(--ty, 0px));
   display: flex;
@@ -711,23 +726,24 @@ input[type=number]::-webkit-outer-spin-button {
   .cart .heading-1 {
     background-color: var(--color-secondary-light); }
   .cart__panel {
-    width: 100vw;
+    width: var(--width);
     background-color: var(--color-secondary-light);
     overflow: scroll;
     flex: 1; }
   .cart__toggle {
-    height: 10vh;
+    height: calc(0.1 * var(--height));
     background-color: transparent;
     position: relative; }
     .cart__toggle img {
       height: 80px;
-      right: 10px;
+      right: 5px;
+      bottom: 0px;
       position: absolute; }
     .cart__toggle--rope {
       position: absolute;
       z-index: 2;
-      right: 40px;
-      height: 30px;
+      right: 35px;
+      height: 12px;
       width: 2px;
       background-color: black; }
     .cart__toggle--notification {
@@ -755,18 +771,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 .collections {
   background-color: var(--color-secondary);
-  height: 100vh;
+  height: var(--height);
   display: grid;
   grid-template-rows: min-content auto;
   pointer-events: auto; }
   .collections__panel {
-    width: 100vw;
-    height: 75vh;
+    width: var(--width);
+    height: calc(0.75 * var(--height));
     overflow: scroll; }
 
 .display {
   background-color: var(--color-primary-light);
-  height: 100vh;
+  height: var(--height);
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   --zIndex: 300;
   z-index: var(--zIndex);
@@ -775,8 +791,8 @@ input[type=number]::-webkit-outer-spin-button {
 .order {
   position: fixed;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  width: var(--width);
+  height: var(--height);
   opacity: 0;
   transform: scale(0.01);
   z-index: -1;
@@ -851,18 +867,5 @@ input[type=number]::-webkit-outer-spin-button {
 .possessions {
   background-color: var(--color-secondary-light);
   position: relative;
-  height: 100vh;
+  height: var(--height);
   pointer-events: auto; }
-
-.test {
-  width: 88vw;
-  background-color: rgba(145, 88, 98, 0.6);
-  text-align: center;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  z-index: 5000;
-  color: white; }

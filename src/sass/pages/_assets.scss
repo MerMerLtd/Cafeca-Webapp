@@ -1,6 +1,6 @@
 .assets{
-    width: 100vw;
-    height: 65vh;
+    width: var(--width);
+    height: calc(0.65 * var(--height));
     background-color: var(--color-grey-light-1);
 
     border-top-right-radius: 10px;
@@ -10,7 +10,7 @@
     z-index: 600; //250
     position: absolute;
     bottom: 0;
-    transform: translateY(65vh);
+    transform: translateY(calc(0.65 * var(--height)));
     &__container{
         width: 88vw;
         margin: 0 auto;

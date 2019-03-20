@@ -30,6 +30,9 @@
     --font-display: sans-serif;
 
     --filled: #ffffff00;
+
+    --height: 667px;
+    --width: 375px
 }
 
 *,
@@ -50,14 +53,11 @@ body{
     font-weight: 300;
     line-height: 1.6;
     color: var(--color-grey-dark-2);
-
-    height: 100%;
-    width: 100%;
-    // position: fixed;
-    position: relative;
+    height: var(--height);
+    width: var(--width);
+    position: fixed;
+    // position: relative;
     overflow: hidden;
-
-
 }
 
 
@@ -74,4 +74,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=checkbox] {
     display: none;
+}
+
+
+.test{
+    // height: 200px;
+    width: 88vw;
+    // font-size: 28px;
+    background-color: rgba(#915862, .6);
+    text-align: center;
+    padding: 20px;
+    @include absCenter;
+    position: fixed;
+    z-index: 5000;
+    color: white;
 }
