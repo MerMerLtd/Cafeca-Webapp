@@ -18,87 +18,7 @@ import * as orderView from "./views/orderView";
 import * as possessionsView from "./views/possessionsView";
 import * as assetsView from "./views/assetsView";
 
-
-let height1=window.screen.height;
-let width1=window.screen.width;
-
-let height2=window.screen.availHeight;
-let width2=window.screen.availWidth;
-
-let height3=window.screenTop;
-let left3=window.screenLeft;
-
-let height4=document.body.clientHeight;
-let width4=document.body.clientWidth;
-
-let height5=document.body.offsetHeight;
-let width5=document.body.offsetWidth;
-
-let height6=document.body.scrollHeight;
-let width6=document.body.scrollWidth;
-
-let height7=document.body.scrollTop;
-let left7=document.body.scrollLeft;
-
-document.querySelector(".height1").textContent = height1;
-document.querySelector(".width1").textContent = width1;
-document.querySelector(".height2").textContent = height2;
-document.querySelector(".width2").textContent = width2;
-document.querySelector(".height3").textContent = height3;
-document.querySelector(".width3").textContent = left3;
-document.querySelector(".height4").textContent = height4;
-document.querySelector(".width4").textContent = width4;
-document.querySelector(".height5").textContent = height5;
-document.querySelector(".width5").textContent = width5;
-document.querySelector(".height6").textContent = height6;
-document.querySelector(".width6").textContent = width6;
-document.querySelector(".height7").textContent = height7;
-document.querySelector(".width7").textContent = left7;
-
-
-const sizeControl = () => {
-    let height1=window.screen.height;
-    let width1=window.screen.width;
-
-    let height2=window.screen.availHeight;
-    let width2=window.screen.availWidth;
-
-    let height3=window.screenTop;
-    let left3=window.screenLeft;
-
-    let height4=document.body.clientHeight;
-    let width4=document.body.clientWidth;
-
-    let height5=document.body.offsetHeight;
-    let width5=document.body.offsetWidth;
-
-    let height6=document.body.scrollHeight;
-    let width6=document.body.scrollWidth;
-
-    let height7=document.body.scrollTop;
-    let left7=document.body.scrollLeft;
-
-    document.querySelector(".height1").textContent = height1;
-    document.querySelector(".width1").textContent = width1;
-    document.querySelector(".height2").textContent = height2;
-    document.querySelector(".width2").textContent = width2;
-    document.querySelector(".height3").textContent = height3;
-    document.querySelector(".width3").textContent = left3;
-    document.querySelector(".height4").textContent = height4;
-    document.querySelector(".width4").textContent = width4;
-    document.querySelector(".height5").textContent = height5;
-    document.querySelector(".width5").textContent = width5;
-    document.querySelector(".height6").textContent = height6;
-    document.querySelector(".width6").textContent = width6;
-    document.querySelector(".height7").textContent = height7;
-    document.querySelector(".width7").textContent = left7;
-    document.documentElement.style.height = `${height1}px`;
-    document.documentElement.style.width = `${width1}px`;
-}
-
-document.body.addEventListener("touchmove", () => {
-    sizeControl();
-});
+import * as test from "./test";
 
 //================================
 //--------------- firebase -------
@@ -228,7 +148,6 @@ elements.possessions.addEventListener("click", e => {
 // };
 // Restore cartItems on page load
 window.addEventListener('load', () => {
-    sizeControl();
     state.cart = Object.create(Cart);
     
     // Restore cartItems
