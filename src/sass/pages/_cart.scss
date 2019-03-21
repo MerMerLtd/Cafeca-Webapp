@@ -1,8 +1,8 @@
 .cart{
-    height:calc(0.90 * var(--height));
+    height:calc(0.80 * var(--height));
     width: var(--width);
     position: absolute;
-    top: calc(-0.79 * var(--height));
+    top: calc(-0.68 * var(--height));
     z-index: 500;
 
     --ty: 0px;
@@ -15,12 +15,12 @@
     // grid-template-rows: min-content auto repeat(2, min-content);
 
     .heading-1{
-        background-color: var( --color-secondary-light);
+        background-color: var(--color-grey-light-2);
     }
 
     &__panel{
         width: var(--width);
-        background-color: var( --color-secondary-light);
+        background-color: var(--color-grey-light-2);
         overflow: scroll;
         flex: 1;
     }
@@ -64,7 +64,7 @@
     //     animation: show 2s ease;
     // }
     &__btn-order{
-        color: var(--color-secondary-light);
+        color: var(--color-grey-light-2);
         font-weight: 300;
         font-size: 1.25rem; //20px
 

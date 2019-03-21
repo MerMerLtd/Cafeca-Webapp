@@ -712,10 +712,10 @@ input[type=number]::-webkit-outer-spin-button {
     list-style: none; }
 
 .cart {
-  height: calc(0.90 * var(--height));
+  height: calc(0.80 * var(--height));
   width: var(--width);
   position: absolute;
-  top: calc(-0.79 * var(--height));
+  top: calc(-0.68 * var(--height));
   z-index: 500;
   --ty: 0px;
   transition: transform .5s ease-out;
@@ -723,10 +723,10 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: column; }
   .cart .heading-1 {
-    background-color: var(--color-secondary-light); }
+    background-color: var(--color-grey-light-2); }
   .cart__panel {
     width: var(--width);
-    background-color: var(--color-secondary-light);
+    background-color: var(--color-grey-light-2);
     overflow: scroll;
     flex: 1; }
   .cart__toggle {
@@ -757,7 +757,7 @@ input[type=number]::-webkit-outer-spin-button {
       background-color: var(--color-secondary-dark);
       animation: show 2s ease; }
   .cart__btn-order {
-    color: var(--color-secondary-light);
+    color: var(--color-grey-light-2);
     font-weight: 300;
     font-size: 1.25rem;
     background-color: var(--color-primary);
