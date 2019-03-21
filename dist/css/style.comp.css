@@ -143,7 +143,7 @@ input[type=checkbox] {
 .btn--card {
   color: var(--color-primary-dark-2);
   position: absolute;
-  top: 40vh;
+  top: 40%;
   font-size: 4rem; }
 
 .btn--open-lgf {
@@ -162,8 +162,8 @@ input[type=checkbox] {
 
 .btn--modal {
   background-color: var(--modal-light);
-  height: 100vh;
-  width: 100vw; }
+  height: 100%;
+  width: 100%; }
 
 .btn--collections > i {
   -webkit-text-fill-color: var(--filled);
@@ -410,8 +410,8 @@ input[type=checkbox] {
 .login-form {
   position: fixed;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  width: var(--width);
+  height: var(--height);
   opacity: 0;
   transform: scale(0.01);
   z-index: -1;
@@ -421,9 +421,9 @@ input[type=checkbox] {
     transform: scale(1);
     opacity: 1; }
   .login-form__container {
-    width: 88vw;
+    width: 88%;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 40px 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -443,8 +443,8 @@ input[type=checkbox] {
     height: 40px;
     width: 60px;
     border-radius: 40px;
-    top: 39px;
-    left: 2.5vw;
+    top: 28px;
+    left: 2.5%;
     transition: .8s all ease; }
   .login-form__btn {
     width: 100%;
@@ -485,7 +485,7 @@ input[type=checkbox] {
     top: 30px;
     right: 0; }
   .login-form__checkbox:checked ~ .login-form__option .login-form__btn-bg {
-    left: 70vw; }
+    left: 70%; }
   .login-form__checkbox:checked ~ .login-form__btns {
     display: flex;
     justify-content: space-evenly; }
@@ -715,10 +715,10 @@ input[type=number]::-webkit-outer-spin-button {
     list-style: none; }
 
 .cart {
-  height: var(--height);
+  height: calc(0.95 * var(--height));
   width: var(--width);
   position: absolute;
-  top: calc(-0.9 * var(--height));
+  top: calc(-0.83 * var(--height));
   z-index: 500;
   --ty: 0px;
   transition: transform .5s ease-out;
@@ -733,7 +733,7 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: scroll;
     flex: 1; }
   .cart__toggle {
-    height: calc(0.1 * var(--height));
+    height: calc(0.12 * var(--height));
     background-color: transparent;
     position: relative; }
     .cart__toggle img {
@@ -745,7 +745,7 @@ input[type=number]::-webkit-outer-spin-button {
       position: absolute;
       z-index: 2;
       right: 35px;
-      height: 12px;
+      height: 24px;
       width: 2px;
       background-color: black; }
     .cart__toggle--notification {
@@ -806,9 +806,10 @@ input[type=number]::-webkit-outer-spin-button {
     transform: scale(1);
     opacity: 1; }
   .order__container {
-    width: 88vw;
+    width: 90%;
+    height: 90%;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 40px 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -829,7 +830,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-bottom: var(--line);
     padding: 5px 0;
     margin: 10px 0;
-    height: 21vh;
+    height: 25%;
     overflow: scroll;
     position: relative; }
   .order__item {
