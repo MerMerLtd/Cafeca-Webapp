@@ -700,7 +700,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 4rem;
     line-height: 1;
     position: fixed;
-    bottom: 4%;
+    bottom: 3%;
     left: 5%;
     z-index: 700; }
   .assets__checkbox:checked ~ .assets {
@@ -715,7 +715,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: calc(0.80 * var(--height));
   width: var(--width);
   position: absolute;
-  top: calc(-0.68 * var(--height));
+  top: calc(-0.685 * var(--height));
   z-index: 500;
   --ty: 0px;
   transition: transform .5s ease-out;
@@ -730,7 +730,7 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: scroll;
     flex: 1; }
   .cart__toggle {
-    height: calc(0.12 * var(--height));
+    height: calc(0.115 * var(--height));
     background-color: transparent;
     position: relative; }
     .cart__toggle img {
@@ -742,7 +742,7 @@ input[type=number]::-webkit-outer-spin-button {
       position: absolute;
       z-index: 2;
       right: 35px;
-      height: calc(0.04 * var(--height));
+      height: calc(0.035 * var(--height));
       width: 2px;
       background-color: black; }
     .cart__toggle--notification {

@@ -2,7 +2,7 @@
     height:calc(0.80 * var(--height));
     width: var(--width);
     position: absolute;
-    top: calc(-0.68 * var(--height));
+    top: calc(-0.685 * var(--height));
     z-index: 500;
 
     --ty: 0px;
@@ -26,7 +26,7 @@
     }
     
     &__toggle{
-        height: calc(0.12 * var(--height));
+        height: calc(0.115 * var(--height));
         background-color: transparent;
 
         position: relative;
@@ -40,7 +40,7 @@
             position: absolute;
             z-index: 2;
             right: 35px;
-            height: calc(0.04 * var(--height));
+            height: calc(0.035 * var(--height));
             width: 2px;
             background-color: black;
         }
