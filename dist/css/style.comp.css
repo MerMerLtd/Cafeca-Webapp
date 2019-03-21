@@ -700,7 +700,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 4rem;
     line-height: 1;
     position: fixed;
-    bottom: 7%;
+    bottom: 5%;
     left: 5%;
     z-index: 700; }
   .assets__checkbox:checked ~ .assets {
@@ -712,10 +712,10 @@ input[type=number]::-webkit-outer-spin-button {
     list-style: none; }
 
 .cart {
-  height: calc(0.95 * var(--height));
+  height: calc(0.90 * var(--height));
   width: var(--width);
   position: absolute;
-  top: calc(-0.83 * var(--height));
+  top: calc(-0.79 * var(--height));
   z-index: 500;
   --ty: 0px;
   transition: transform .5s ease-out;
@@ -736,7 +736,7 @@ input[type=number]::-webkit-outer-spin-button {
     .cart__toggle img {
       height: 80px;
       right: 5px;
-      bottom: 10px;
+      bottom: 0px;
       position: absolute; }
     .cart__toggle--rope {
       position: absolute;
@@ -781,7 +781,7 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: scroll; }
 
 .display {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-secondary-light);
   width: var(--width);
   height: var(--height);
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);

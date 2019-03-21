@@ -1,8 +1,8 @@
 .cart{
-    height:calc(0.95 * var(--height));
+    height:calc(0.90 * var(--height));
     width: var(--width);
     position: absolute;
-    top: calc(-0.83 * var(--height));
+    top: calc(-0.79 * var(--height));
     z-index: 500;
 
     --ty: 0px;
@@ -33,7 +33,7 @@
         img {
             height: 80px;
             right: 5px;
-            bottom: 10px;
+            bottom: 0px;
             position: absolute;
         }
         &--rope {
