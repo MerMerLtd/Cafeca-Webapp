@@ -1,10 +1,11 @@
 .cart{
     height: var(--height);
+    width: var(--width);
     position: absolute;
     top: calc(-0.9 * var(--height));
     z-index: 500;
 
-    // --ty: 0px;
+    --ty: 0px;
     transition: transform .5s ease-out;
     transform: translateY(var(--ty, 0px));
 

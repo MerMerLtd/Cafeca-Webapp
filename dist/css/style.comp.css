@@ -149,7 +149,7 @@ input[type=checkbox] {
 .btn--open-lgf {
   line-height: 2;
   padding: 5px;
-  width: 80vw;
+  width: 80%;
   color: var(--color-grey-light-1);
   position: absolute;
   top: 50%;
@@ -703,8 +703,8 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 4rem;
     line-height: 1;
     position: fixed;
-    bottom: 10px;
-    left: 10vw;
+    bottom: 10%;
+    left: 5%;
     z-index: 700; }
   .assets__checkbox:checked ~ .assets {
     transform: translateY(0vh); }
@@ -716,9 +716,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .cart {
   height: var(--height);
+  width: var(--width);
   position: absolute;
   top: calc(-0.9 * var(--height));
   z-index: 500;
+  --ty: 0px;
   transition: transform .5s ease-out;
   transform: translateY(var(--ty, 0px));
   display: flex;
@@ -772,6 +774,7 @@ input[type=number]::-webkit-outer-spin-button {
 .collections {
   background-color: var(--color-secondary);
   height: var(--height);
+  width: var(--width);
   display: grid;
   grid-template-rows: min-content auto;
   pointer-events: auto; }
@@ -782,6 +785,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .display {
   background-color: var(--color-primary-light);
+  width: var(--width);
   height: var(--height);
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   --zIndex: 300;
@@ -867,5 +871,6 @@ input[type=number]::-webkit-outer-spin-button {
 .possessions {
   background-color: var(--color-secondary-light);
   position: relative;
+  width: var(--width);
   height: var(--height);
   pointer-events: auto; }

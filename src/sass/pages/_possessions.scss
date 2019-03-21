@@ -3,6 +3,7 @@
     position: relative;
     // z-index: 400;
     
+    width: var(--width);
     height: var(--height);
     pointer-events: auto;
 }
