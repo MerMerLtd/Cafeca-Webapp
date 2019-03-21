@@ -92,7 +92,7 @@ input[type=checkbox] {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1;
-  padding: 70px 20px 0px; }
+  padding: 50px 20px 0px; }
 
 .heading-2 {
   color: var(--color-primary-dark-2);
@@ -230,7 +230,7 @@ input[type=checkbox] {
     padding: 10px 0; }
   .card__btn-box {
     position: absolute;
-    top: 45%;
+    top: 40%;
     width: 100%; }
   .card__btn, .card__btn:link, .card__btn:visited {
     text-decoration: none;
