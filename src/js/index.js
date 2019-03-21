@@ -93,7 +93,7 @@ const controlProducts = async () => {
     // 3. 整理畫面（清空畫面）
     displayView.clearResult(elements.productList);
     renderLoader(elements.display);
-    if(state.display.location){
+    if( null || state.display.location){
     try{
         // 4. 利用瀏覽網頁者的location，取得使用者附近店家的商品
         await state.display.getProducts(state.display.location);

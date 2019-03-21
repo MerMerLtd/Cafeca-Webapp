@@ -173,7 +173,7 @@ input[type=checkbox] {
 
 .card {
   margin: 0 auto;
-  width: 80vw;
+  width: calc(var(--width)*0.8);
   position: relative;
   overflow-x: hidden;
   z-index: var(--zIndex); }
