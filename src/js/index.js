@@ -1,5 +1,5 @@
 import "../sass/main.scss";
-import { elements, renderLoader, clearLoader, makeRequest, getLocation } from "./views/base";
+import { elements, renderLoader, clearLoader, setSize } from "./views/base";
 
 import "./views/swipe";
 import "./models/creditCard";
@@ -148,7 +148,7 @@ elements.possessions.addEventListener("click", e => {
 // Restore cartItems on page load
 
 window.addEventListener('load', () => {
-    displayView.setSize();
+    setSize();
 
     state.cart = Object.create(Cart);
     

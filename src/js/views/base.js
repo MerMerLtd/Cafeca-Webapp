@@ -123,6 +123,11 @@ export const renderCreditCart = (parent, user) => {
     parent.insertAdjacentHTML("afterbegin", loader);
 }
 
+export const setSize = () =>{
+  document.documentElement.style.setProperty("--height", window.screen.availHeight + "px");
+  document.documentElement.style.setProperty("--width", window.screen.availWidth + "px");
+}
+
 // const renderNumsctrl = (parent, product) =>{
 //     const markup = `
 //         <div class="product__numsctrl">

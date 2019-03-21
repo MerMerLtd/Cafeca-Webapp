@@ -159,8 +159,3 @@ export const limitProductDescription = (description, limit = 20) => {
   }
   return description;
 }
-
-export const setSize = () =>{
-  document.documentElement.style.setProperty("--height", document.body.clientHeight + "px");
-  document.documentElement.style.setProperty("--width", document.body.clientWidth + "px");
-}
