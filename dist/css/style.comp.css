@@ -736,13 +736,13 @@ input[type=number]::-webkit-outer-spin-button {
     .cart__toggle img {
       height: 80px;
       right: 5px;
-      bottom: 0px;
+      bottom: 10px;
       position: absolute; }
     .cart__toggle--rope {
       position: absolute;
       z-index: 2;
       right: 35px;
-      height: calc(0.05 * var(--height));
+      height: calc(0.04 * var(--height));
       width: 2px;
       background-color: black; }
     .cart__toggle--notification {
