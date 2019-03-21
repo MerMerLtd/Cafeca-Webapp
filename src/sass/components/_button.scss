@@ -10,7 +10,7 @@
     &--card{
             color: var(--color-primary-dark-2);
             position: absolute;
-            top: 40vh;
+            top: 40%;
             font-size: 4rem;
         }   
 
@@ -29,8 +29,8 @@
 
     &--modal{
         background-color:  var(--modal-light);
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
     }
 
     &--collections > i{

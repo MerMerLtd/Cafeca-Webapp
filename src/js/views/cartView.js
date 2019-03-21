@@ -1,7 +1,7 @@
 import { elements } from "./base";
 
 export const cartToggle = () => elements.cart.style.getPropertyValue("--ty") === "0px" 
-                                    ? elements.cart.style.setProperty("--ty", "calc(0.9 * var(--height))")
+                                    ? elements.cart.style.setProperty("--ty", "calc(0.83 * var(--height))")
                                     : elements.cart.style.setProperty("--ty", "0px");
 
 export const renderItem = product => {

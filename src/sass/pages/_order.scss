@@ -17,9 +17,10 @@
     }
     &__container{
   
-        width: 88vw;
+        width: 90%;
+        height: 90%;
         margin: 0 auto;
-        padding: 50px 20px ;
+        padding: 40px 20px ;
         @include absCenter;
         color: var(--color-grey-light-2);
         background-color: var(--color-grey-dark-2);
@@ -42,7 +43,7 @@
         border-bottom: var(--line);
         padding: 5px 0;
         margin: 10px 0;
-        height: 21vh;
+        height: 25%;
         overflow: scroll;
         position: relative;
     }

@@ -259,7 +259,7 @@ input[type=checkbox] {
     transition: all .2s ease; }
   .column__list {
     height: 100%;
-    width: 80vw;
+    width: 80%;
     margin: 0 auto; }
   .column__display {
     grid-column: 1/ span 2;
@@ -764,7 +764,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 300;
     font-size: 1.25rem;
     background-color: var(--color-primary);
-    width: 100vw;
+    width: 100%;
     padding: 12px;
     text-align: center;
     border-bottom-left-radius: 1rem;

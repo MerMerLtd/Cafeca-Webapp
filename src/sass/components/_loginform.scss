@@ -2,8 +2,8 @@
     position: fixed;
     top: 0;
     // background-color: var(--modal-light);
-    width: 100vw;
-    height: 100vh;
+    width: var(--width);
+    height: var(--height);
     opacity: 0;
 
     transform: scale(0.01);
@@ -16,9 +16,9 @@
     }
 
     &__container{
-        width: 88vw;
+        width: 88%;
         margin: 0 auto;
-        padding: 50px 20px ;
+        padding: 40px 20px ;
         @include absCenter;
         color: var(--color-grey-light-2);
         background-color: var(--color-grey-dark-2);
@@ -41,8 +41,8 @@
         height: 40px;
         width: 60px;
         border-radius: 40px;
-        top: 39px;
-        left: 2.5vw;
+        top: 28px;
+        left: 2.5%;
         // left: 74.5vw; test
         transition: .8s all ease;
 
@@ -103,7 +103,7 @@
 
     &__checkbox:checked ~ &__option &__btn-bg{
         // left: 10vw; test
-        left: 70vw;
+        left: 70%;
     }
 
     &__checkbox:checked ~ &__btns{

@@ -1,8 +1,8 @@
 .cart{
-    height: var(--height);
+    height:calc(0.95 * var(--height));
     width: var(--width);
     position: absolute;
-    top: calc(-0.9 * var(--height));
+    top: calc(-0.83 * var(--height));
     z-index: 500;
 
     --ty: 0px;
@@ -26,7 +26,7 @@
     }
     
     &__toggle{
-        height: calc(0.1 * var(--height));
+        height: calc(0.12 * var(--height));
         background-color: transparent;
 
         position: relative;
@@ -40,7 +40,7 @@
             position: absolute;
             z-index: 2;
             right: 35px;
-            height: 12px;
+            height: 24px;
             width: 2px;
             background-color: black;
         }
@@ -69,7 +69,7 @@
         font-size: 1.25rem; //20px
 
         background-color:var(--color-primary);
-        width: 100vw;
+        width: 100%;
         padding: 12px;
         text-align: center;
         border-bottom-left-radius: 1rem;
