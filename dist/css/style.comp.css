@@ -262,7 +262,7 @@ input[type=checkbox] {
     grid-column: 1/ span 2;
     grid-row: 1/  span 2;
     z-index: 2;
-    background-color: var(--color-primary-lighter);
+    background-color: var(--color-primary);
     border-radius: 5px;
     max-height: 130px;
     width: 80vw;
