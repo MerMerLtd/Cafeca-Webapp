@@ -16,7 +16,7 @@ const lock = e => {
 };
 
 const drag = e => {
-	// e.preventDefault();
+	e.preventDefault();
 	swipe.style.setProperty('--i', null);
 	if(locked) 		
         swipe.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
