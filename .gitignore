@@ -1,2 +1,14 @@
+logs
+*.log
+
+# Runtime data (I am not sure about whether do I have those files)
+pids
+*.pid
+*.seed
+
 .sass-cache/
 *.css.map
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
